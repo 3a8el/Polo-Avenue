@@ -1,7 +1,13 @@
 <div class="pa-brands">
   <div class="pa-brands__track">
     {%- for block in section.blocks -%}
-      <span class="pa-brands__item" {{ block.shopify_attributes }}>
+      {%- assign tag = 'span' -%}
+      {%- if block.settings.link != blank -%}{%- assign tag = 'a' -%}{%- endif -%}
+      <{{ tag }}
+        class="pa-brands__item"
+        {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+        {{ block.shopify_attributes }}
+      >
         {%- if block.settings.logo != blank -%}
           <img
             src="{{ block.settings.logo | image_url: width: 160 }}"
@@ -14,11 +20,18 @@
         {%- else -%}
           {{ block.settings.brand_name }}
         {%- endif -%}
-      </span>
+      </{{ tag }}>
     {%- endfor -%}
     {%- comment %} Duplicate for seamless infinite scroll {%- endcomment %}
     {%- for block in section.blocks -%}
-      <span class="pa-brands__item" aria-hidden="true">
+      {%- assign tag = 'span' -%}
+      {%- if block.settings.link != blank -%}{%- assign tag = 'a' -%}{%- endif -%}
+      <{{ tag }}
+        class="pa-brands__item"
+        {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+        aria-hidden="true"
+        tabindex="-1"
+      >
         {%- if block.settings.logo != blank -%}
           <img
             src="{{ block.settings.logo | image_url: width: 160 }}"
@@ -31,7 +44,7 @@
         {%- else -%}
           {{ block.settings.brand_name }}
         {%- endif -%}
-      </span>
+      </{{ tag }}>
     {%- endfor -%}
   </div>
 </div>
@@ -56,6 +69,11 @@
           "id": "brand_name",
           "label": "Brand Name (fallback if no logo)",
           "default": "BRAND NAME"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Brand Archive Page Link"
         }
       ]
     }

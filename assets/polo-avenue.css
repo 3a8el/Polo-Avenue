@@ -275,10 +275,11 @@ img {
 .pa-hero__overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to right,
-    rgba(0,0,0,0.45) 0%,
-    rgba(0,0,0,0.1) 60%,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.2) 60%,
     transparent 100%
   );
 }
@@ -288,6 +289,7 @@ img {
   bottom: 120px;
   left: var(--container-padding);
   max-width: 680px;
+  z-index: 2;
 }
 
 .pa-hero__title {
@@ -300,7 +302,18 @@ img {
   letter-spacing: -0.01em;
 }
 
-.pa-hero__title em {
+.pa-hero__title p {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: inherit;
+  margin: 0;
+  letter-spacing: inherit;
+}
+
+.pa-hero__title em,
+.pa-hero__title p em {
   font-style: italic;
   text-decoration: underline;
   text-underline-offset: 6px;
@@ -332,6 +345,7 @@ img {
   font-weight: 300;
   letter-spacing: 0.05em;
   color: rgba(255,255,255,0.7);
+  z-index: 2;
 }
 
 /* ============================================
