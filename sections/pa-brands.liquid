@@ -1,0 +1,50 @@
+{% comment %}
+  POLO AVENUE — Brand Logos Ticker
+  Section: pa-brands.liquid
+{% endcomment %}
+
+{%- assign brands = "Chloé,GOLDEN GOOSE,COACH,Off-White™,RALPH LAUREN,maje,HUGO BOSS,Chloé,GOLDEN GOOSE,COACH,Off-White™,RALPH LAUREN,maje,HUGO BOSS" | split: "," -%}
+
+<div class="pa-brands">
+  <div class="pa-brands__track">
+    {%- for brand in brands -%}
+      <span class="pa-brands__item">{{ brand }}</span>
+    {%- endfor -%}
+    {%- for block in section.blocks -%}
+      <span class="pa-brands__item">{{ block.settings.brand_name }}</span>
+    {%- endfor -%}
+    {%- comment %} Duplicate for seamless loop {%- endcomment %}
+    {%- for brand in brands -%}
+      <span class="pa-brands__item">{{ brand }}</span>
+    {%- endfor -%}
+    {%- for block in section.blocks -%}
+      <span class="pa-brands__item">{{ block.settings.brand_name }}</span>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "PA Brand Ticker",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand Name",
+          "default": "BRAND NAME"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PA Brand Ticker"
+    }
+  ]
+}
+{% endschema %}

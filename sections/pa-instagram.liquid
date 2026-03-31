@@ -1,0 +1,118 @@
+{% comment %}
+  POLO AVENUE — Instagram Feed Grid
+  Section: pa-instagram.liquid
+  Note: Uses static images + links. For live feed, integrate a third-party
+  Instagram app from the Shopify App Store (e.g. Instafeed, Foursixty).
+{% endcomment %}
+
+<section class="pa-instagram">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="pa-instagram__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+
+  <div style="position: relative;">
+    <div class="pa-instagram__grid">
+      {%- for block in section.blocks -%}
+        <div class="pa-instagram__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <a href="{{ block.settings.link | default: section.settings.instagram_url }}" target="_blank" rel="noopener">
+              <img
+                src="{{ block.settings.image | image_url: width: 600 }}"
+                alt="{{ block.settings.image.alt | escape | default: 'Instagram post' }}"
+                loading="lazy"
+              >
+            </a>
+          {%- else -%}
+            {{ 'lifestyle-' | append: forloop.index | placeholder_svg_tag }}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="pa-instagram__overlay">
+      {%- if section.settings.overlay_text != blank -%}
+        <p class="pa-instagram__overlay-text">
+          {{ section.settings.overlay_text }}
+        </p>
+      {%- endif -%}
+
+      {%- if section.settings.instagram_url != blank and section.settings.follow_label != blank -%}
+        <a
+          href="{{ section.settings.instagram_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pa-btn pa-btn--solid pa-instagram__cta"
+          style="background: rgba(255,255,255,0.9); color: #1a1a1a; border-color: transparent;"
+        >
+          {{ section.settings.follow_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "PA Instagram",
+  "tag": "section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Follow us on Instagram"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram Profile URL"
+    },
+    {
+      "type": "text",
+      "id": "overlay_text",
+      "label": "Overlay Text",
+      "default": "AUTHENTICALLY AFRICAN."
+    },
+    {
+      "type": "text",
+      "id": "follow_label",
+      "label": "Follow Button Label",
+      "default": "FOLLOW POLO AVENUE"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "Instagram Post",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Post Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Post Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PA Instagram",
+      "blocks": [
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" },
+        { "type": "post" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,75 +1,158 @@
+{% comment %}
+  POLO AVENUE — Homepage Template
+  File: templates/index.json
+  
+  This JSON template wires all custom sections together in the correct order
+  as seen in the Figma design. Add to your Dawn theme's templates/ folder.
+{% endcomment %}
+
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "pa_hero": {
+      "type": "pa-hero",
+      "settings": {
+        "title": "<p>LUXURY, <em>CURATED</em>.<br>AUTHENTICALLY AFRICAN.</p>",
+        "subtitle": "Polo Avenue brings the soul of African luxury to Dubai's Jumeirah.",
+        "button_1_label": "SHOP NEW ARRIVALS",
+        "button_1_url": "/collections/new-arrivals",
+        "button_2_label": "SHOP THE EDIT",
+        "button_2_url": "/collections/the-edit",
+        "tagline": "Dubai's foremost destination for authenticated global luxury — curated from Africa's finest fashion houses."
+      }
+    },
+    "pa_brands": {
+      "type": "pa-brands",
+      "settings": {},
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "brand_chloe": { "type": "brand", "settings": { "brand_name": "Chloé" } },
+        "brand_gg": { "type": "brand", "settings": { "brand_name": "GOLDEN GOOSE" } },
+        "brand_coach": { "type": "brand", "settings": { "brand_name": "COACH" } },
+        "brand_ow": { "type": "brand", "settings": { "brand_name": "Off-White™" } },
+        "brand_rl": { "type": "brand", "settings": { "brand_name": "RALPH LAUREN" } },
+        "brand_maje": { "type": "brand", "settings": { "brand_name": "maje" } },
+        "brand_hb": { "type": "brand", "settings": { "brand_name": "HUGO BOSS" } }
+      },
+      "block_order": ["brand_chloe","brand_gg","brand_coach","brand_ow","brand_rl","brand_maje","brand_hb"]
+    },
+    "pa_arrivals": {
+      "type": "pa-arrivals",
+      "settings": {
+        "label": "NEW ARRIVALS",
+        "heading": "Just In",
+        "product_count": 4
+      }
+    },
+    "pa_featured_brand": {
+      "type": "pa-featured-brand",
+      "settings": {
+        "brand_name": "TORLOWEI",
+        "button_label": "EXPLORE THE COLLECTION"
+      }
+    },
+    "pa_concierge_1": {
+      "type": "pa-concierge",
+      "settings": {
+        "image_position": "left",
+        "label": "YOUR PERSONAL STYLIST AWAITS",
+        "heading": "Concierge & Personal Styling",
+        "description": "Let our expert stylists curate a wardrobe uniquely yours.",
+        "button_label": "BOOK A SESSION"
+      }
+    },
+    "pa_concierge_2": {
+      "type": "pa-concierge",
+      "settings": {
+        "image_position": "right",
+        "label": "YOUR PERSONAL STYLIST AWAITS",
+        "heading": "Concierge & Personal Styling",
+        "description": "Let our expert stylists curate a wardrobe uniquely yours.",
+        "button_label": "BOOK A SESSION"
+      }
+    },
+    "pa_whatsapp": {
+      "type": "pa-whatsapp-cta",
+      "settings": {
+        "label": "YOUR PERSONAL STYLIST AWAITS",
+        "heading": "Book a Styling Session on WhatsApp",
+        "description": "Let our expert stylists curate a wardrobe uniquely yours.",
+        "whatsapp_number": "+971500000000",
+        "whatsapp_message": "Hello, I'd like to book a personal styling session.",
+        "button_label": "CHAT ON WHATSAPP"
+      }
+    },
+    "pa_designers": {
+      "type": "pa-designers",
+      "settings": {
+        "label": "DESIGNERS",
+        "heading": "The Houses We Carry"
+      },
+      "blocks": {
+        "gucci": {
+          "type": "designer",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "designer_name": "GUCCI",
+            "origin": "Italy",
+            "since": "1921"
           }
         },
-        "button": {
-          "type": "buttons",
+        "valentino": {
+          "type": "designer",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "designer_name": "VALENTINO",
+            "origin": "Italy",
+            "since": "1960"
+          }
+        },
+        "balmain": {
+          "type": "designer",
+          "settings": {
+            "designer_name": "BALMAIN",
+            "origin": "France",
+            "since": "1945"
           }
         }
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
+      "block_order": ["gucci", "valentino", "balmain"]
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "pa_instagram": {
+      "type": "pa-instagram",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "heading": "Follow us on Instagram",
+        "overlay_text": "AUTHENTICALLY AFRICAN.",
+        "follow_label": "FOLLOW POLO AVENUE"
+      },
+      "blocks": {
+        "post1": { "type": "post", "settings": {} },
+        "post2": { "type": "post", "settings": {} },
+        "post3": { "type": "post", "settings": {} },
+        "post4": { "type": "post", "settings": {} },
+        "post5": { "type": "post", "settings": {} },
+        "post6": { "type": "post", "settings": {} },
+        "post7": { "type": "post", "settings": {} },
+        "post8": { "type": "post", "settings": {} }
+      },
+      "block_order": ["post1","post2","post3","post4","post5","post6","post7","post8"]
+    },
+    "pa_footer": {
+      "type": "pa-footer",
+      "settings": {
+        "copyright_name": "Polo Avenue Dubai",
+        "address": "Jumeirah Boutique, Dubai, UAE",
+        "email": "concierge@poloavenue.ae",
+        "hours": "Mon–Sat: 10am–8pm  |  Sun: 12pm–6pm"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "pa_hero",
+    "pa_brands",
+    "pa_arrivals",
+    "pa_featured_brand",
+    "pa_concierge_1",
+    "pa_concierge_2",
+    "pa_whatsapp",
+    "pa_designers",
+    "pa_instagram",
+    "pa_footer"
   ]
 }
