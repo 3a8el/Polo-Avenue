@@ -1,41 +1,60 @@
-{% comment %}
-  POLO AVENUE — Brand Logos Ticker
-  Section: pa-brands.liquid
-{% endcomment %}
-
-{%- assign brands = "Chloé,GOLDEN GOOSE,COACH,Off-White™,RALPH LAUREN,maje,HUGO BOSS,Chloé,GOLDEN GOOSE,COACH,Off-White™,RALPH LAUREN,maje,HUGO BOSS" | split: "," -%}
-
 <div class="pa-brands">
   <div class="pa-brands__track">
-    {%- for brand in brands -%}
-      <span class="pa-brands__item">{{ brand }}</span>
-    {%- endfor -%}
     {%- for block in section.blocks -%}
-      <span class="pa-brands__item">{{ block.settings.brand_name }}</span>
+      <span class="pa-brands__item" {{ block.shopify_attributes }}>
+        {%- if block.settings.logo != blank -%}
+          <img
+            src="{{ block.settings.logo | image_url: width: 160 }}"
+            alt="{{ block.settings.brand_name }}"
+            class="pa-brands__logo"
+            width="160"
+            height="60"
+            loading="lazy"
+          >
+        {%- else -%}
+          {{ block.settings.brand_name }}
+        {%- endif -%}
+      </span>
     {%- endfor -%}
-    {%- comment %} Duplicate for seamless loop {%- endcomment %}
-    {%- for brand in brands -%}
-      <span class="pa-brands__item">{{ brand }}</span>
-    {%- endfor -%}
+    {%- comment %} Duplicate for seamless infinite scroll {%- endcomment %}
     {%- for block in section.blocks -%}
-      <span class="pa-brands__item">{{ block.settings.brand_name }}</span>
+      <span class="pa-brands__item" aria-hidden="true">
+        {%- if block.settings.logo != blank -%}
+          <img
+            src="{{ block.settings.logo | image_url: width: 160 }}"
+            alt="{{ block.settings.brand_name }}"
+            class="pa-brands__logo"
+            width="160"
+            height="60"
+            loading="lazy"
+          >
+        {%- else -%}
+          {{ block.settings.brand_name }}
+        {%- endif -%}
+      </span>
     {%- endfor -%}
   </div>
 </div>
 
 {% schema %}
 {
-  "name": "PA Brand Ticker",
+  "name": "PA Brand Logos",
   "tag": "section",
+  "max_blocks": 20,
   "blocks": [
     {
       "type": "brand",
       "name": "Brand",
       "settings": [
         {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Brand Logo"
+        },
+        {
           "type": "text",
           "id": "brand_name",
-          "label": "Brand Name",
+          "label": "Brand Name (fallback if no logo)",
           "default": "BRAND NAME"
         }
       ]
@@ -43,7 +62,7 @@
   ],
   "presets": [
     {
-      "name": "PA Brand Ticker"
+      "name": "PA Brand Logos"
     }
   ]
 }
