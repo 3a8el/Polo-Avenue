@@ -1,11 +1,3 @@
-{% comment %}
-  POLO AVENUE — Homepage Template
-  File: templates/index.json
-  
-  This JSON template wires all custom sections together in the correct order
-  as seen in the Figma design. Add to your Dawn theme's templates/ folder.
-{% endcomment %}
-
 {
   "sections": {
     "pa_hero": {
