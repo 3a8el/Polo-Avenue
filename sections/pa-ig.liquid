@@ -11,12 +11,29 @@
     {%- comment %} Build 4 columns from blocks {%- endcomment %}
     {%- assign col_size = section.blocks.size | divided_by: 4 | at_least: 1 -%}
 
+    {%- assign col1_blocks = "" | split: "" -%}
+    {%- assign col2_blocks = "" | split: "" -%}
+    {%- assign col3_blocks = "" | split: "" -%}
+    {%- assign col4_blocks = "" | split: "" -%}
+    {%- for block in section.blocks -%}
+      {%- assign col_slot = forloop.index0 | modulo: 4 -%}
+      {%- if col_slot == 0 -%}{%- assign col1_blocks = col1_blocks | push: block -%}
+      {%- elsif col_slot == 1 -%}{%- assign col2_blocks = col2_blocks | push: block -%}
+      {%- elsif col_slot == 2 -%}{%- assign col3_blocks = col3_blocks | push: block -%}
+      {%- else -%}{%- assign col4_blocks = col4_blocks | push: block -%}
+      {%- endif -%}
+    {%- endfor -%}
+
     <div class="pa-instagram__grid">
       {%- for col_index in (1..4) -%}
+        {%- if col_index == 1 -%}{%- assign col_blocks = col1_blocks -%}
+        {%- elsif col_index == 2 -%}{%- assign col_blocks = col2_blocks -%}
+        {%- elsif col_index == 3 -%}{%- assign col_blocks = col3_blocks -%}
+        {%- else -%}{%- assign col_blocks = col4_blocks -%}
+        {%- endif -%}
         <div class="pa-instagram__col{% if col_index == 2 or col_index == 4 %} pa-instagram__col--offset{% endif %}">
           <div class="pa-instagram__col-track">
-            {%- assign start = col_index | minus: 1 -%}
-            {%- for block in section.blocks offset: start limit: col_size -%}
+            {%- for block in col_blocks -%}
               <div class="pa-instagram__post" {{ block.shopify_attributes }}>
                 {%- if block.settings.image != blank -%}
                   <img
@@ -31,7 +48,7 @@
               </div>
             {%- endfor -%}
             {%- comment %} Duplicate for seamless loop {%- endcomment %}
-            {%- for block in section.blocks offset: start limit: col_size -%}
+            {%- for block in col_blocks -%}
               <div class="pa-instagram__post" aria-hidden="true">
                 {%- if block.settings.image != blank -%}
                   <img
