@@ -10,6 +10,7 @@
   "
   style="{% render 'spacing-style', settings: section.settings %}"
 >
+  <div class="pa-designers__inner">
   <div class="pa-designers__header">
     <div class="pa-designers__header-text">
       {%- if section.settings.label != blank -%}
@@ -62,13 +63,18 @@
       </div>
     {%- endfor -%}
   </div>
+  </div>
 </div>
 
 <style>
-  .pa-designers {
+  .pa-designers__inner {
     display: flex;
     flex-direction: column;
     gap: 32px;
+  }
+
+  .pa-designers {
+    display: contents;
   }
 
   .pa-designers__header {
