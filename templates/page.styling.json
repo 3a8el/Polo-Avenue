@@ -1,0 +1,68 @@
+{
+  "sections": {
+    "pa_styling_hero": {
+      "type": "pa-styling-hero",
+      "settings": {
+        "label": "PERSONAL STYLING",
+        "heading": "Your Style, Perfectly Curated.",
+        "subheading": "Our team of expert stylists is dedicated to understanding your taste, lifestyle, and wardrobe aspirations. Every session is confidential, personalized, and entirely at your service.",
+        "button_label": "BOOK A STYLING SESSION"
+      }
+    },
+    "pa_how_it_works": {
+      "type": "pa-how-it-works",
+      "settings": {
+        "label": "HOW IT WORKS",
+        "heading": "A White-Glove Experience",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      },
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "title": "BOOK",
+            "description": "Schedule your in-store or virtual styling appointment at no charge."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "title": "CONSULT",
+            "description": "Share your lifestyle, occasions, size preferences, and aesthetic vision."
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "title": "CURATE",
+            "description": "Your stylist hand-selects a personalised edit from our full inventory."
+          }
+        },
+        "step_4": {
+          "type": "step",
+          "settings": {
+            "title": "DELIVERED",
+            "description": "Your curated wardrobe is delivered, gift-wrapped to your door or awaits in-store."
+          }
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3", "step_4"]
+    },
+    "pa_whatsapp_cta": {
+      "type": "pa-whatsapp-cta",
+      "settings": {
+        "bg_text": "POLO AVENUE",
+        "label": "YOUR PERSONAL STYLIST AWAITS",
+        "heading": "Book a Styling Session on WhatsApp",
+        "subheading": "Let our expert stylists curate a wardrobe uniquely yours.",
+        "button_label": "CHAT ON WHATSAPP"
+      }
+    }
+  },
+  "order": [
+    "pa_styling_hero",
+    "pa_how_it_works",
+    "pa_whatsapp_cta"
+  ]
+}

@@ -1,0 +1,208 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="
+    section
+    section--full-width
+    color-{{ section.settings.color_scheme }}
+    pa-wa-cta
+    spacing-style
+  "
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="pa-wa-cta__inner">
+
+    {%- if section.settings.bg_text != blank -%}
+      <p class="pa-wa-cta__bg-text" aria-hidden="true">{{ section.settings.bg_text }}</p>
+    {%- endif -%}
+
+    <div class="pa-wa-cta__content">
+      {%- if section.settings.label != blank -%}
+        <p class="pa-wa-cta__label">{{ section.settings.label }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="pa-wa-cta__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="pa-wa-cta__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a
+          href="{{ section.settings.whatsapp_url }}"
+          class="pa-wa-cta__btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .pa-wa-cta__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 24px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .pa-wa-cta__bg-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-size: clamp(80px, 16vw, 220px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-foreground);
+    opacity: 0.05;
+    white-space: nowrap;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .pa-wa-cta__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 600px;
+  }
+
+  .pa-wa-cta__label {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent, var(--color-link));
+  }
+
+  .pa-wa-cta__heading {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--color-foreground);
+  }
+
+  .pa-wa-cta__subheading {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--color-foreground);
+    opacity: 0.7;
+  }
+
+  .pa-wa-cta__btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 14px 36px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-foreground);
+    background: transparent;
+    border: 1.5px solid var(--color-foreground);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .pa-wa-cta__btn:hover {
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "PA WhatsApp CTA",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "bg_text",
+      "label": "Background Text",
+      "default": "POLO AVENUE"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "YOUR PERSONAL STYLIST AWAITS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Book a Styling Session on WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Let our expert stylists curate a wardrobe uniquely yours."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "CHAT ON WHATSAPP"
+    },
+    {
+      "type": "url",
+      "id": "whatsapp_url",
+      "label": "WhatsApp Link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "PA WhatsApp CTA"
+    }
+  ]
+}
+{% endschema %}

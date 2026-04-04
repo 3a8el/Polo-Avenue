@@ -1,0 +1,304 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="
+    section
+    section--page-width
+    color-{{ section.settings.color_scheme }}
+    pa-hiw
+    spacing-style
+  "
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="pa-hiw__inner">
+
+    <div class="pa-hiw__header">
+      {%- if section.settings.label != blank -%}
+        <p class="pa-hiw__label">{{ section.settings.label }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="pa-hiw__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="pa-hiw__steps">
+      {%- comment %} Timeline connector line {%- endcomment %}
+      <div class="pa-hiw__line" aria-hidden="true"></div>
+
+      {%- for block in section.blocks -%}
+        <div class="pa-hiw__step" {{ block.shopify_attributes }}>
+          <div class="pa-hiw__step-dot">
+            {%- if forloop.first -%}
+              <span class="pa-hiw__step-dot-inner pa-hiw__step-dot-inner--active"></span>
+            {%- else -%}
+              <span class="pa-hiw__step-dot-inner"></span>
+            {%- endif -%}
+          </div>
+          <div class="pa-hiw__step-content">
+            <p class="pa-hiw__step-number-title">
+              <span class="pa-hiw__step-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              <span class="pa-hiw__step-title">{{ block.settings.title }}</span>
+            </p>
+            {%- if block.settings.description != blank -%}
+              <p class="pa-hiw__step-desc">{{ block.settings.description }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .pa-hiw__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  /* ── Header ── */
+  .pa-hiw__header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pa-hiw__label {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent, var(--color-link));
+  }
+
+  .pa-hiw__heading {
+    margin: 0;
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 400;
+    color: var(--color-foreground);
+  }
+
+  /* ── Steps ── */
+  .pa-hiw__steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat({{ section.blocks.size | default: 4 }}, 1fr);
+    gap: 24px;
+  }
+
+  .pa-hiw__line {
+    position: absolute;
+    top: 10px;
+    left: calc(100% / {{ section.blocks.size | default: 4 }} / 2);
+    right: calc(100% / {{ section.blocks.size | default: 4 }} / 2);
+    height: 1px;
+    border-top: 1.5px dashed var(--color-border, #ddd);
+    z-index: 0;
+  }
+
+  .pa-hiw__step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pa-hiw__step-dot {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pa-hiw__step-dot-inner {
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid var(--color-foreground);
+    transform: rotate(45deg);
+    display: block;
+    background: var(--color-background);
+  }
+
+  .pa-hiw__step-dot-inner--active {
+    background: var(--color-accent, var(--color-link));
+    border-color: var(--color-accent, var(--color-link));
+  }
+
+  .pa-hiw__step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pa-hiw__step-number-title {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .pa-hiw__step-number {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-foreground);
+    opacity: 0.5;
+  }
+
+  .pa-hiw__step-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent, var(--color-link));
+  }
+
+  .pa-hiw__step-desc {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--color-foreground);
+    opacity: 0.75;
+  }
+
+  /* ── Mobile: vertical ── */
+  @media (max-width: 749px) {
+    .pa-hiw__steps {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .pa-hiw__line {
+      top: 10px;
+      bottom: 10px;
+      left: 9px;
+      right: auto;
+      width: 1px;
+      height: auto;
+      border-top: none;
+      border-left: 1.5px dashed var(--color-border, #ddd);
+    }
+
+    .pa-hiw__step {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .pa-hiw__step-dot {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "PA How It Works",
+  "tag": "section",
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step Title",
+          "default": "BOOK"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Schedule your in-store or virtual styling appointment at no charge."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "HOW IT WORKS"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A White-Glove Experience"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "PA How It Works",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "BOOK",
+            "description": "Schedule your in-store or virtual styling appointment at no charge."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "CONSULT",
+            "description": "Share your lifestyle, occasions, size preferences, and aesthetic vision."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "CURATE",
+            "description": "Your stylist hand-selects a personalised edit from our full inventory."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "DELIVERED",
+            "description": "Your curated wardrobe is delivered, gift-wrapped to your door or awaits in-store."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
