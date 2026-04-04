@@ -602,25 +602,22 @@
     "hero_rALxwe": {
       "type": "hero",
       "blocks": {
-        "text_GnKdVm": {
-          "type": "text",
-          "name": "t:names.heading",
+        "image_JebnrB": {
+          "type": "image",
+          "name": "t:names.image",
           "settings": {
-            "text": "<h1>TORLOWEI</h1>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
+            "image": "shopify://shop_images/torlowei.svg",
+            "link": "",
+            "image_ratio": "adapt",
+            "width": "custom",
+            "custom_width": 25,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -690,7 +687,7 @@
         }
       },
       "block_order": [
-        "text_GnKdVm",
+        "image_JebnrB",
         "group_PRkA3n"
       ],
       "custom_css": [],
