@@ -1,22 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "pa_styling_hero": {
       "type": "pa-styling-hero",
       "settings": {
+        "image": "shopify://shop_images/Group_1.webp",
         "label": "PERSONAL STYLING",
         "heading": "Your Style, Perfectly Curated.",
         "subheading": "Our team of expert stylists is dedicated to understanding your taste, lifestyle, and wardrobe aspirations. Every session is confidential, personalized, and entirely at your service.",
-        "button_label": "BOOK A STYLING SESSION"
+        "button_label": "BOOK A STYLING SESSION",
+        "button_url": "",
+        "color_scheme": ""
       }
     },
     "pa_how_it_works": {
       "type": "pa-how-it-works",
-      "settings": {
-        "label": "HOW IT WORKS",
-        "heading": "A White-Glove Experience",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      },
       "blocks": {
         "step_1": {
           "type": "step",
@@ -47,7 +53,19 @@
           }
         }
       },
-      "block_order": ["step_1", "step_2", "step_3", "step_4"]
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4"
+      ],
+      "settings": {
+        "label": "HOW IT WORKS",
+        "heading": "A White-Glove Experience",
+        "color_scheme": "",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     },
     "pa_whatsapp_cta": {
       "type": "pa-whatsapp-cta",
@@ -56,7 +74,11 @@
         "label": "YOUR PERSONAL STYLIST AWAITS",
         "heading": "Book a Styling Session on WhatsApp",
         "subheading": "Let our expert stylists curate a wardrobe uniquely yours.",
-        "button_label": "CHAT ON WHATSAPP"
+        "button_label": "CHAT ON WHATSAPP",
+        "whatsapp_url": "",
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     }
   },
