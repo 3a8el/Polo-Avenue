@@ -44,7 +44,7 @@
           "settings": {
             "text": "<p>Polo Avenue brings the soul of African luxury to Dubai's Jumeirah.<br/></p>",
             "width": "100%",
-            "max_width": "normal",
+            "max_width": "none",
             "alignment": "left",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
