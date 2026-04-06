@@ -455,7 +455,7 @@
               "type": "text",
               "name": "t:names.heading",
               "settings": {
-                "text": "<h3>New arrivals{{ closest.product.vendor }}</h3>",
+                "text": "<h3>{{ closest.product.vendor }}</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
