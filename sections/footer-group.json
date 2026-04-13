@@ -62,7 +62,7 @@
                 "font": "heading",
                 "unit": "pixel",
                 "percent_width": 100,
-                "pixel_height": 48,
+                "pixel_height": 24,
                 "custom_mobile_size": false,
                 "unit_mobile": "percent",
                 "percent_width_mobile": 100,
@@ -80,7 +80,7 @@
               "settings": {
                 "thickness": 1,
                 "corner_radius": "square",
-                "width_percent": 45,
+                "width_percent": 25,
                 "padding-block-start": 0,
                 "padding-block-end": 0
               },
