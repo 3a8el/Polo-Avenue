@@ -1,0 +1,521 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="section section--full-width color-{{ section.settings.color_scheme }} pa-spotlight spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-autoplay-speed="{{ section.settings.autoplay_speed | times: 1000 }}"
+>
+  <div class="pa-spotlight__track">
+    {%- for block in section.blocks -%}
+      <div class="pa-spotlight__slide{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+
+        {%- comment -%} Left: image {%- endcomment -%}
+        <div class="pa-spotlight__image-col">
+          {%- if block.settings.image != blank -%}
+            <img
+              src="{{ block.settings.image | image_url: width: 1200 }}"
+              alt="{{ block.settings.brand_name | escape }}"
+              class="pa-spotlight__image"
+              loading="{{ forloop.first | default: 'lazy' }}"
+              width="1200"
+              height="1500"
+            >
+          {%- else -%}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'pa-spotlight__image pa-spotlight__image--placeholder' }}
+          {%- endif -%}
+        </div>
+
+        {%- comment -%} Right: content {%- endcomment -%}
+        <div class="pa-spotlight__content-col">
+          <div class="pa-spotlight__content">
+            {%- if block.settings.subheading != blank -%}
+              <p class="pa-spotlight__subheading">{{ block.settings.subheading }}</p>
+            {%- endif -%}
+            {%- if block.settings.brand_name != blank -%}
+              <h2 class="pa-spotlight__heading">{{ block.settings.brand_name }}</h2>
+            {%- endif -%}
+            {%- if block.settings.description != blank -%}
+              <p class="pa-spotlight__description">{{ block.settings.description }}</p>
+            {%- endif -%}
+            {%- if block.settings.button_label != blank and block.settings.button_url != blank -%}
+              <a href="{{ block.settings.button_url }}" class="pa-spotlight__btn">
+                {{ block.settings.button_label }}
+              </a>
+            {%- endif -%}
+          </div>
+
+          {%- comment -%} Slide indicators {%- endcomment -%}
+          <div class="pa-spotlight__indicators">
+            {%- for b in section.blocks -%}
+              <button
+                class="pa-spotlight__indicator{% if forloop.index0 == 0 and forloop.parentloop.first %} is-active{% endif %}"
+                data-goto="{{ forloop.index0 }}"
+                aria-label="Go to slide {{ forloop.index }}"
+              ></button>
+            {%- endfor -%}
+          </div>
+        </div>
+
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .pa-spotlight {
+    overflow: hidden;
+    position: relative;
+    padding: 0 !important;
+  }
+
+  .pa-spotlight__track {
+    position: relative;
+    width: 100%;
+  }
+
+  /* ── Slide layout ── */
+  .pa-spotlight__slide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 640px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Active slide sits on top */
+  .pa-spotlight__slide.is-active {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  /* ── Entrance / exit animations ── */
+
+  /* Entering slide: image slides in from left, content fades up from right */
+  .pa-spotlight__slide.is-entering .pa-spotlight__image-col {
+    animation: spotlight-img-in 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .pa-spotlight__slide.is-entering .pa-spotlight__subheading {
+    animation: spotlight-fade-up 0.7s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .pa-spotlight__slide.is-entering .pa-spotlight__heading {
+    animation: spotlight-fade-up 0.7s 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .pa-spotlight__slide.is-entering .pa-spotlight__description {
+    animation: spotlight-fade-up 0.7s 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .pa-spotlight__slide.is-entering .pa-spotlight__btn {
+    animation: spotlight-fade-up 0.7s 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  /* Exiting slide: fade and slide out to left */
+  .pa-spotlight__slide.is-exiting {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+    animation: spotlight-slide-out 0.7s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+  }
+
+  @keyframes spotlight-img-in {
+    from { clip-path: inset(0 100% 0 0); }
+    to   { clip-path: inset(0 0% 0 0); }
+  }
+
+  @keyframes spotlight-fade-up {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes spotlight-slide-out {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(-40px); }
+  }
+
+  /* ── Image column ── */
+  .pa-spotlight__image-col {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .pa-spotlight__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .pa-spotlight__image--placeholder {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── Content column ── */
+  .pa-spotlight__content-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 72px 48px;
+    background: var(--color-background);
+  }
+
+  .pa-spotlight__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 480px;
+    margin: auto 0;
+  }
+
+  .pa-spotlight__subheading {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #EF4B37;
+  }
+
+  .pa-spotlight__heading {
+    margin: 0;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--color-foreground);
+    font-family: var(--font-heading--family);
+  }
+
+  .pa-spotlight__description {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-foreground);
+    opacity: 0.65;
+    max-width: 400px;
+  }
+
+  .pa-spotlight__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 28px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-foreground);
+    background: transparent;
+    border: 1.5px solid var(--color-foreground);
+    border-radius: 2px;
+    align-self: flex-start;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .pa-spotlight__btn:hover {
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  /* ── Indicators ── */
+  .pa-spotlight__indicators {
+    display: flex;
+    gap: 12px;
+    padding-top: 32px;
+  }
+
+  .pa-spotlight__indicator {
+    flex: 1;
+    height: 1.5px;
+    background: rgba(0,0,0,0.15);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s ease;
+  }
+
+  .pa-spotlight__indicator::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--color-foreground);
+    transition: none;
+  }
+
+  .pa-spotlight__indicator.is-active::after {
+    width: 100%;
+    transition: width var(--pa-spotlight-speed, 5s) linear;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 749px) {
+    .pa-spotlight__slide {
+      grid-template-columns: 1fr;
+      min-height: unset;
+    }
+
+    .pa-spotlight__image-col {
+      aspect-ratio: 4 / 3;
+    }
+
+    .pa-spotlight__content-col {
+      padding: 36px 24px 32px;
+    }
+
+    .pa-spotlight__content {
+      gap: 16px;
+    }
+
+    .pa-spotlight__heading {
+      font-size: clamp(28px, 9vw, 44px);
+    }
+
+    .pa-spotlight__indicators {
+      padding-top: 24px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var section = document.querySelector('.pa-spotlight');
+    if (!section) return;
+
+    var slides = Array.from(section.querySelectorAll('.pa-spotlight__slide'));
+    var allIndicators = Array.from(section.querySelectorAll('.pa-spotlight__indicator'));
+    var speed = parseInt(section.getAttribute('data-autoplay-speed'), 10) || 5000;
+    var current = 0;
+    var timer = null;
+    var isAnimating = false;
+
+    // Set CSS speed var for indicator progress bar
+    section.style.setProperty('--pa-spotlight-speed', (speed / 1000) + 's');
+
+    function goTo(index) {
+      if (isAnimating || index === current) return;
+      isAnimating = true;
+
+      var prev = current;
+      current = index;
+
+      var prevSlide = slides[prev];
+      var nextSlide = slides[current];
+
+      // Update indicators
+      allIndicators.forEach(function (ind, i) {
+        ind.classList.remove('is-active');
+        // Reset progress bar
+        var clone = ind.cloneNode(true);
+        ind.parentNode.replaceChild(clone, ind);
+        allIndicators[i] = clone;
+        clone.addEventListener('click', function () { goTo(i); });
+      });
+
+      // Exit current
+      prevSlide.classList.add('is-exiting');
+      prevSlide.classList.remove('is-active');
+
+      // Enter next
+      nextSlide.classList.add('is-entering', 'is-active');
+
+      // Activate indicator with progress bar
+      allIndicators[current].classList.add('is-active');
+
+      var exitDuration = 700;
+      setTimeout(function () {
+        prevSlide.classList.remove('is-exiting');
+        nextSlide.classList.remove('is-entering');
+        isAnimating = false;
+      }, exitDuration);
+    }
+
+    function next() {
+      var nextIndex = (current + 1) % slides.length;
+      goTo(nextIndex);
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(next, speed);
+    }
+
+    // Bind indicator clicks
+    allIndicators.forEach(function (ind, i) {
+      ind.addEventListener('click', function () {
+        clearInterval(timer);
+        goTo(i);
+        startTimer();
+      });
+    });
+
+    // Pause on hover
+    section.addEventListener('mouseenter', function () { clearInterval(timer); });
+    section.addEventListener('mouseleave', function () { startTimer(); });
+
+    // Init first indicator
+    if (allIndicators[0]) allIndicators[0].classList.add('is-active');
+
+    startTimer();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "PA Brand Spotlight",
+  "tag": "section",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "MODERN HERITAGE REDEFINED"
+        },
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand Name",
+          "default": "Brand Name"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "EXPLORE COLLECTION"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed (seconds)",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "PA Brand Spotlight",
+      "blocks": [
+        {
+          "type": "brand",
+          "settings": {
+            "subheading": "MODERN HERITAGE REDEFINED",
+            "brand_name": "Onalaja",
+            "description": "A bold celebration of heritage and femininity, Onalaja blends Nigerian craftsmanship with contemporary silhouettes—creating statement pieces that feel both powerful and deeply personal.",
+            "button_label": "EXPLORE COLLECTION"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "subheading": "PRINTS WITH A STORY",
+            "brand_name": "Banke Kuku",
+            "description": "Rooted in storytelling, Banke Kuku transforms vibrant prints into effortless luxury. Each piece reflects culture, color, and a refined sense of modern African elegance.",
+            "button_label": "EXPLORE COLLECTION"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "subheading": "EFFORTLESS SENSUALITY",
+            "brand_name": "Torlowei",
+            "description": "Torlowei embodies sensual sophistication, crafting resort and evening wear that celebrates confidence, fluidity, and the art of understated allure.",
+            "button_label": "EXPLORE COLLECTION"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "subheading": "WEARABLE ART, REIMAGINED",
+            "brand_name": "Anna Karin Karlsson",
+            "description": "More than eyewear, Anna Karin Karlsson creates wearable art—dramatic, sculptural pieces designed for those who embrace individuality and bold self-expression.",
+            "button_label": "EXPLORE COLLECTION"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "subheading": "CRAFTED IN EVERY DETAIL",
+            "brand_name": "Biyan",
+            "description": "Renowned for intricate detailing and rich textures, Biyan offers couture-inspired pieces that merge tradition with modern luxury, creating timeless yet distinctive designs.",
+            "button_label": "EXPLORE COLLECTION"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
