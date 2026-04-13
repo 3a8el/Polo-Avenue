@@ -11,8 +11,8 @@
   "current": {
     "logo": "shopify://shop_images/polo-avenue-b.svg",
     "logo_inverse": "shopify://shop_images/polo-avenue-b.svg",
-    "logo_height": 36,
-    "logo_height_mobile": 28,
+    "logo_height": 26,
+    "logo_height_mobile": 20,
     "type_body_font": "montserrat_n3",
     "type_subheading_font": "montserrat_n4",
     "type_heading_font": "montserrat_n2",
