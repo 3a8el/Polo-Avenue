@@ -73,36 +73,40 @@
     padding: 0 !important;
   }
 
-  /* Track has fixed height so it never shifts between slides */
+  /* Track uses grid overlap so height = tallest slide and never shifts */
   .pa-spotlight__track {
+    display: grid;
     position: relative;
     width: 100%;
-    min-height: 600px;
     max-height: 90vh;
+    overflow: hidden;
   }
 
-  /* ── Slide layout ── */
+  /* ── Slide layout — all slides in same grid cell so they stack ── */
   .pa-spotlight__slide {
+    grid-area: 1 / 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100%;
     min-height: 600px;
-    max-height: 90vh;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     opacity: 0;
     pointer-events: none;
     z-index: 0;
+    visibility: hidden;
   }
 
-  /* Active slide sits on top and drives height */
+  /* Active slide */
   .pa-spotlight__slide.is-active {
-    position: relative;
     opacity: 1;
     pointer-events: auto;
     z-index: 1;
+    visibility: visible;
+  }
+
+  /* Keep entering/exiting visible during animation */
+  .pa-spotlight__slide.is-entering,
+  .pa-spotlight__slide.is-exiting {
+    visibility: visible;
   }
 
   /* ── Entrance / exit animations ── */
@@ -127,10 +131,6 @@
   }
 
   .pa-spotlight__slide.is-exiting {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     z-index: 2;
     pointer-events: none;
     animation: spotlight-slide-out 0.7s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
@@ -287,14 +287,12 @@
   /* ── Mobile ── */
   @media (max-width: 749px) {
     .pa-spotlight__track {
-      min-height: unset;
       max-height: unset;
     }
 
     .pa-spotlight__slide {
       grid-template-columns: 1fr;
       min-height: unset;
-      max-height: unset;
     }
 
     .pa-spotlight__image-col {
