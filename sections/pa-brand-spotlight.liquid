@@ -111,7 +111,7 @@
 
   /* ── Entrance / exit animations ── */
   .pa-spotlight__slide.is-entering .pa-spotlight__image-col {
-    animation: spotlight-img-in 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation: spotlight-img-in 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
   }
 
   .pa-spotlight__slide.is-entering .pa-spotlight__subheading {
@@ -133,11 +133,14 @@
   .pa-spotlight__slide.is-exiting {
     z-index: 2;
     pointer-events: none;
-    animation: spotlight-slide-out 0.7s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
   }
 
   .pa-spotlight__slide.is-exiting .pa-spotlight__image-col {
-    animation: spotlight-img-out 0.7s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+    animation: spotlight-img-out 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+
+  .pa-spotlight__slide.is-exiting .pa-spotlight__content-col {
+    animation: spotlight-fade-out 0.5s ease forwards;
   }
 
   @keyframes spotlight-img-in {
@@ -155,9 +158,9 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes spotlight-slide-out {
-    from { opacity: 1; transform: translateX(0); }
-    to   { opacity: 0; transform: translateX(-40px); }
+  @keyframes spotlight-fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
   }
 
   /* ── Image column ── */
