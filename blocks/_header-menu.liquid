@@ -101,7 +101,14 @@
             {% endif %}
             ref="menuitem"
           >
-            <span class="menu-list__link-title">{{- link.title -}}</span>
+            <span class="menu-list__link-title">
+              {{- link.title -}}
+              {%- if link.links != blank -%}
+                <span class="menu-list__link-caret" aria-hidden="true">
+                  {{- 'icon-caret.svg' | inline_asset_content -}}
+                </span>
+              {%- endif -%}
+            </span>
           </a>
           {%- if link.links != blank -%}
             <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]">
@@ -679,6 +686,58 @@
   .mega-menu__submenu {
     /* preserves the inherited grid layout when this submenu wrapper is used */
     display: contents;
+  }
+
+  /* ── Polo Avenue custom nav styles ── */
+
+  /* Chevron next to items with submenus */
+  .menu-list__link-caret {
+    display: inline-flex;
+    align-items: center;
+    margin-inline-start: 4px;
+    vertical-align: middle;
+  }
+
+  .menu-list__link-caret svg {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.2s ease;
+  }
+
+  .menu-list__list-item:where(:hover, :focus-within) .menu-list__link-caret svg {
+    transform: rotate(180deg);
+  }
+
+  /* Center dropdown items */
+  .menu-list__submenu-inner {
+    justify-content: center;
+  }
+
+  .mega-menu__grid {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .mega-menu__list {
+    justify-items: center;
+  }
+
+  /* Hover / active color #EF4B37 */
+  .menu-list .menu-list__list-item:where(:hover, :focus-within) .menu-list__link,
+  .menu-list .menu-list__list-item[slot='overflow'] .menu-list__link[aria-expanded='true'],
+  .menu-list:not(:has(.menu-list__list-item:hover)) .menu-list__link--active {
+    color: #EF4B37 !important;
+  }
+
+  .menu-list__link-caret svg path,
+  .menu-list__link-caret svg line,
+  .menu-list__link-caret svg polyline {
+    stroke: currentColor;
+  }
+
+  .mega-menu__link:hover,
+  .mega-menu__link--parent:hover {
+    color: #EF4B37 !important;
   }
 {% endstylesheet %}
 
