@@ -136,12 +136,12 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/polo-avenue-hero.webp",
+        "image_1": "shopify://shop_images/hero-PA-cover.webp",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
         "media_type_1_mobile": "image",
-        "image_1_mobile": "shopify://shop_images/polo_avenue-mobile.png",
+        "image_1_mobile": "shopify://shop_images/Hero-pa-cover-m.webp",
         "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -238,12 +238,10 @@
             "heading": "",
             "heading_size": 32,
             "heading_spacing": 40,
-            "logo_1": "shopify://shop_images/Ralph_Lauren_Corporation-OIWUJR1wd_brandlogos.net_1.png",
-            "logo_2": "shopify://shop_images/Off-White-OxKxiwVvY_brandlogos.net_1.png",
-            "logo_3": "shopify://shop_images/Maje-O4xwFQzVN_brandlogos.net_1.png",
-            "logo_4": "shopify://shop_images/Hugo_Boss-OkBuPJFaq_brandlogos.net_1.png",
-            "logo_5": "shopify://shop_images/Coach_New_York-logo_brandlogos.net_79c17e_1.png",
-            "logo_6": "shopify://shop_images/golden-goose-logo-brandlogos.net_e0lfdkw4e_1.png",
+            "logo_1": "shopify://shop_images/biyancom-logo-1620182606.jpg_1.png",
+            "logo_2": "shopify://shop_images/akk-logo-600width_1.png",
+            "logo_3": "shopify://shop_images/FG.png_1.png",
+            "logo_4": "shopify://shop_images/Torlowei2019_Logo_-_Black.png.avif-0_SVG.png",
             "logo_width": 140,
             "logo_height": 80,
             "logo_spacing": 60,
@@ -744,51 +742,51 @@
         "brand_PywUVA": {
           "type": "brand",
           "settings": {
-            "image": "shopify://shop_images/Instagram_Image3.webp",
+            "image": "shopify://shop_images/Slide01.webp",
             "subheading": "MODERN HERITAGE REDEFINED",
             "brand_name": "Onalaja",
             "description": "A bold celebration of heritage and femininity, Onalaja blends Nigerian craftsmanship with contemporary silhouettes—creating statement pieces that feel both powerful and deeply personal.",
             "button_label": "EXPLORE COLLECTION",
-            "button_url": ""
+            "button_url": "shopify://collections"
           }
         },
         "brand_8q3AXJ": {
           "type": "brand",
           "settings": {
-            "image": "shopify://shop_images/Instagram_Image7.webp",
+            "image": "shopify://shop_images/Slide02.webp",
             "subheading": "PRINTS WITH A STORY",
             "brand_name": "Banke Kuku",
             "description": "Rooted in storytelling, Banke Kuku transforms vibrant prints into effortless luxury. Each piece reflects culture, color, and a refined sense of modern African elegance.",
             "button_label": "EXPLORE COLLECTION",
-            "button_url": ""
+            "button_url": "shopify://collections"
           }
         },
         "brand_fEk7Dq": {
           "type": "brand",
           "settings": {
-            "image": "shopify://shop_images/Instagram_Image7.webp",
+            "image": "shopify://shop_images/Slide03.webp",
             "subheading": "EFFORTLESS SENSUALITY",
             "brand_name": "Torlowei",
             "description": "Torlowei embodies sensual sophistication, crafting resort and evening wear that celebrates confidence, fluidity, and the art of understated allure.",
             "button_label": "EXPLORE COLLECTION",
-            "button_url": ""
+            "button_url": "shopify://collections"
           }
         },
         "brand_ifqxJg": {
           "type": "brand",
           "settings": {
-            "image": "shopify://shop_images/Instagram_Image2.webp",
+            "image": "shopify://shop_images/Slide04.webp",
             "subheading": "WEARABLE ART, REIMAGINED",
             "brand_name": "Anna Karin Karlsson",
             "description": "More than eyewear, Anna Karin Karlsson creates wearable art—dramatic, sculptural pieces designed for those who embrace individuality and bold self-expression.",
             "button_label": "EXPLORE COLLECTION",
-            "button_url": ""
+            "button_url": "shopify://collections"
           }
         },
         "brand_Amyfwj": {
           "type": "brand",
           "settings": {
-            "image": "shopify://shop_images/Instagram_Image8.webp",
+            "image": "shopify://shop_images/Slide05.webp",
             "subheading": "CRAFTED IN EVERY DETAIL",
             "brand_name": "Biyan",
             "description": "Renowned for intricate detailing and rich textures, Biyan offers couture-inspired pieces that merge tradition with modern luxury, creating timeless yet distinctive designs.",
