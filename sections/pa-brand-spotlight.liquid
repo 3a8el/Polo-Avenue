@@ -6,6 +6,7 @@
   data-autoplay-speed="{{ section.settings.autoplay_speed | times: 1000 }}"
 >
   <div class="pa-spotlight__track">
+
     {%- for block in section.blocks -%}
       <div class="pa-spotlight__slide{% if forloop.first %} is-active{% endif %}" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
 
@@ -16,7 +17,7 @@
               src="{{ block.settings.image | image_url: width: 1200 }}"
               alt="{{ block.settings.brand_name | escape }}"
               class="pa-spotlight__image"
-              loading="{{ forloop.first | default: 'lazy' }}"
+              loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
               width="1200"
               height="1500"
             >
@@ -44,20 +45,24 @@
             {%- endif -%}
           </div>
 
-          {%- comment -%} Slide indicators {%- endcomment -%}
-          <div class="pa-spotlight__indicators">
-            {%- for b in section.blocks -%}
-              <button
-                class="pa-spotlight__indicator{% if forloop.index0 == 0 and forloop.parentloop.first %} is-active{% endif %}"
-                data-goto="{{ forloop.index0 }}"
-                aria-label="Go to slide {{ forloop.index }}"
-              ></button>
-            {%- endfor -%}
-          </div>
+          {%- comment -%} Placeholder to keep layout — real indicators are injected by JS into .pa-spotlight__indicators-wrap {%- endcomment -%}
+          <div class="pa-spotlight__indicators-placeholder"></div>
         </div>
 
       </div>
     {%- endfor -%}
+
+    {%- comment -%} Single shared indicator bar — always visible, positioned over right column {%- endcomment -%}
+    <div class="pa-spotlight__indicators" id="pa-spotlight-indicators">
+      {%- for block in section.blocks -%}
+        <button
+          class="pa-spotlight__indicator{% if forloop.first %} is-active{% endif %}"
+          data-goto="{{ forloop.index0 }}"
+          aria-label="Go to slide {{ forloop.index }}"
+        ></button>
+      {%- endfor -%}
+    </div>
+
   </div>
 </div>
 
@@ -68,16 +73,21 @@
     padding: 0 !important;
   }
 
+  /* Track has fixed height so it never shifts between slides */
   .pa-spotlight__track {
     position: relative;
     width: 100%;
+    min-height: 600px;
+    max-height: 90vh;
   }
 
   /* ── Slide layout ── */
   .pa-spotlight__slide {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 640px;
+    height: 100%;
+    min-height: 600px;
+    max-height: 90vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -87,7 +97,7 @@
     z-index: 0;
   }
 
-  /* Active slide sits on top */
+  /* Active slide sits on top and drives height */
   .pa-spotlight__slide.is-active {
     position: relative;
     opacity: 1;
@@ -96,8 +106,6 @@
   }
 
   /* ── Entrance / exit animations ── */
-
-  /* Entering slide: image slides in from left, content fades up from right */
   .pa-spotlight__slide.is-entering .pa-spotlight__image-col {
     animation: spotlight-img-in 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
@@ -118,7 +126,6 @@
     animation: spotlight-fade-up 0.7s 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 
-  /* Exiting slide: fade and slide out to left */
   .pa-spotlight__slide.is-exiting {
     position: absolute;
     top: 0;
@@ -231,11 +238,23 @@
     color: var(--color-background);
   }
 
-  /* ── Indicators ── */
+  /* Placeholder keeps the same bottom spacing as the real indicators */
+  .pa-spotlight__indicators-placeholder {
+    height: 33px;
+  }
+
+  /* ── Shared indicator bar — absolute over right column bottom ── */
   .pa-spotlight__indicators {
+    position: absolute;
+    bottom: 48px;
+    right: 0;
+    width: 50%;
+    padding: 0 72px;
+    box-sizing: border-box;
     display: flex;
     gap: 12px;
-    padding-top: 32px;
+    z-index: 10;
+    pointer-events: auto;
   }
 
   .pa-spotlight__indicator {
@@ -247,7 +266,6 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: background 0.2s ease;
   }
 
   .pa-spotlight__indicator::after {
@@ -268,9 +286,15 @@
 
   /* ── Mobile ── */
   @media (max-width: 749px) {
+    .pa-spotlight__track {
+      min-height: unset;
+      max-height: unset;
+    }
+
     .pa-spotlight__slide {
       grid-template-columns: 1fr;
       min-height: unset;
+      max-height: unset;
     }
 
     .pa-spotlight__image-col {
@@ -278,7 +302,7 @@
     }
 
     .pa-spotlight__content-col {
-      padding: 36px 24px 32px;
+      padding: 36px 24px 60px;
     }
 
     .pa-spotlight__content {
@@ -289,8 +313,15 @@
       font-size: clamp(28px, 9vw, 44px);
     }
 
+    /* On mobile indicators span full width at bottom of content column */
     .pa-spotlight__indicators {
-      padding-top: 24px;
+      bottom: 24px;
+      width: 100%;
+      padding: 0 24px;
+    }
+
+    .pa-spotlight__indicators-placeholder {
+      height: 33px;
     }
   }
 </style>
@@ -301,14 +332,21 @@
     if (!section) return;
 
     var slides = Array.from(section.querySelectorAll('.pa-spotlight__slide'));
-    var allIndicators = Array.from(section.querySelectorAll('.pa-spotlight__indicator'));
+    var indicators = Array.from(section.querySelectorAll('#pa-spotlight-indicators .pa-spotlight__indicator'));
     var speed = parseInt(section.getAttribute('data-autoplay-speed'), 10) || 5000;
     var current = 0;
     var timer = null;
     var isAnimating = false;
 
-    // Set CSS speed var for indicator progress bar
     section.style.setProperty('--pa-spotlight-speed', (speed / 1000) + 's');
+
+    function resetIndicators() {
+      indicators.forEach(function (ind) {
+        ind.classList.remove('is-active');
+        /* Force reflow to restart CSS transition */
+        void ind.offsetWidth;
+      });
+    }
 
     function goTo(index) {
       if (isAnimating || index === current) return;
@@ -320,37 +358,26 @@
       var prevSlide = slides[prev];
       var nextSlide = slides[current];
 
-      // Update indicators
-      allIndicators.forEach(function (ind, i) {
-        ind.classList.remove('is-active');
-        // Reset progress bar
-        var clone = ind.cloneNode(true);
-        ind.parentNode.replaceChild(clone, ind);
-        allIndicators[i] = clone;
-        clone.addEventListener('click', function () { goTo(i); });
-      });
+      /* Reset all indicators then activate current */
+      resetIndicators();
+      indicators[current].classList.add('is-active');
 
-      // Exit current
+      /* Exit old slide */
       prevSlide.classList.add('is-exiting');
       prevSlide.classList.remove('is-active');
 
-      // Enter next
+      /* Enter new slide */
       nextSlide.classList.add('is-entering', 'is-active');
 
-      // Activate indicator with progress bar
-      allIndicators[current].classList.add('is-active');
-
-      var exitDuration = 700;
       setTimeout(function () {
         prevSlide.classList.remove('is-exiting');
         nextSlide.classList.remove('is-entering');
         isAnimating = false;
-      }, exitDuration);
+      }, 700);
     }
 
     function next() {
-      var nextIndex = (current + 1) % slides.length;
-      goTo(nextIndex);
+      goTo((current + 1) % slides.length);
     }
 
     function startTimer() {
@@ -358,8 +385,8 @@
       timer = setInterval(next, speed);
     }
 
-    // Bind indicator clicks
-    allIndicators.forEach(function (ind, i) {
+    /* Indicator click */
+    indicators.forEach(function (ind, i) {
       ind.addEventListener('click', function () {
         clearInterval(timer);
         goTo(i);
@@ -367,13 +394,9 @@
       });
     });
 
-    // Pause on hover
-    section.addEventListener('mouseenter', function () { clearInterval(timer); });
-    section.addEventListener('mouseleave', function () { startTimer(); });
-
-    // Init first indicator
-    if (allIndicators[0]) allIndicators[0].classList.add('is-active');
-
+    /* Kick off */
+    resetIndicators();
+    indicators[0].classList.add('is-active');
     startTimer();
   })();
 </script>
