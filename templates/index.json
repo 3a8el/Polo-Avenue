@@ -270,8 +270,8 @@
             "pause_on_hover": true,
             "background_color": "#ffffff",
             "heading_color": "#000000",
-            "padding_top": 60,
-            "padding_bottom": 60
+            "padding_top": 76,
+            "padding_bottom": 76
           },
           "blocks": {}
         }
@@ -596,8 +596,22 @@
         "horizontal_alignment": "flex-start",
         "gap": 28,
         "color_scheme": "scheme-efff4971-9b4a-4aff-bb76-30b626a72a09",
-        "padding-block-start": 48,
+        "padding-block-start": 0,
         "padding-block-end": 100
+      }
+    },
+    "divider_RnHpq4": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 18,
+        "padding-block-end": 18
       }
     },
     "hero_rALxwe": {
@@ -1240,6 +1254,34 @@
         "padding-block-end": 0
       }
     },
+    "divider_N3mGtC": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
+    "divider_p7aV4M": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
     "pa_designers_2_hjEVYG": {
       "type": "pa-designers-2",
       "blocks": {
@@ -1288,8 +1330,8 @@
         "card_cta_label": "VIEW COLLECTION",
         "section_width": "page-width",
         "color_scheme": "",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "pa_ig_79ChCw": {
@@ -1391,6 +1433,7 @@
     "section_WJwjHj",
     "17750779348cc5e899",
     "product_list_XrEGUh",
+    "divider_RnHpq4",
     "hero_rALxwe",
     "divider_QCYhNU",
     "section_HVRLte",
@@ -1398,7 +1441,9 @@
     "section_cB6D84",
     "divider_ExBL3f",
     "17751326438983d3aa",
+    "divider_N3mGtC",
     "pa_designers_2_hjEVYG",
+    "divider_p7aV4M",
     "pa_ig_79ChCw",
     "divider_94PVtU"
   ]

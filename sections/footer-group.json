@@ -94,9 +94,9 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "0.75rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -120,9 +120,9 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "0.75rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -146,9 +146,9 @@
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "0.75rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -200,7 +200,7 @@
             "content_direction": "row",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
+            "vertical_alignment": "flex-start",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
@@ -319,10 +319,10 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -345,10 +345,10 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -371,10 +371,10 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -397,10 +397,10 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -425,7 +425,7 @@
                 "text_CW4WUn"
               ]
             },
-            "group_G4TU3k": {
+            "group_YGPj4C": {
               "type": "group",
               "name": "t:names.group",
               "settings": {
@@ -465,11 +465,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_jD9Fgc": {
+                "text_qYzYXC": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h3>SHOP</h3>",
+                    "text": "<h3>Discover</h3>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -491,7 +491,7 @@
                   },
                   "blocks": {}
                 },
-                "divider_zWBpgL": {
+                "divider_tdkdWf": {
                   "type": "_divider",
                   "name": "t:names.divider",
                   "settings": {
@@ -503,18 +503,18 @@
                   },
                   "blocks": {}
                 },
-                "text_bQyX6W": {
+                "text_pdmnNE": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>New Arrivals</h5>",
+                    "text": "<h5>About Us</h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -529,18 +529,18 @@
                   },
                   "blocks": {}
                 },
-                "text_8bEehC": {
+                "text_9rLJQp": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Collections<br/></h5>",
+                    "text": "<h5>Boutique Locator</h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -555,18 +555,18 @@
                   },
                   "blocks": {}
                 },
-                "text_zHhbaz": {
+                "text_UX6HLk": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Designers</h5>",
+                    "text": "<h5>Personal Styling</h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -581,18 +581,18 @@
                   },
                   "blocks": {}
                 },
-                "text_QC3WJY": {
+                "text_UndUEh": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Gift Services</h5>",
+                    "text": "<h5>Shipping & Returns</h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -609,15 +609,15 @@
                 }
               },
               "block_order": [
-                "text_jD9Fgc",
-                "divider_zWBpgL",
-                "text_bQyX6W",
-                "text_8bEehC",
-                "text_zHhbaz",
-                "text_QC3WJY"
+                "text_qYzYXC",
+                "divider_tdkdWf",
+                "text_pdmnNE",
+                "text_9rLJQp",
+                "text_UX6HLk",
+                "text_UndUEh"
               ]
             },
-            "group_FGUfjV": {
+            "group_4fQFHD": {
               "type": "group",
               "name": "t:names.group",
               "settings": {
@@ -657,11 +657,11 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_w4YKhp": {
+                "text_WEq4QP": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h3>SHOP</h3>",
+                    "text": "<h3>Account</h3>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -683,7 +683,7 @@
                   },
                   "blocks": {}
                 },
-                "divider_pDWGrV": {
+                "divider_qayxLY": {
                   "type": "_divider",
                   "name": "t:names.divider",
                   "settings": {
@@ -695,18 +695,18 @@
                   },
                   "blocks": {}
                 },
-                "text_dVicbf": {
+                "text_eRQtw9": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>New Arrivals</h5>",
+                    "text": "<h5>Sign In</h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -721,18 +721,18 @@
                   },
                   "blocks": {}
                 },
-                "text_UwqkgG": {
+                "text_q3pJpV": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Collections<br/></h5>",
+                    "text": "<h5>Wish List</h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -747,44 +747,18 @@
                   },
                   "blocks": {}
                 },
-                "text_NE7xL3": {
+                "text_CcEfrq": {
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Designers</h5>",
+                    "text": "<h5>My Orders</h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "rte",
+                    "type_preset": "custom",
                     "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_i8hPKW": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h5>Gift Services</h5>",
-                    "width": "fit-content",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "rte",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
+                    "font_size": "0.75rem",
+                    "line_height": "loose",
                     "letter_spacing": "normal",
                     "case": "none",
                     "wrap": "pretty",
@@ -801,19 +775,18 @@
                 }
               },
               "block_order": [
-                "text_w4YKhp",
-                "divider_pDWGrV",
-                "text_dVicbf",
-                "text_UwqkgG",
-                "text_NE7xL3",
-                "text_i8hPKW"
+                "text_WEq4QP",
+                "divider_qayxLY",
+                "text_eRQtw9",
+                "text_q3pJpV",
+                "text_CcEfrq"
               ]
             }
           },
           "block_order": [
             "group_WXGaH3",
-            "group_G4TU3k",
-            "group_FGUfjV"
+            "group_YGPj4C",
+            "group_4fQFHD"
           ]
         }
       },
@@ -825,7 +798,7 @@
       "settings": {
         "section_width": "page-width",
         "gap": 20,
-        "color_scheme": "scheme-efff4971-9b4a-4aff-bb76-30b626a72a09",
+        "color_scheme": "scheme-2",
         "padding-block-start": 30,
         "padding-block-end": 30
       }
@@ -874,7 +847,7 @@
         "section_width": "page-width",
         "gap": 24,
         "divider_thickness": 0,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "padding-block-start": 20,
         "padding-block-end": 48
       }
