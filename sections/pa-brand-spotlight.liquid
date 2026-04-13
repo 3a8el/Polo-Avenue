@@ -109,38 +109,39 @@
     visibility: visible;
   }
 
-  /* ── Entrance / exit animations ── */
-  .pa-spotlight__slide.is-entering .pa-spotlight__image-col {
-    animation: spotlight-img-in 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-  }
-
-  .pa-spotlight__slide.is-entering .pa-spotlight__subheading {
-    animation: spotlight-fade-up 0.7s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-
-  .pa-spotlight__slide.is-entering .pa-spotlight__heading {
-    animation: spotlight-fade-up 0.7s 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-
-  .pa-spotlight__slide.is-entering .pa-spotlight__description {
-    animation: spotlight-fade-up 0.7s 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-
-  .pa-spotlight__slide.is-entering .pa-spotlight__btn {
-    animation: spotlight-fade-up 0.7s 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
-
+  /* ── Exit animations (plays first) ── */
   .pa-spotlight__slide.is-exiting {
     z-index: 2;
     pointer-events: none;
   }
 
   .pa-spotlight__slide.is-exiting .pa-spotlight__image-col {
-    animation: spotlight-img-out 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    animation: spotlight-img-out 0.6s cubic-bezier(0.76, 0, 0.24, 1) forwards;
   }
 
   .pa-spotlight__slide.is-exiting .pa-spotlight__content-col {
-    animation: spotlight-fade-out 0.5s ease forwards;
+    animation: spotlight-fade-out 0.4s ease forwards;
+  }
+
+  /* ── Entrance animations (plays after exit finishes) ── */
+  .pa-spotlight__slide.is-entering .pa-spotlight__image-col {
+    animation: spotlight-img-in 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+
+  .pa-spotlight__slide.is-entering .pa-spotlight__subheading {
+    animation: spotlight-fade-up 0.5s 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .pa-spotlight__slide.is-entering .pa-spotlight__heading {
+    animation: spotlight-fade-up 0.5s 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .pa-spotlight__slide.is-entering .pa-spotlight__description {
+    animation: spotlight-fade-up 0.5s 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  .pa-spotlight__slide.is-entering .pa-spotlight__btn {
+    animation: spotlight-fade-up 0.5s 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 
   @keyframes spotlight-img-in {
@@ -358,6 +359,9 @@
       });
     }
 
+    var EXIT_DURATION = 600;   /* must match CSS exit animation duration */
+    var ENTER_DURATION = 1400; /* img 0.8s + last stagger 0.8s + duration 0.5s */
+
     function goTo(index) {
       if (isAnimating || index === current) return;
       isAnimating = true;
@@ -368,22 +372,27 @@
       var prevSlide = slides[prev];
       var nextSlide = slides[current];
 
-      /* Reset all indicators then activate current */
+      /* Reset indicators and activate new one */
       resetIndicators();
       indicators[current].classList.add('is-active');
 
-      /* Exit old slide */
+      /* Step 1: exit old slide */
       prevSlide.classList.add('is-exiting');
       prevSlide.classList.remove('is-active');
 
-      /* Enter new slide */
-      nextSlide.classList.add('is-entering', 'is-active');
-
+      /* Step 2: after exit finishes, bring in new slide */
       setTimeout(function () {
         prevSlide.classList.remove('is-exiting');
+        prevSlide.style.visibility = 'hidden';
+        nextSlide.classList.add('is-entering', 'is-active');
+      }, EXIT_DURATION);
+
+      /* Step 3: clean up entering class after animations complete */
+      setTimeout(function () {
         nextSlide.classList.remove('is-entering');
+        prevSlide.style.visibility = '';
         isAnimating = false;
-      }, 700);
+      }, EXIT_DURATION + ENTER_DURATION);
     }
 
     function next() {
