@@ -33,6 +33,7 @@
         "designer_gucci": {
           "type": "designer",
           "settings": {
+            "image": "shopify://shop_images/Frame_15.webp",
             "designer_name": "GUCCI",
             "origin": "Italy",
             "since": "1921",
@@ -108,5 +109,7 @@
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
