@@ -15,6 +15,7 @@
         "designer_balmain": {
           "type": "designer",
           "settings": {
+            "image": "shopify://shop_images/Frame_115.webp",
             "designer_name": "BALMAIN",
             "origin": "France",
             "since": "1945",
@@ -24,6 +25,7 @@
         "designer_burberry": {
           "type": "designer",
           "settings": {
+            "image": "shopify://shop_images/Instagram_Image6.webp",
             "designer_name": "BURBERRY",
             "origin": "United Kingdom",
             "since": "1856",
@@ -43,6 +45,7 @@
         "designer_givenchy": {
           "type": "designer",
           "settings": {
+            "image": "shopify://shop_images/Frame_115.webp",
             "designer_name": "GIVENCHY",
             "origin": "France",
             "since": "1952",
@@ -52,6 +55,7 @@
         "designer_prada": {
           "type": "designer",
           "settings": {
+            "image": "shopify://shop_images/Frame_115.webp",
             "designer_name": "PRADA",
             "origin": "Italy",
             "since": "1913",
@@ -61,6 +65,7 @@
         "designer_valentino": {
           "type": "designer",
           "settings": {
+            "image": "shopify://shop_images/Rectangle.webp",
             "designer_name": "VALENTINO",
             "origin": "Italy",
             "since": "1960",
@@ -70,6 +75,7 @@
         "designer_versace": {
           "type": "designer",
           "settings": {
+            "image": "shopify://shop_images/Frame_115.webp",
             "designer_name": "VERSACE",
             "origin": "Italy",
             "since": "1978",
@@ -79,6 +85,7 @@
         "designer_zegna": {
           "type": "designer",
           "settings": {
+            "image": "shopify://shop_images/Frame_115.webp",
             "designer_name": "ZEGNA",
             "origin": "Italy",
             "since": "1910",
