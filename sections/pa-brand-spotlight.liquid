@@ -136,9 +136,18 @@
     animation: spotlight-slide-out 0.7s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
   }
 
+  .pa-spotlight__slide.is-exiting .pa-spotlight__image-col {
+    animation: spotlight-img-out 0.7s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+  }
+
   @keyframes spotlight-img-in {
-    from { clip-path: inset(0 100% 0 0); }
-    to   { clip-path: inset(0 0% 0 0); }
+    from { clip-path: inset(100% 0 0 0); }
+    to   { clip-path: inset(0 0 0 0); }
+  }
+
+  @keyframes spotlight-img-out {
+    from { clip-path: inset(0 0 0 0); }
+    to   { clip-path: inset(0 0 100% 0); }
   }
 
   @keyframes spotlight-fade-up {
