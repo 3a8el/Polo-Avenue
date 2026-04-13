@@ -9,6 +9,9 @@
  */
 {
   "sections": {
+    "pa_home_styles": {
+      "type": "pa-home-styles"
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -1387,6 +1390,7 @@
     }
   },
   "order": [
+    "pa_home_styles",
     "hero_jVaWmY",
     "section_WJwjHj",
     "17750779348cc5e899",
