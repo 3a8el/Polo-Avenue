@@ -1,0 +1,100 @@
+{
+  "sections": {
+    "main": {
+      "type": "pa-designers-page",
+      "blocks": {
+        "designer_balmain": {
+          "type": "designer",
+          "settings": {
+            "designer_name": "BALMAIN",
+            "origin": "France",
+            "since": "1945",
+            "collection_url": "/collections/balmain"
+          }
+        },
+        "designer_burberry": {
+          "type": "designer",
+          "settings": {
+            "designer_name": "BURBERRY",
+            "origin": "United Kingdom",
+            "since": "1856",
+            "collection_url": "/collections/burberry"
+          }
+        },
+        "designer_gucci": {
+          "type": "designer",
+          "settings": {
+            "designer_name": "GUCCI",
+            "origin": "Italy",
+            "since": "1921",
+            "collection_url": "/collections/gucci"
+          }
+        },
+        "designer_givenchy": {
+          "type": "designer",
+          "settings": {
+            "designer_name": "GIVENCHY",
+            "origin": "France",
+            "since": "1952",
+            "collection_url": "/collections/givenchy"
+          }
+        },
+        "designer_prada": {
+          "type": "designer",
+          "settings": {
+            "designer_name": "PRADA",
+            "origin": "Italy",
+            "since": "1913",
+            "collection_url": "/collections/prada"
+          }
+        },
+        "designer_valentino": {
+          "type": "designer",
+          "settings": {
+            "designer_name": "VALENTINO",
+            "origin": "Italy",
+            "since": "1960",
+            "collection_url": "/collections/valentino"
+          }
+        },
+        "designer_versace": {
+          "type": "designer",
+          "settings": {
+            "designer_name": "VERSACE",
+            "origin": "Italy",
+            "since": "1978",
+            "collection_url": "/collections/versace"
+          }
+        },
+        "designer_zegna": {
+          "type": "designer",
+          "settings": {
+            "designer_name": "ZEGNA",
+            "origin": "Italy",
+            "since": "1910",
+            "collection_url": "/collections/zegna"
+          }
+        }
+      },
+      "block_order": [
+        "designer_balmain",
+        "designer_burberry",
+        "designer_gucci",
+        "designer_givenchy",
+        "designer_prada",
+        "designer_valentino",
+        "designer_versace",
+        "designer_zegna"
+      ],
+      "settings": {
+        "label": "OUR BRANDS",
+        "heading": "The Houses We Carry",
+        "card_cta_label": "VIEW COLLECTION",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    }
+  },
+  "order": ["main"]
+}
