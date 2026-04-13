@@ -139,7 +139,8 @@
 
   /* ── Filter bar ── */
   .pa-dp__filter-wrap {
-    border: 1px solid rgba(0,0,0,0.12);
+    {% comment %} border: 1px solid rgba(0,0,0,0.12); {% endcomment %}
+     background:#FAF9F7;
     border-radius: 6px;
     padding: 6px 8px;
   }
@@ -156,8 +157,8 @@
     min-width: 0;
     height: 36px;
     padding: 0 4px;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-align: center;
@@ -175,7 +176,8 @@
 
   .pa-dp__filter-btn--active {
     background: var(--color-foreground) !important;
-    color: var(--color-background) !important;
+    {% comment %} color: var(--color-background) !important; {% endcomment %}
+     color:#EF4B37;
   }
 
   .pa-dp__filter-letter--empty {
