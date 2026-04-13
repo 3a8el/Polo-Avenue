@@ -87,8 +87,11 @@
         "designer_zegna"
       ],
       "settings": {
-        "label": "OUR BRANDS",
+        "label": "DESIGNERS",
         "heading": "The Houses We Carry",
+        "subheading": "Explore over 60 of the world's most celebrated fashion houses and independent artisans, curated exclusively for Polo Avenue Dubai.",
+        "grid_label": "GLOBAL HOUSES",
+        "grid_heading": "World-Class Labels",
         "card_cta_label": "VIEW COLLECTION",
         "color_scheme": "scheme-1",
         "padding-block-start": 60,
