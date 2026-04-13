@@ -327,19 +327,42 @@
       gap: 28px;
     }
 
+    /* Filter: no border box, letters wrap freely in rows */
     .pa-dp__filter-wrap {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      border: none;
+      padding: 0;
     }
 
     .pa-dp__filter {
-      flex-wrap: nowrap;
-      min-width: 600px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      min-width: 0;
+      gap: 2px;
     }
 
+    .pa-dp__filter-btn,
+    .pa-dp__filter-letter--empty {
+      flex: 0 0 auto;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+    }
+
+    /* Cards: single column */
     .pa-dp__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    /* Info panel: stack vertically */
+    .pa-dp__card-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .pa-dp__card-link {
+      font-size: 11px;
     }
   }
 </style>
