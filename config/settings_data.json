@@ -542,7 +542,7 @@
     "swym_header_icon_custom_html": "",
     "swym_header_icon_count_bubble_html": "",
     "swym_header_icon_custom_css": "",
-    "swym_header_icon_selector_desktop": ".search-action",
+    "swym_header_icon_selector_desktop": "",
     "swym_header_icon_selector_mobile": ""
   },
   "presets": {
