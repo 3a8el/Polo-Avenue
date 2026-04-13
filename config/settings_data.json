@@ -542,7 +542,7 @@
     "swym_header_icon_custom_html": "",
     "swym_header_icon_count_bubble_html": "",
     "swym_header_icon_custom_css": "",
-    "swym_header_icon_selector_desktop": "",
+    "swym_header_icon_selector_desktop": "#header-component > div.header__row.header__row--top.color-scheme-5932884d-4682-4878-9f26-01791c471cec.section.section--full-width-margin.section--page-width > div > div.header__column.header__column--right > search-button",
     "swym_header_icon_selector_mobile": ""
   },
   "presets": {
