@@ -63,6 +63,7 @@
         "card_him": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/for-him.webp",
             "title": "FOR HIM",
             "collection_url": "/collections/for-him"
           }
@@ -70,6 +71,7 @@
         "card_her": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/for-her.webp",
             "title": "FOR HER",
             "collection_url": "/collections/for-her"
           }
@@ -77,6 +79,7 @@
         "card_home": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/for-home.webp",
             "title": "FOR THE HOME",
             "collection_url": "/collections/for-the-home"
           }
@@ -84,6 +87,7 @@
         "card_jewellery": {
           "type": "collection_card",
           "settings": {
+            "image": "shopify://shop_images/Fine-jewellery.webp",
             "title": "FINE JEWELLERY",
             "collection_url": "/collections/fine-jewellery"
           }
