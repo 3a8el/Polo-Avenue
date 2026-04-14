@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "gift_services": {
@@ -39,12 +48,13 @@
         "service_delivery"
       ],
       "settings": {
+        "hero_image": "shopify://shop_images/Dior.webp",
         "label": "GIFT SERVICES",
         "heading": "The Art of Giving",
         "subheading": "Every gift from Polo Avenue arrives in our signature luxury packaging, wrapped with care, and delivered with intent.",
         "color_scheme": "scheme-1",
         "padding-block-start": 60,
-        "padding-block-end": 60
+        "padding-block-end": 88
       }
     },
     "gift_collections": {
