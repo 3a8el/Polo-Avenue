@@ -1,0 +1,270 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="section section--full-width color-{{ section.settings.color_scheme }} pa-faq spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="pa-faq__inner">
+
+    <div class="pa-faq__header">
+      {%- if section.settings.label != blank -%}
+        <p class="pa-faq__label">{{ section.settings.label }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="pa-faq__list">
+      {%- for block in section.blocks -%}
+        <details class="pa-faq__item" {{ block.shopify_attributes }}>
+          <summary class="pa-faq__question">
+            <span class="pa-faq__question-text">{{ forloop.index }}. {{ block.settings.question }}</span>
+            <span class="pa-faq__icon" aria-hidden="true">
+              <span class="pa-faq__icon-minus"></span>
+              <span class="pa-faq__icon-plus"></span>
+            </span>
+          </summary>
+          <div class="pa-faq__answer">
+            <p>{{ block.settings.answer }}</p>
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .pa-faq__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-inline: 60px;
+  }
+
+  /* ── Header ── */
+  .pa-faq__label {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #EF4B37;
+  }
+
+  /* ── List ── */
+  .pa-faq__list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border, #E5E5E5);
+  }
+
+  /* ── Item ── */
+  .pa-faq__item {
+    border-bottom: 1px solid var(--color-border, #E5E5E5);
+  }
+
+  .pa-faq__item summary {
+    list-style: none;
+  }
+
+  .pa-faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .pa-faq__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .pa-faq__question-text {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--color-foreground);
+  }
+
+  /* ── Toggle icon ── */
+  .pa-faq__icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  .pa-faq__icon-minus,
+  .pa-faq__icon-plus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: var(--color-foreground);
+    border-radius: 2px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  /* Horizontal bar (always visible) */
+  .pa-faq__icon-minus {
+    width: 14px;
+    height: 1.5px;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Vertical bar (visible when closed, hidden when open) */
+  .pa-faq__icon-plus {
+    width: 1.5px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  .pa-faq__item[open] .pa-faq__icon-plus {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  /* ── Answer ── */
+  .pa-faq__answer {
+    padding: 0 0 20px;
+    overflow: hidden;
+  }
+
+  .pa-faq__answer p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.004em;
+    color: #828282;
+    max-width: 720px;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 749px) {
+    .pa-faq__inner {
+      padding-inline: 24px;
+      gap: 24px;
+    }
+
+    .pa-faq__question-text {
+      font-size: 14px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "PA FAQ",
+  "tag": "section",
+  "max_blocks": 20,
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question here?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Your answer here."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "FREQUENTLY ASKED QUESTIONS"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "PA FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "Standard delivery takes 2–5 business days within the UAE."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I track my order?",
+            "answer": "Yes. You will receive a tracking link via email and SMS once your order is dispatched."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "Items may be returned within 30 days if unworn, with original tags and packaging intact."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you deliver internationally?",
+            "answer": "Yes. We ship to over 40 countries. International delivery times vary by destination."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I initiate a return?",
+            "answer": "Log into your account, navigate to Orders, and select Return Item. Our team will arrange collection."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is my payment secure?",
+            "answer": "All transactions are processed through encrypted, PCI-DSS compliant payment gateways."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

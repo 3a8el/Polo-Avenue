@@ -1,0 +1,115 @@
+{
+  "sections": {
+    "shipping_cards": {
+      "type": "pa-shipping-cards",
+      "blocks": {
+        "card_delivery": {
+          "type": "card",
+          "settings": {
+            "title": "Free Delivery",
+            "description": "Complimentary standard delivery on all orders over AED 400. Express same-day delivery available in Dubai for AED 85."
+          }
+        },
+        "card_returns": {
+          "type": "card",
+          "settings": {
+            "title": "Easy Returns",
+            "description": "Return any unworn item within 30 days of delivery. Items must have original tags attached and be in original packaging."
+          }
+        },
+        "card_auth": {
+          "type": "card",
+          "settings": {
+            "title": "Authentication",
+            "description": "Every item is guaranteed authentic. We provide a Certificate of Authenticity for all fine jewellery and select luxury items."
+          }
+        },
+        "card_gift": {
+          "type": "card",
+          "settings": {
+            "title": "Gift Returns",
+            "description": "Gift recipients may return items within 30 days with proof of purchase. Exchange or store credit issued."
+          }
+        }
+      },
+      "block_order": [
+        "card_delivery",
+        "card_returns",
+        "card_auth",
+        "card_gift"
+      ],
+      "settings": {
+        "label": "SHIPPING & RETURNS",
+        "heading": "Customer Care",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    },
+    "faq": {
+      "type": "pa-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does delivery take?",
+            "answer": "Standard delivery takes 2–5 business days within the UAE."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I track my order?",
+            "answer": "Yes. You will receive a tracking link via email and SMS once your order is dispatched."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "Items may be returned within 30 days if unworn, with original tags and packaging intact."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you deliver internationally?",
+            "answer": "Yes. We ship to over 40 countries. International delivery times vary by destination."
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I initiate a return?",
+            "answer": "Log into your account, navigate to Orders, and select Return Item. Our team will arrange collection."
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is my payment secure?",
+            "answer": "All transactions are processed through encrypted, PCI-DSS compliant payment gateways."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ],
+      "settings": {
+        "label": "FREQUENTLY ASKED QUESTIONS",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 80
+      }
+    }
+  },
+  "order": [
+    "shipping_cards",
+    "faq"
+  ]
+}
