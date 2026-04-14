@@ -36,7 +36,7 @@
   </div>
 
   {%- comment -%} ── Section 2: Service cards ── {%- endcomment -%}
-  <div class="pa-gift-services__cards-wrap section--page-width">
+  <div class="pa-gift-services__cards-wrap">
     <div class="pa-gift-services__grid">
       {%- for block in section.blocks -%}
         <div class="pa-gift-services__card" {{ block.shopify_attributes }}>
@@ -119,6 +119,8 @@
     font-weight: 400;
     line-height: 1.05;
     color: #ffffff;
+    border: none;
+    text-decoration: none;
   }
 
   .pa-gift-services__subheading {
@@ -132,7 +134,7 @@
   /* ── Cards wrap ── */
   .pa-gift-services__cards-wrap {
     padding-block: 60px;
-    padding-inline: var(--section-padding-inline, 40px);
+    padding-inline: 60px;
   }
 
   /* ── Cards grid ── */
@@ -206,6 +208,7 @@
 
     .pa-gift-services__cards-wrap {
       padding-block: 40px;
+      padding-inline: 24px;
     }
 
     .pa-gift-services__grid {
