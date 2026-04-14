@@ -69,6 +69,10 @@
         "text_tqQTNE",
         "text_twGGkJ"
       ],
+      "custom_css": [
+        ".custom-section-content {padding: 0 52px;}",
+        "@media (max-width: 749px) {.custom-section-content {padding: 0 20px;}}"
+      ],
       "name": "Collection heading",
       "settings": {
         "content_direction": "column",
