@@ -242,6 +242,7 @@
             "logo_2": "shopify://shop_images/akk-logo-600width_1.png",
             "logo_3": "shopify://shop_images/FG.png_1.png",
             "logo_4": "shopify://shop_images/Torlowei2019_Logo_-_Black.png.avif-0_SVG.png",
+            "logo_5": "shopify://shop_images/akk-logo-600width_1.png",
             "logo_width": 140,
             "logo_height": 80,
             "logo_spacing": 60,
@@ -804,7 +805,7 @@
       ],
       "name": "PA Brand Spotlight",
       "settings": {
-        "autoplay_speed": 3,
+        "autoplay_speed": 5,
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
@@ -874,6 +875,7 @@
       "block_order": [
         "ai_gen_block_0582f4d_JADFGC"
       ],
+      "name": "Whatsapp CTA",
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
