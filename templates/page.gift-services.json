@@ -1,0 +1,102 @@
+{
+  "sections": {
+    "gift_services": {
+      "type": "pa-gift-services",
+      "blocks": {
+        "service_wrapping": {
+          "type": "service",
+          "settings": {
+            "title": "Luxury Gift Wrapping",
+            "description": "Every order arrives in our signature luxury packaging, handwritten note included with every gift."
+          }
+        },
+        "service_cards": {
+          "type": "service",
+          "settings": {
+            "title": "Gift Cards",
+            "description": "From AED 500–AED 5000 Digital or physical. Perfect for every occasion."
+          }
+        },
+        "service_consultation": {
+          "type": "service",
+          "settings": {
+            "title": "Gift Consultation",
+            "description": "Our stylists will curate the perfect gift for your recipient's taste and budget."
+          }
+        },
+        "service_delivery": {
+          "type": "service",
+          "settings": {
+            "title": "Same-Day Delivery",
+            "description": "Order before 12pm in Dubai. Order before 12pm for same-day delivery."
+          }
+        }
+      },
+      "block_order": [
+        "service_wrapping",
+        "service_cards",
+        "service_consultation",
+        "service_delivery"
+      ],
+      "settings": {
+        "label": "GIFT SERVICES",
+        "heading": "The Art of Giving",
+        "subheading": "Every gift from Polo Avenue arrives in our signature luxury packaging, wrapped with care, and delivered with intent.",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    },
+    "gift_collections": {
+      "type": "pa-gift-collections",
+      "blocks": {
+        "card_him": {
+          "type": "collection_card",
+          "settings": {
+            "title": "FOR HIM",
+            "collection_url": "/collections/for-him"
+          }
+        },
+        "card_her": {
+          "type": "collection_card",
+          "settings": {
+            "title": "FOR HER",
+            "collection_url": "/collections/for-her"
+          }
+        },
+        "card_home": {
+          "type": "collection_card",
+          "settings": {
+            "title": "FOR THE HOME",
+            "collection_url": "/collections/for-the-home"
+          }
+        },
+        "card_jewellery": {
+          "type": "collection_card",
+          "settings": {
+            "title": "FINE JEWELLERY",
+            "collection_url": "/collections/fine-jewellery"
+          }
+        }
+      },
+      "block_order": [
+        "card_him",
+        "card_her",
+        "card_home",
+        "card_jewellery"
+      ],
+      "settings": {
+        "label": "SHOP BY RECIPIENT",
+        "heading": "Find the Perfect Gift",
+        "card_cta_label": "EXPLORE",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 60
+      }
+    }
+  },
+  "order": [
+    "gift_services",
+    "gift_collections"
+  ]
+}
