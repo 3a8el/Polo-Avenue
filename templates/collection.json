@@ -71,7 +71,10 @@
       ],
       "custom_css": [
         ".custom-section-content {padding: 0 52px;}",
-        "@media (max-width: 749px) {.custom-section-content {padding: 0 20px; }}"
+        "@media (max-width: 749px) {.custom-section-content {padding: 0 20px; }}",
+        "#shopify-section-section .custom-section-background { background-image: url('https://cdn.shopify.com/s/files/1/0785/8513/5336/files/hero-PA-cover.webp?v=1776112364'); background-size: cover; background-position: center; }",
+        "#shopify-section-section .custom-section-background .background-image-container svg { display: none; }",
+        "@media (max-width: 749px) { #shopify-section-section .custom-section-background { background-image: url('https://cdn.shopify.com/s/files/1/0785/8513/5336/files/Hero-pa-cover-m.webp?v=1776112430'); } }"
       ],
       "name": "Collection heading",
       "settings": {
