@@ -127,8 +127,8 @@
                         class="menu-drawer__menu-item menu-drawer__menu-item--mainlist menu-drawer__animated-element focus-inset"
                       >
                         <span class="menu-drawer__menu-item-text wrap-text">{{ link.title | escape }}</span>
-                        <span class="svg-wrapper icon-plus">
-                          {{- 'icon-plus.svg' | inline_asset_content -}}
+                        <span class="svg-wrapper icon-caret pa-drawer-caret">
+                          {{- 'icon-caret.svg' | inline_asset_content -}}
                         </span>
                       </summary>
                       {% liquid
@@ -701,6 +701,21 @@
             </drawer-localization-component>
           {% endif %}
         {%- endif -%}
+
+        {%- if data_header_drawer_type == 'mobile-drawer' -%}
+          <div class="pa-drawer-account">
+            <p class="pa-drawer-account__label">My Account:</p>
+            {%- if customer -%}
+              <a href="{{ routes.account_url }}" class="pa-drawer-account__user">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" stroke="#EF4B37" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#EF4B37" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span>{{ customer.first_name }} {{ customer.last_name }}</span>
+              </a>
+            {%- else -%}
+              <a href="{{ routes.account_login_url }}" class="pa-drawer-account__btn pa-drawer-account__btn--primary">SIGN IN</a>
+              <a href="{{ routes.account_register_url }}" class="pa-drawer-account__btn pa-drawer-account__btn--secondary">REGISTER</a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
       </div>
 
       {% liquid
@@ -765,6 +780,67 @@
 </header-drawer>
 
 {% stylesheet %}
+  /* ── Drawer caret (replaces + icon) ── */
+  .pa-drawer-caret svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease;
+  }
+
+  details[open] > summary .pa-drawer-caret svg {
+    transform: rotate(180deg);
+  }
+
+  /* ── My Account section ── */
+  .pa-drawer-account {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 0 4px;
+    border-top: 1px solid rgba(var(--color-foreground-rgb), 0.12);
+    margin-top: 12px;
+  }
+
+  .pa-drawer-account__label {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(var(--color-foreground-rgb), 0.55);
+    font-weight: 400;
+  }
+
+  .pa-drawer-account__user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--color-foreground);
+    text-decoration: none;
+  }
+
+  .pa-drawer-account__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+
+  .pa-drawer-account__btn--primary {
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  .pa-drawer-account__btn--secondary {
+    background: transparent;
+    color: var(--color-foreground);
+    border: 1.5px solid var(--color-foreground);
+  }
+
   .header__icon--menu {
     position: initial;
   }
