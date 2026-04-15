@@ -360,7 +360,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>New Arrivals</h5>",
+                    "text": "<h5><a href=\"/collections/new-arrivals\" title=\"NEW ARRIVALS\">New Arrivals</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -412,7 +412,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Designers</h5>",
+                    "text": "<h5><a href=\"/pages/designers\" title=\"Designers\">Designers</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -438,7 +438,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Gift Services</h5>",
+                    "text": "<h5><a href=\"/pages/gift-services\" title=\"Gift Services\">Gift Services</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -578,7 +578,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Boutique Locator</h5>",
+                    "text": "<h5><a href=\"/pages/contact\" title=\"Contact\">Boutique Locator</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -604,7 +604,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Personal Styling</h5>",
+                    "text": "<h5><a href=\"/pages/personal-styling\" title=\"Personal Styling\">Personal Styling</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -630,7 +630,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Shipping & Returns</h5>",
+                    "text": "<h5><a href=\"/pages/shipping-returns\" title=\"Shipping & Returns\">Shipping & Returns</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -770,7 +770,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>Wish List</h5>",
+                    "text": "<h5><a href=\"/pages/swym-wishlist\" title=\"Wishlist\">Wish List</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
