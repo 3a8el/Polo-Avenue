@@ -88,7 +88,7 @@
     "swym_header_icon_show_count": false,
     "swym_header_icon_custom_html": "<svg width=\"19\" height=\"17\" viewbox=\"0 0 21 19\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M11.0485 18.1387C10.7085 18.2587 10.1485 18.2587 9.80847 18.1387C6.90847 17.1487 0.428467 13.0187 0.428467 6.01871C0.428467 2.92871 2.91847 0.428711 5.98847 0.428711C7.80847 0.428711 9.41847 1.30871 10.4285 2.66871C11.4385 1.30871 13.0585 0.428711 14.8685 0.428711C17.9385 0.428711 20.4285 2.92871 20.4285 6.01871C20.4285 13.0187 13.9485 17.1487 11.0485 18.1387Z\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    </svg>",
     "swym_header_icon_count_bubble_html": "",
-    "swym_header_icon_custom_css": "@media (min-width: 750px) { cart-drawer-component .swym-header-icon-html { display: none !important; } } @media (max-width: 749px) { header-actions > .swym-header-icon-html { display: none !important; } }",
+    "swym_header_icon_custom_css": "",
     "swym_header_icon_selector_desktop": "#header-component > div.header__row.header__row--top.color-scheme-5932884d-4682-4878-9f26-01791c471cec.section.section--full-width-margin.section--page-width > div > div.header__column.header__column--right > header-actions",
     "swym_header_icon_selector_mobile": "#header-component > div.header__row.header__row--top.color-scheme-5932884d-4682-4878-9f26-01791c471cec.section.section--full-width-margin.section--page-width > div > div.header__column.header__column--right > header-actions > cart-drawer-component",
     "sections": {
