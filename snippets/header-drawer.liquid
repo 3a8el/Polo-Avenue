@@ -953,6 +953,29 @@
     }
   }
 
+  @media screen and (max-width: 749px) {
+    /* Hide the in-drawer close button — header hamburger already toggles it */
+    .menu-drawer > .menu-drawer__inner-container > .menu-drawer__close-button {
+      display: none;
+    }
+
+    /* Top-level nav items */
+    .menu-drawer__menu-item--mainlist .menu-drawer__menu-item-text {
+      font-size: 18px;
+    }
+
+    /* Submenu child items */
+    .menu-drawer__menu-item--child {
+      font-size: 14px;
+      color: #828282;
+    }
+
+    .menu-drawer__menu-item--child .menu-drawer__menu-item-text {
+      font-size: 14px;
+      color: #828282;
+    }
+  }
+
   /* When opening a submenu we don't want the first-level menu to be scrollable, so we reset the overflow  */
   .menu-drawer.menu-drawer--has-submenu-opened {
     overflow: initial;
