@@ -708,7 +708,11 @@
             {%- if customer -%}
               <a href="{{ routes.account_url }}" class="pa-drawer-account__user">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="4" stroke="#EF4B37" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#EF4B37" stroke-width="1.5" stroke-linecap="round"/></svg>
-                <span>{{ customer.first_name }} {{ customer.last_name }}</span>
+                {%- if customer.first_name != blank or customer.last_name != blank -%}
+                  <span>{{ customer.first_name }} {{ customer.last_name }}</span>
+                {%- else -%}
+                  <span>{{ customer.email }}</span>
+                {%- endif -%}
               </a>
             {%- else -%}
               <a href="{{ routes.account_login_url }}" class="pa-drawer-account__btn pa-drawer-account__btn--primary">SIGN IN</a>
@@ -797,14 +801,14 @@
     flex-direction: column;
     gap: 10px;
     padding: 20px var(--padding-xl) 4px 0;
-    border-top: 1px solid rgba(var(--color-foreground-rgb), 0.12);
+    border-top: 1px solid #E5E5E5;
     margin-top: 12px;
   }
 
   .pa-drawer-account__label {
     margin: 0;
     font-size: 13px;
-    color: rgba(var(--color-foreground-rgb), 0.55);
+    color: #828282;
     font-weight: 400;
   }
 
