@@ -1055,72 +1055,6 @@
         "padding-block-end": 68
       }
     },
-    "pa_designers_2_hjEVYG": {
-      "type": "pa-designers-2",
-      "blocks": {
-        "designer_dFjLK8": {
-          "type": "designer",
-          "settings": {
-            "image": "shopify://shop_images/Frame_15.webp",
-            "designer_name": "GUCCI",
-            "origin": "Italy",
-            "since": "1921",
-            "collection_url": "https://www.google.com"
-          }
-        },
-        "designer_gYTkqJ": {
-          "type": "designer",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle.webp",
-            "designer_name": "VALENTINO",
-            "origin": "Italy",
-            "since": "1960",
-            "collection_url": ""
-          }
-        },
-        "designer_b7V7hw": {
-          "type": "designer",
-          "settings": {
-            "image": "shopify://shop_images/Frame_115.webp",
-            "designer_name": "BALMAIN",
-            "origin": "France",
-            "since": "1945",
-            "collection_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "designer_dFjLK8",
-        "designer_gYTkqJ",
-        "designer_b7V7hw"
-      ],
-      "name": "PA Designers",
-      "settings": {
-        "label": "DESIGNERS",
-        "heading": "The Houses We Carry",
-        "explore_label": "EXPLORE ALL",
-        "explore_url": "",
-        "card_cta_label": "VIEW COLLECTION",
-        "section_width": "page-width",
-        "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
-    "divider_qXihdi": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
-        "section_width": "full-width",
-        "thickness": 0.5,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 68,
-        "padding-block-end": 68
-      }
-    },
     "pa_ig_79ChCw": {
       "type": "pa-ig",
       "blocks": {
@@ -1236,8 +1170,6 @@
     "divider_ExBL3f",
     "17751326438983d3aa",
     "divider_N3mGtC",
-    "pa_designers_2_hjEVYG",
-    "divider_qXihdi",
     "pa_ig_79ChCw",
     "divider_94PVtU"
   ]
