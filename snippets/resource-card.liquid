@@ -253,6 +253,11 @@
     align-items: baseline;
     justify-content: space-between;
     gap: 8px;
+
+    @media screen and (max-width: 749px) {
+      flex-direction: column;
+      gap: 2px;
+    }
   }
 
   .resource-card__title-price-row .resource-card__title {
