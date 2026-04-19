@@ -1,9 +1,10 @@
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 
 <div
-  class="section section--full-width color-{{ section.settings.color_scheme }} pa-brand-feature spacing-style{% if section.settings.image_position == 'right' %} pa-brand-feature--image-right{% endif %}"
+  class="section section--full-width color-{{ section.settings.color_scheme }} pa-brand-feature-section spacing-style"
   style="{% render 'spacing-style', settings: section.settings %}"
 >
+  <div class="pa-brand-feature{% if section.settings.image_position == 'right' %} pa-brand-feature--image-right{% endif %}">
 
   <div class="pa-brand-feature__image-col">
     {%- if section.settings.image != blank -%}
@@ -39,9 +40,14 @@
     </div>
   </div>
 
+  </div>
 </div>
 
 <style>
+  .pa-brand-feature-section {
+    padding: 0 !important;
+  }
+
   .pa-brand-feature {
     display: grid;
     grid-template-columns: 1fr 1fr;
