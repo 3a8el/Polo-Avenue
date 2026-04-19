@@ -142,17 +142,24 @@
     {% if resource_type == 'product' and resource.vendor != blank %}
       <p class="resource-card__vendor">{{ resource.vendor }}</p>
     {% endif %}
+    {% if resource_type == 'product' %}
+      <div class="resource-card__title-price-row">
+        <p class="resource-card__title{% if style == 'overlay' %} h5{%else %} paragraph{% endif %}">
+          {{- resource.title -}}
+        </p>
+        {% render 'price', product_resource: resource, show_unit_price: true %}
+      </div>
+    {% else %}
     <p class="resource-card__title{% if style == 'overlay' %} h5{%else %} paragraph{% endif %}">
       {{- resource.title -}}
     </p>
+    {% endif %}
 
-    {% if resource_type == 'product' %}
-      {% render 'price', product_resource: resource, show_unit_price: true %}
-    {% elsif resource_type == 'collection' and single_thumbnail_collection == false %}
+    {% if resource_type == 'collection' and single_thumbnail_collection == false %}
       <p class="resource-card__subtext paragraph">
         {{- 'content.search_results_resource_products_count' | t: count: resource.all_products_count -}}
       </p>
-    {% else %}
+    {% elsif resource_type != 'product' %}
       <p class="resource-card__subtext paragraph">
         {{- resource.excerpt | default: resource.content | strip_html | truncate: 65 -}}
       </p>
@@ -239,6 +246,23 @@
     aspect-ratio: var(--resource-card-aspect-ratio, auto);
     border-radius: var(--resource-card-corner-radius);
     color: var(--color-foreground);
+  }
+
+  .resource-card__title-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .resource-card__title-price-row .resource-card__title {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .resource-card__title-price-row .price {
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 
   .resource-card__vendor {
