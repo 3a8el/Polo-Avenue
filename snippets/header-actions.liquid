@@ -710,4 +710,20 @@
       margin-inline-start: 0;
     }
   }
+
+<style>
+  /* Force solid white background on cart drawer */
+  .cart-drawer__dialog,
+  .cart-drawer__inner,
+  .cart-drawer__content {
+    background-color: #fff !important;
+  }
+
+  /* Fix horizontal overflow in cart drawer */
+  .cart-drawer__dialog,
+  .cart-drawer__inner,
+  .cart-drawer__items {
+    overflow-x: hidden !important;
+  }
+</style>
 {% endstylesheet %}
