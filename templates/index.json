@@ -703,6 +703,36 @@
         "padding-block-end": 0
       }
     },
+    "divider_6d4fcc": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
+    "pa_brand_feature_GtRAGz": {
+      "type": "pa-brand-feature",
+      "name": "PA Brand Feature",
+      "settings": {
+        "image": "shopify://shop_images/Slide05.webp",
+        "image_position": "left",
+        "label": "CRAFTED IN EVERY DETAIL",
+        "heading": "Biyan",
+        "description": "Renowned for intricate detailing and rich textures, Biyan offers couture-inspired pieces that merge tradition with modern luxury, creating timeless yet distinctive designs.",
+        "button_label": "EXPLORE COLLECTION",
+        "button_url": "shopify://collections/biyan",
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "hero_rALxwe": {
       "type": "hero",
       "blocks": {
@@ -1198,6 +1228,8 @@
     "pa_brand_feature_cPX7Jn",
     "divider_UnPa6P",
     "pa_brand_feature_KJLKyt",
+    "divider_6d4fcc",
+    "pa_brand_feature_GtRAGz",
     "hero_rALxwe",
     "divider_QCYhNU",
     "pa_brand_spotlight_MCKrbi",
