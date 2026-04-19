@@ -597,6 +597,22 @@
         "padding-block-end": 68
       }
     },
+    "pa_brand_feature_KxMFWq": {
+      "type": "pa-brand-feature",
+      "name": "PA Brand Feature",
+      "settings": {
+        "image": "shopify://shop_images/Slide03.webp",
+        "image_position": "left",
+        "label": "MODERN HERITAGE REDEFINED",
+        "heading": "Brand Name",
+        "description": "A short description about the brand and what makes it special.",
+        "button_label": "EXPLORE COLLECTION",
+        "button_url": "",
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "hero_rALxwe": {
       "type": "hero",
       "blocks": {
@@ -1085,6 +1101,7 @@
     "17750779348cc5e899",
     "product_list_XrEGUh",
     "divider_RnHpq4",
+    "pa_brand_feature_KxMFWq",
     "hero_rALxwe",
     "divider_QCYhNU",
     "pa_brand_spotlight_MCKrbi",
