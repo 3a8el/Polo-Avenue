@@ -804,6 +804,453 @@
         "brand_ifqxJg",
         "brand_Amyfwj"
       ],
+      "disabled": true,
+      "name": "PA Brand Spotlight",
+      "settings": {
+        "autoplay_speed": 5,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "pa_brand_spotlight_BryHFn": {
+      "type": "pa-brand-spotlight",
+      "blocks": {
+        "brand_CQAFcy": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/Slide01.webp",
+            "subheading": "MODERN HERITAGE REDEFINED",
+            "brand_name": "Onalaja",
+            "description": "A bold celebration of heritage and femininity, Onalaja blends Nigerian craftsmanship with contemporary silhouettes—creating statement pieces that feel both powerful and deeply personal.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_Y8wVf3": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide02.webp",
+            "subheading": "PRINTS WITH A STORY",
+            "brand_name": "Banke Kuku",
+            "description": "Rooted in storytelling, Banke Kuku transforms vibrant prints into effortless luxury. Each piece reflects culture, color, and a refined sense of modern African elegance.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_gJzfM8": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide03.webp",
+            "subheading": "EFFORTLESS SENSUALITY",
+            "brand_name": "Torlowei",
+            "description": "Torlowei embodies sensual sophistication, crafting resort and evening wear that celebrates confidence, fluidity, and the art of understated allure.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_gHgxTy": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide04.webp",
+            "subheading": "WEARABLE ART, REIMAGINED",
+            "brand_name": "Anna Karin Karlsson",
+            "description": "More than eyewear, Anna Karin Karlsson creates wearable art—dramatic, sculptural pieces designed for those who embrace individuality and bold self-expression.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_XUcr4m": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide05.webp",
+            "subheading": "CRAFTED IN EVERY DETAIL",
+            "brand_name": "Biyan",
+            "description": "Renowned for intricate detailing and rich textures, Biyan offers couture-inspired pieces that merge tradition with modern luxury, creating timeless yet distinctive designs.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_CQAFcy",
+        "brand_Y8wVf3",
+        "brand_gJzfM8",
+        "brand_gHgxTy",
+        "brand_XUcr4m"
+      ],
+      "name": "PA Brand Spotlight",
+      "settings": {
+        "autoplay_speed": 5,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "divider_BdxbnB": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
+    "pa_brand_spotlight_37kQWD": {
+      "type": "pa-brand-spotlight",
+      "blocks": {
+        "brand_4R4mER": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide01.webp",
+            "subheading": "MODERN HERITAGE REDEFINED",
+            "brand_name": "Onalaja",
+            "description": "A bold celebration of heritage and femininity, Onalaja blends Nigerian craftsmanship with contemporary silhouettes—creating statement pieces that feel both powerful and deeply personal.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_nzqX7J": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/Slide02.webp",
+            "subheading": "PRINTS WITH A STORY",
+            "brand_name": "Banke Kuku",
+            "description": "Rooted in storytelling, Banke Kuku transforms vibrant prints into effortless luxury. Each piece reflects culture, color, and a refined sense of modern African elegance.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_C6XUWN": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide03.webp",
+            "subheading": "EFFORTLESS SENSUALITY",
+            "brand_name": "Torlowei",
+            "description": "Torlowei embodies sensual sophistication, crafting resort and evening wear that celebrates confidence, fluidity, and the art of understated allure.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_aQ8hey": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide04.webp",
+            "subheading": "WEARABLE ART, REIMAGINED",
+            "brand_name": "Anna Karin Karlsson",
+            "description": "More than eyewear, Anna Karin Karlsson creates wearable art—dramatic, sculptural pieces designed for those who embrace individuality and bold self-expression.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_6ybHfc": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide05.webp",
+            "subheading": "CRAFTED IN EVERY DETAIL",
+            "brand_name": "Biyan",
+            "description": "Renowned for intricate detailing and rich textures, Biyan offers couture-inspired pieces that merge tradition with modern luxury, creating timeless yet distinctive designs.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_4R4mER",
+        "brand_nzqX7J",
+        "brand_C6XUWN",
+        "brand_aQ8hey",
+        "brand_6ybHfc"
+      ],
+      "name": "PA Brand Spotlight",
+      "settings": {
+        "autoplay_speed": 5,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "divider_FFYwnr": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
+    "pa_brand_spotlight_FmYPcm": {
+      "type": "pa-brand-spotlight",
+      "blocks": {
+        "brand_4wDDBh": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide01.webp",
+            "subheading": "MODERN HERITAGE REDEFINED",
+            "brand_name": "Onalaja",
+            "description": "A bold celebration of heritage and femininity, Onalaja blends Nigerian craftsmanship with contemporary silhouettes—creating statement pieces that feel both powerful and deeply personal.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_dLJqt7": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide02.webp",
+            "subheading": "PRINTS WITH A STORY",
+            "brand_name": "Banke Kuku",
+            "description": "Rooted in storytelling, Banke Kuku transforms vibrant prints into effortless luxury. Each piece reflects culture, color, and a refined sense of modern African elegance.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_KjpABx": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/Slide03.webp",
+            "subheading": "EFFORTLESS SENSUALITY",
+            "brand_name": "Torlowei",
+            "description": "Torlowei embodies sensual sophistication, crafting resort and evening wear that celebrates confidence, fluidity, and the art of understated allure.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_LJM97t": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide04.webp",
+            "subheading": "WEARABLE ART, REIMAGINED",
+            "brand_name": "Anna Karin Karlsson",
+            "description": "More than eyewear, Anna Karin Karlsson creates wearable art—dramatic, sculptural pieces designed for those who embrace individuality and bold self-expression.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_BM9j9d": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide05.webp",
+            "subheading": "CRAFTED IN EVERY DETAIL",
+            "brand_name": "Biyan",
+            "description": "Renowned for intricate detailing and rich textures, Biyan offers couture-inspired pieces that merge tradition with modern luxury, creating timeless yet distinctive designs.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_4wDDBh",
+        "brand_dLJqt7",
+        "brand_KjpABx",
+        "brand_LJM97t",
+        "brand_BM9j9d"
+      ],
+      "name": "PA Brand Spotlight",
+      "settings": {
+        "autoplay_speed": 5,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "divider_AAE8k4": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
+    "divider_w7qYyN": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
+    "pa_brand_spotlight_xNwYgJ": {
+      "type": "pa-brand-spotlight",
+      "blocks": {
+        "brand_Ncc98f": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide01.webp",
+            "subheading": "MODERN HERITAGE REDEFINED",
+            "brand_name": "Onalaja",
+            "description": "A bold celebration of heritage and femininity, Onalaja blends Nigerian craftsmanship with contemporary silhouettes—creating statement pieces that feel both powerful and deeply personal.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_Bh3kXn": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide02.webp",
+            "subheading": "PRINTS WITH A STORY",
+            "brand_name": "Banke Kuku",
+            "description": "Rooted in storytelling, Banke Kuku transforms vibrant prints into effortless luxury. Each piece reflects culture, color, and a refined sense of modern African elegance.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_tjeXD6": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide03.webp",
+            "subheading": "EFFORTLESS SENSUALITY",
+            "brand_name": "Torlowei",
+            "description": "Torlowei embodies sensual sophistication, crafting resort and evening wear that celebrates confidence, fluidity, and the art of understated allure.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_HQyDBb": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/Slide04.webp",
+            "subheading": "WEARABLE ART, REIMAGINED",
+            "brand_name": "Anna Karin Karlsson",
+            "description": "More than eyewear, Anna Karin Karlsson creates wearable art—dramatic, sculptural pieces designed for those who embrace individuality and bold self-expression.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_QzJR3e": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide05.webp",
+            "subheading": "CRAFTED IN EVERY DETAIL",
+            "brand_name": "Biyan",
+            "description": "Renowned for intricate detailing and rich textures, Biyan offers couture-inspired pieces that merge tradition with modern luxury, creating timeless yet distinctive designs.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_Ncc98f",
+        "brand_Bh3kXn",
+        "brand_tjeXD6",
+        "brand_HQyDBb",
+        "brand_QzJR3e"
+      ],
+      "name": "PA Brand Spotlight",
+      "settings": {
+        "autoplay_speed": 5,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "pa_brand_spotlight_jWp9JA": {
+      "type": "pa-brand-spotlight",
+      "blocks": {
+        "brand_nnFA88": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide01.webp",
+            "subheading": "MODERN HERITAGE REDEFINED",
+            "brand_name": "Onalaja",
+            "description": "A bold celebration of heritage and femininity, Onalaja blends Nigerian craftsmanship with contemporary silhouettes—creating statement pieces that feel both powerful and deeply personal.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_94mhhm": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide02.webp",
+            "subheading": "PRINTS WITH A STORY",
+            "brand_name": "Banke Kuku",
+            "description": "Rooted in storytelling, Banke Kuku transforms vibrant prints into effortless luxury. Each piece reflects culture, color, and a refined sense of modern African elegance.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_emDzH6": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide03.webp",
+            "subheading": "EFFORTLESS SENSUALITY",
+            "brand_name": "Torlowei",
+            "description": "Torlowei embodies sensual sophistication, crafting resort and evening wear that celebrates confidence, fluidity, and the art of understated allure.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_FB3GyG": {
+          "type": "brand",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Slide04.webp",
+            "subheading": "WEARABLE ART, REIMAGINED",
+            "brand_name": "Anna Karin Karlsson",
+            "description": "More than eyewear, Anna Karin Karlsson creates wearable art—dramatic, sculptural pieces designed for those who embrace individuality and bold self-expression.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": "shopify://collections"
+          }
+        },
+        "brand_TGwAWa": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/Slide05.webp",
+            "subheading": "CRAFTED IN EVERY DETAIL",
+            "brand_name": "Biyan",
+            "description": "Renowned for intricate detailing and rich textures, Biyan offers couture-inspired pieces that merge tradition with modern luxury, creating timeless yet distinctive designs.",
+            "button_label": "EXPLORE COLLECTION",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_nnFA88",
+        "brand_94mhhm",
+        "brand_emDzH6",
+        "brand_FB3GyG",
+        "brand_TGwAWa"
+      ],
       "name": "PA Brand Spotlight",
       "settings": {
         "autoplay_speed": 5,
@@ -1075,6 +1522,15 @@
     "hero_rALxwe",
     "divider_QCYhNU",
     "pa_brand_spotlight_MCKrbi",
+    "pa_brand_spotlight_BryHFn",
+    "divider_BdxbnB",
+    "pa_brand_spotlight_37kQWD",
+    "divider_FFYwnr",
+    "pa_brand_spotlight_FmYPcm",
+    "divider_AAE8k4",
+    "pa_brand_spotlight_xNwYgJ",
+    "divider_w7qYyN",
+    "pa_brand_spotlight_jWp9JA",
     "divider_ExBL3f",
     "17751326438983d3aa",
     "divider_N3mGtC",
