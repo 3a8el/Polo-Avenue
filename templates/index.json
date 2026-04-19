@@ -673,6 +673,36 @@
         "padding-block-end": 0
       }
     },
+    "divider_UnPa6P": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
+    "pa_brand_feature_KJLKyt": {
+      "type": "pa-brand-feature",
+      "name": "PA Brand Feature",
+      "settings": {
+        "image": "shopify://shop_images/Slide04.webp",
+        "image_position": "right",
+        "label": "WEARABLE ART, REIMAGINED",
+        "heading": "Anna Karin Karlsson",
+        "description": "More than eyewear, Anna Karin Karlsson creates wearable art—dramatic, sculptural pieces designed for those who embrace individuality and bold self-expression.",
+        "button_label": "EXPLORE COLLECTION",
+        "button_url": "shopify://collections/anna-karin-karlson",
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "hero_rALxwe": {
       "type": "hero",
       "blocks": {
@@ -1166,6 +1196,8 @@
     "pa_brand_feature_NpANUC",
     "divider_pwxEwk",
     "pa_brand_feature_cPX7Jn",
+    "divider_UnPa6P",
+    "pa_brand_feature_KJLKyt",
     "hero_rALxwe",
     "divider_QCYhNU",
     "pa_brand_spotlight_MCKrbi",
