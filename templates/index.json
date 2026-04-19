@@ -583,7 +583,7 @@
         "padding-block-end": 100
       }
     },
-    "divider_RnHpq4": {
+    "divider_JmPcnX": {
       "type": "divider",
       "name": "t:names.divider_section",
       "settings": {
@@ -601,13 +601,73 @@
       "type": "pa-brand-feature",
       "name": "PA Brand Feature",
       "settings": {
-        "image": "shopify://shop_images/Slide03.webp",
+        "image": "shopify://shop_images/Slide02.webp",
         "image_position": "left",
         "label": "MODERN HERITAGE REDEFINED",
-        "heading": "Brand Name",
-        "description": "A short description about the brand and what makes it special.",
+        "heading": "Onalaga",
+        "description": "A bold celebration of heritage and femininity, Onalaja blends Nigerian craftsmanship with contemporary silhouettes—creating statement pieces that feel both powerful and deeply personal.",
         "button_label": "EXPLORE COLLECTION",
-        "button_url": "",
+        "button_url": "shopify://collections/onalaja",
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "divider_RnHpq4": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
+    "pa_brand_feature_NpANUC": {
+      "type": "pa-brand-feature",
+      "name": "PA Brand Feature",
+      "settings": {
+        "image": "shopify://shop_images/Slide01.webp",
+        "image_position": "right",
+        "label": "prints with story",
+        "heading": "Banke Kuku",
+        "description": "Rooted in storytelling, Banke Kuku transforms vibrant prints into effortless luxury. Each piece reflects culture, color, and a refined sense of modern African elegance.",
+        "button_label": "EXPLORE COLLECTION",
+        "button_url": "shopify://collections/banke-kuku",
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "divider_pwxEwk": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
+      }
+    },
+    "pa_brand_feature_cPX7Jn": {
+      "type": "pa-brand-feature",
+      "name": "PA Brand Feature",
+      "settings": {
+        "image": "shopify://shop_images/Slide03.webp",
+        "image_position": "left",
+        "label": "EFFORTLESS SENSUALITY",
+        "heading": "Torlowei",
+        "description": "Torlowei embodies sensual sophistication, crafting resort and evening wear that celebrates confidence, fluidity, and the art of understated allure.",
+        "button_label": "EXPLORE COLLECTION",
+        "button_url": "shopify://collections/banke-kuku",
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
@@ -1100,8 +1160,12 @@
     "section_WJwjHj",
     "17750779348cc5e899",
     "product_list_XrEGUh",
-    "divider_RnHpq4",
+    "divider_JmPcnX",
     "pa_brand_feature_KxMFWq",
+    "divider_RnHpq4",
+    "pa_brand_feature_NpANUC",
+    "divider_pwxEwk",
+    "pa_brand_feature_cPX7Jn",
     "hero_rALxwe",
     "divider_QCYhNU",
     "pa_brand_spotlight_MCKrbi",
