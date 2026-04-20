@@ -1,0 +1,135 @@
+{
+  "sections": {
+    "main": {
+      "type": "pa-pdp",
+      "settings": {
+        "size_guide_url": "",
+        "styling_url": "/pages/personal-styling",
+        "badge_1_title": "FREE DELIVERY",
+        "badge_1_desc": "Over AED 400",
+        "badge_2_title": "AUTHENTICATED",
+        "badge_2_desc": "100% Verified",
+        "badge_3_title": "EASY RETURNS",
+        "badge_3_desc": "30-day policy",
+        "delivery_text": "Complimentary standard delivery on orders over AED 400. Express same-day delivery available in Dubai for AED 85. Return any unworn item within 30 days of delivery.",
+        "styling_text": "Book a complimentary personal styling session with one of our expert stylists. In-store or virtual appointments available.",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "blocks": {
+        "header": {
+          "type": "text",
+          "name": "Header",
+          "settings": {
+            "text": "<p style=\"font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#EF4B37;margin:0 0 8px\">BASED ON THIS ITEM</p><h2 style=\"font-size:clamp(24px,3vw,36px);font-weight:400;margin:0\">You May Also Love</h2>",
+            "width": "100%",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-primary--family)",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "Product Card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "gallery": {
+              "type": "_product-card-gallery",
+              "name": "Media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "title": {
+              "type": "product-title",
+              "name": "Title",
+              "settings": {
+                "width": "100%",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "rte",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["gallery", "title", "price"]
+        }
+      },
+      "block_order": ["header"],
+      "name": "Product Recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 32,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    }
+  },
+  "order": ["main", "recommendations"]
+}
