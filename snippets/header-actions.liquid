@@ -776,8 +776,40 @@
     max-width: 36px !important;
   }
 
-  .cart-drawer .cart-items__remove {
+  /* Hide inline remove from quantity row in drawer; show drawer remove in price column */
+  .cart-drawer .cart-items__remove--inline {
+    display: none !important;
+  }
+
+  .cart-items__remove--drawer {
+    display: none;
+  }
+
+  .cart-drawer .cart-items__remove--drawer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: var(--minimum-touch-target) !important;
+    height: var(--minimum-touch-target) !important;
     margin-inline-start: auto !important;
-    flex-shrink: 0 !important;
+    color: var(--color-foreground) !important;
+  }
+
+  /* Price cell: stack price on top, remove icon on bottom-right */
+  .cart-drawer .cart-items__price {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+  }
+
+  /* Cart drawer header: close button right-aligned */
+  .cart-drawer .cart-drawer__header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 </style>
