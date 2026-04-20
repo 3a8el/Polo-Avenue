@@ -654,17 +654,10 @@
     }
   }
 
-  /* View all button aligned right */
-  #search-modal .predictive-search-form__footer {
-    position: static;
-    background: none;
-    padding: 20px 0 0;
-    display: flex;
-    justify-content: flex-end;
-  }
-
+  /* Hide view all footer */
+  #search-modal .predictive-search-form__footer,
   #search-modal predictive-search-component:has([data-search-results]):not(:has(.predictive-search-results__no-results))
     .predictive-search-form__footer {
-    display: flex;
+    display: none !important;
   }
 </style>
