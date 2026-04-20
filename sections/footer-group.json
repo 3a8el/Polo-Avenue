@@ -182,7 +182,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>concierge@poloavenue.ae</p>",
+                    "text": "<p>Mon–Sat: 10am–8pm  |  Sun: 12pm–6pm<br/></p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
