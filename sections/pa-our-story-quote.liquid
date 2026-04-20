@@ -1,0 +1,83 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="section section--page-width color-{{ section.settings.color_scheme }} pa-os-quote-section spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  <div class="pa-os-quote">
+    <div class="pa-os-quote__box">
+      <p class="pa-os-quote__text">{{ section.settings.quote }}</p>
+    </div>
+    {%- if section.settings.attribution != blank -%}
+      <p class="pa-os-quote__attribution">{{ section.settings.attribution }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .pa-os-quote {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+  }
+
+  .pa-os-quote__box {
+    flex: 1;
+    border-left: 2px solid #E32912;
+    background: #FAF9F7;
+    padding: 32px 24px;
+  }
+
+  .pa-os-quote__text {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--color-foreground);
+  }
+
+  .pa-os-quote__attribution {
+    margin: 0;
+    font-size: 14px;
+    color: #828282;
+    font-style: italic;
+    white-space: nowrap;
+    flex-shrink: 0;
+    max-width: 260px;
+    text-align: right;
+    padding-bottom: 4px;
+  }
+
+  @media (max-width: 749px) {
+    .pa-os-quote {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pa-os-quote__attribution {
+      white-space: normal;
+      text-align: left;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "PA Our Story Quote",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote",
+      "default": "For three decades, Polo has been synonymous with luxury in Africa. We built a house of discernment — a space where the world's most coveted fashion houses found a home alongside the continent's most gifted artisans and designers."
+    },
+    { "type": "text", "id": "attribution", "label": "Attribution / Caption", "default": "… now, that story continues in Dubai" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "header", "content": "Padding" },
+    { "type": "range", "id": "padding-block-start", "label": "Top", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding-block-end", "label": "Bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 48 }
+  ],
+  "presets": [{ "name": "PA Our Story Quote" }]
+}
+{% endschema %}

@@ -1,0 +1,128 @@
+{
+  "sections": {
+    "hero": {
+      "type": "pa-our-story-hero",
+      "settings": {
+        "label": "HERITAGE",
+        "heading": "Our Story",
+        "subtext": "Born in Africa. Arrived in Dubai.\nA legacy of luxury, carried across continents.",
+        "stat_number": "1994",
+        "stat_label": "FOUNDED IN AFRICA",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "quote": {
+      "type": "pa-our-story-quote",
+      "settings": {
+        "quote": "For three decades, Polo has been synonymous with luxury in Africa. We built a house of discernment — a space where the world's most coveted fashion houses found a home alongside the continent's most gifted artisans and designers.",
+        "attribution": "… now, that story continues in Dubai",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    },
+    "journey": {
+      "type": "pa-how-it-works",
+      "blocks": {
+        "step1": {
+          "type": "step",
+          "settings": {
+            "title": "Founded",
+            "description": "Polo opens its first luxury boutique in Johannesburg, South Africa."
+          }
+        },
+        "step2": {
+          "type": "step",
+          "settings": {
+            "title": "Expansion",
+            "description": "Regional growth across sub-Saharan Africa — 12 boutiques established."
+          }
+        },
+        "step3": {
+          "type": "step",
+          "settings": {
+            "title": "Africa's Finest",
+            "description": "Named the continent's foremost luxury retailer by Vogue Africa."
+          }
+        },
+        "step4": {
+          "type": "step",
+          "settings": {
+            "title": "Global Vision",
+            "description": "Polo begins curating international partnerships with global fashion houses."
+          }
+        },
+        "step5": {
+          "type": "step",
+          "settings": {
+            "title": "Dubai Arrives",
+            "description": "Polo Avenue opens its flagship Jumeirah boutique in Dubai, UAE."
+          }
+        }
+      },
+      "block_order": ["step1", "step2", "step3", "step4", "step5"],
+      "settings": {
+        "label": "THE POLO JOURNEY",
+        "heading": "A Legacy Across Decades",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
+    },
+    "image_block_1": {
+      "type": "pa-story-image-block",
+      "blocks": {
+        "para1": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "Our roots run deep in the African soil. Polo was built on the belief that luxury should be accessible, authentic, and anchored in culture. We championed African designers before the world was watching. We sourced from artisans whose craft had been passed through generations."
+          }
+        },
+        "para2": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "That founding philosophy — of curating the extraordinary from every corner of the world — is what we carry into every collection, every boutique, every client relationship."
+          }
+        }
+      },
+      "block_order": ["para1", "para2"],
+      "settings": {
+        "image_position": "left",
+        "show_background": true,
+        "label": "AFRICA",
+        "heading": "Where It All Began ..",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "image_block_2": {
+      "type": "pa-story-image-block",
+      "blocks": {
+        "para1": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "Dubai is one of the world's most discerning markets — a city that understands luxury, that values heritage, and that welcomes excellence from every corner of the globe."
+          }
+        },
+        "para2": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "Polo Avenue Jumeirah is our declaration: that Africa's finest now has a home in the Middle East. That the world's most exceptional fashion finds one curated, trusted destination."
+          }
+        }
+      },
+      "block_order": ["para1", "para2"],
+      "settings": {
+        "image_position": "right",
+        "show_background": false,
+        "label": "DUBAI",
+        "heading": "The Next Chapter",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 48,
+        "padding-block-end": 60
+      }
+    }
+  },
+  "order": ["hero", "quote", "journey", "image_block_1", "image_block_2"]
+}
