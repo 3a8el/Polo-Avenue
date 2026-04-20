@@ -42,26 +42,20 @@
     <!-- ── Right: Product Details ── -->
     <div class="pa-pdp__details">
 
-      <!-- Vendor -->
       {%- if product.vendor != blank -%}
         <p class="pa-pdp__vendor">{{ product.vendor }}</p>
       {%- endif -%}
 
-      <!-- Title -->
       <h1 class="pa-pdp__title">{{ product.title }}</h1>
 
-      <!-- Price -->
       <div class="pa-pdp__price" id="pa-pdp-price">
         {%- render 'price', product_resource: product -%}
       </div>
 
-      <!-- VAT Note -->
       <p class="pa-pdp__vat">Inclusive of VAT &middot; Free Delivery</p>
 
-      <!-- Divider -->
       <div class="pa-pdp__divider"></div>
 
-      <!-- Variant Options -->
       {%- unless product.has_only_default_variant -%}
         <div class="pa-pdp__options" id="pa-pdp-options">
           {%- for option in product.options_with_values -%}
@@ -72,9 +66,7 @@
                   <a href="{{ section.settings.size_guide_url | default: '#' }}" class="pa-pdp__size-guide">SIZE GUIDE +</a>
                 {%- endif -%}
               </div>
-              <div class="pa-pdp__option-values"
-                   data-option-position="{{ forloop.index0 }}"
-                   data-option-name="{{ option.name | escape }}">
+              <div class="pa-pdp__option-values" data-option-position="{{ forloop.index0 }}" data-option-name="{{ option.name | escape }}">
                 {%- for value in option.values -%}
                   {%- liquid
                     assign is_selected = false
@@ -105,37 +97,18 @@
         </div>
       {%- endunless -%}
 
-      <!-- Product Form -->
       {%- form 'product', product, id: product_form_id, class: 'pa-pdp__form' -%}
         <input type="hidden" name="id" id="pa-pdp-variant-id" value="{{ current_variant.id }}">
         <input type="hidden" name="quantity" value="1">
-
-        <button
-          type="submit"
-          name="add"
-          class="pa-pdp__atc-btn"
-          id="pa-pdp-atc"
-          {% unless current_variant.available %}disabled{% endunless %}
-        >
-          <span class="pa-pdp__atc-text">
-            {%- if current_variant.available -%}ADD TO CART{%- else -%}SOLD OUT{%- endif -%}
-          </span>
+        <button type="submit" name="add" class="pa-pdp__atc-btn" id="pa-pdp-atc" {% unless current_variant.available %}disabled{% endunless %}>
+          <span class="pa-pdp__atc-text">{%- if current_variant.available -%}ADD TO CART{%- else -%}SOLD OUT{%- endif -%}</span>
         </button>
       {%- endform -%}
 
-      <!-- Wishlist Button -->
-      <button
-        type="button"
-        class="pa-pdp__wishlist-btn swym-button swym-add-to-wishlist product_{{ product.id }}"
-        data-swym-variant-id="{{ current_variant.id }}"
-        data-swym-product-id="{{ product.id }}"
-        data-swym-product-url="{{ shop.url }}{{ product.url }}"
-        id="pa-pdp-wishlist"
-      >
+      <button type="button" class="pa-pdp__wishlist-btn swym-button swym-add-to-wishlist product_{{ product.id }}" data-swym-variant-id="{{ current_variant.id }}" data-swym-product-id="{{ product.id }}" data-swym-product-url="{{ shop.url }}{{ product.url }}" id="pa-pdp-wishlist">
         ADD TO WISHLIST
       </button>
 
-      <!-- Trust Badges -->
       <div class="pa-pdp__badges">
         <div class="pa-pdp__badge">
           <p class="pa-pdp__badge-title">{{ section.settings.badge_1_title | default: 'FREE DELIVERY' }}</p>
@@ -153,7 +126,6 @@
         </div>
       </div>
 
-      <!-- Accordions -->
       <div class="pa-pdp__accordions">
         <details class="pa-pdp__accordion" open>
           <summary class="pa-pdp__accordion-head">
@@ -161,14 +133,9 @@
             <span class="pa-pdp__accordion-icon" aria-hidden="true"></span>
           </summary>
           <div class="pa-pdp__accordion-body">
-            {%- if product.description != blank -%}
-              {{ product.description }}
-            {%- else -%}
-              <p>{{ section.settings.default_description }}</p>
-            {%- endif -%}
+            {%- if product.description != blank -%}{{ product.description }}{%- else -%}<p>{{ section.settings.default_description }}</p>{%- endif -%}
           </div>
         </details>
-
         <details class="pa-pdp__accordion">
           <summary class="pa-pdp__accordion-head">
             <span>DELIVERY &amp; RETURNS</span>
@@ -178,7 +145,6 @@
             {{ section.settings.delivery_text | default: 'Complimentary standard delivery on orders over AED 400. Express same-day delivery available in Dubai for AED 85. Return any unworn item within 30 days of delivery.' }}
           </div>
         </details>
-
         <details class="pa-pdp__accordion">
           <summary class="pa-pdp__accordion-head">
             <span>BOOK A STYLING SESSION</span>
@@ -190,7 +156,6 @@
         </details>
       </div>
 
-      <!-- Styling CTA -->
       <div class="pa-pdp__styling-cta">
         <p class="pa-pdp__styling-cta-text">Need help with sizing or styling? Book a Personal Styling Session.</p>
         <a href="{{ section.settings.styling_url | default: '/pages/personal-styling' }}" class="pa-pdp__styling-cta-link">BOOK NOW +</a>
@@ -200,12 +165,8 @@
   </div>
 </div>
 
-<!-- Variant data for JS -->
-<script id="pa-pdp-variants" type="application/json">
-  {{ product.variants | json }}
-</script>
+<script id="pa-pdp-variants" type="application/json">{{ product.variants | json }}</script>
 <script id="pa-pdp-media-map" type="application/json">
-  {%- assign media_map = '' -%}
   {
     {%- for variant in product.variants -%}
       {%- if variant.featured_media -%}
@@ -218,16 +179,14 @@
 
 <script>
 (function() {
-  const form      = document.getElementById({{ product_form_id | json }});
   const variantInput = document.getElementById('pa-pdp-variant-id');
-  const atcBtn    = document.getElementById('pa-pdp-atc');
-  const atcText   = atcBtn && atcBtn.querySelector('.pa-pdp__atc-text');
-  const mainImg   = document.getElementById('pa-pdp-main');
+  const atcBtn = document.getElementById('pa-pdp-atc');
+  const atcText = atcBtn && atcBtn.querySelector('.pa-pdp__atc-text');
+  const mainImg = document.getElementById('pa-pdp-main');
   const wishlistBtn = document.getElementById('pa-pdp-wishlist');
-  const variants  = JSON.parse(document.getElementById('pa-pdp-variants').textContent);
-  const mediaMap  = JSON.parse(document.getElementById('pa-pdp-media-map').textContent);
+  const variants = JSON.parse(document.getElementById('pa-pdp-variants').textContent);
+  const mediaMap = JSON.parse(document.getElementById('pa-pdp-media-map').textContent);
 
-  // Thumbnail gallery
   document.querySelectorAll('.pa-pdp__thumb').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.pa-pdp__thumb').forEach(b => b.classList.remove('pa-pdp__thumb--active'));
@@ -236,7 +195,6 @@
     });
   });
 
-  // Variant selection
   let selectedOptions = [
     {%- for option in product.options_with_values -%}
       {{ option.selected_value | json }}{%- unless forloop.last -%},{%- endunless -%}
@@ -244,32 +202,16 @@
   ];
 
   function findVariant(options) {
-    return variants.find(v =>
-      v.options.every((o, i) => o === options[i])
-    ) || null;
+    return variants.find(v => v.options.every((o, i) => o === options[i])) || null;
   }
 
   function updateAvailability(variant) {
-    if (!variant) {
-      atcBtn.disabled = true;
-      if (atcText) atcText.textContent = 'UNAVAILABLE';
-      return;
-    }
+    if (!variant) { atcBtn.disabled = true; if (atcText) atcText.textContent = 'UNAVAILABLE'; return; }
     variantInput.value = variant.id;
     atcBtn.disabled = !variant.available;
     if (atcText) atcText.textContent = variant.available ? 'ADD TO CART' : 'SOLD OUT';
-
-    // Update wishlist data attrs
-    if (wishlistBtn) {
-      wishlistBtn.dataset.swymVariantId = variant.id;
-    }
-
-    // Update main image
-    if (mainImg && mediaMap[variant.id]) {
-      mainImg.src = mediaMap[variant.id];
-    }
-
-    // Update price via history state (Shopify native)
+    if (wishlistBtn) wishlistBtn.dataset.swymVariantId = variant.id;
+    if (mainImg && mediaMap[variant.id]) mainImg.src = mediaMap[variant.id];
     const url = new URL(window.location.href);
     url.searchParams.set('variant', variant.id);
     window.history.replaceState({}, '', url.toString());
@@ -278,486 +220,94 @@
   document.querySelectorAll('.pa-pdp__opt-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const idx = parseInt(btn.dataset.optionIndex, 10);
-      const val = btn.dataset.value;
-      selectedOptions[idx] = val;
-
-      // Update selected state for this group
-      const group = btn.closest('.pa-pdp__option-values');
-      group.querySelectorAll('.pa-pdp__opt-btn').forEach(b => b.classList.remove('is-selected'));
+      selectedOptions[idx] = btn.dataset.value;
+      btn.closest('.pa-pdp__option-values').querySelectorAll('.pa-pdp__opt-btn').forEach(b => b.classList.remove('is-selected'));
       btn.classList.add('is-selected');
-
       updateAvailability(findVariant(selectedOptions));
     });
   });
 
-  // Accordion icon toggle
   document.querySelectorAll('.pa-pdp__accordion').forEach(details => {
-    details.addEventListener('toggle', () => {
-      const icon = details.querySelector('.pa-pdp__accordion-icon');
-      if (icon) icon.dataset.open = details.open ? '1' : '0';
-    });
-    // Set initial state
     const icon = details.querySelector('.pa-pdp__accordion-icon');
     if (icon) icon.dataset.open = details.open ? '1' : '0';
+    details.addEventListener('toggle', () => { if (icon) icon.dataset.open = details.open ? '1' : '0'; });
   });
 })();
 </script>
 
 <style>
-  .pa-pdp {
-    max-width: var(--page-width, 1400px);
-    margin: 0 auto;
-    padding: 32px 60px 60px;
-  }
-
-  .pa-pdp__layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-
-  /* ── Media Gallery ── */
-  .pa-pdp__media {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    position: sticky;
-    top: calc(var(--header-height, 60px) + 24px);
-  }
-
-  .pa-pdp__main-wrap {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-    background: #FAF9F7;
-  }
-
-  .pa-pdp__main-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .pa-pdp__main-img--placeholder {
-    width: 100%;
-    height: 100%;
-  }
-
-  .pa-pdp__thumbs {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
+  .pa-pdp { max-width: var(--page-width, 1400px); margin: 0 auto; padding: 32px 60px 60px; }
+  .pa-pdp__layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .pa-pdp__media { display: flex; flex-direction: column; gap: 12px; position: sticky; top: calc(var(--header-height, 60px) + 24px); }
+  .pa-pdp__main-wrap { width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: #FAF9F7; }
+  .pa-pdp__main-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pa-pdp__main-img--placeholder { width: 100%; height: 100%; }
+  .pa-pdp__thumbs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
   .pa-pdp__thumbs::-webkit-scrollbar { display: none; }
-
-  .pa-pdp__thumb {
-    flex-shrink: 0;
-    width: 72px;
-    height: 90px;
-    border: 2px solid #FAF9F7;
-    border-radius: 6px;
-    padding: 0;
-    background: #FAF9F7;
-    cursor: pointer;
-    overflow: hidden;
-    transition: border-color 0.15s;
-  }
-
-  .pa-pdp__thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 4px;
-  }
-
-  .pa-pdp__thumb--active,
-  .pa-pdp__thumb:hover {
-    border-color: #1A1A1A;
-  }
-
-  /* ── Details Column ── */
-  .pa-pdp__details {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding-top: 8px;
-  }
-
-  .pa-pdp__vendor {
-    margin: 0;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: #EF4B37;
-  }
-
-  .pa-pdp__title {
-    margin: 0;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 1.15;
-    color: #1A1A1A;
-    border: none;
-    text-decoration: none;
-  }
-
-  .pa-pdp__price {
-    margin: 0;
-  }
-
-  /* Override theme price styles inside PDP */
-  .pa-pdp__price .price__current,
-  .pa-pdp__price .price,
-  .pa-pdp__price .price-item--regular {
-    font-size: 20px !important;
-    font-weight: 500 !important;
-    color: #1A1A1A !important;
-  }
-
-  .pa-pdp__vat {
-    margin: -8px 0 0;
-    font-size: 10px;
-    color: #B0ACA8;
-    letter-spacing: 0.02em;
-  }
-
-  .pa-pdp__divider {
-    height: 1px;
-    background: #F0EDE7;
-    margin: 0;
-  }
-
-  /* ── Options ── */
-  .pa-pdp__options {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .pa-pdp__option-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .pa-pdp__option-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .pa-pdp__option-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: #1A1A1A;
-  }
-
-  .pa-pdp__size-guide {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #EF4B37;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
+  .pa-pdp__thumb { flex-shrink: 0; width: 72px; height: 90px; border: 2px solid transparent; padding: 0; background: #FAF9F7; cursor: pointer; overflow: hidden; transition: border-color 0.15s; }
+  .pa-pdp__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pa-pdp__thumb--active, .pa-pdp__thumb:hover { border-color: #1A1A1A; }
+  .pa-pdp__details { display: flex; flex-direction: column; gap: 16px; padding-top: 8px; }
+  .pa-pdp__vendor { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: #EF4B37; }
+  .pa-pdp__title { margin: 0; font-size: 28px; font-weight: 400; line-height: 1.15; color: #1A1A1A; border: none; text-decoration: none; }
+  .pa-pdp__price { margin: 0; }
+  .pa-pdp__price .price__current, .pa-pdp__price .price, .pa-pdp__price .price-item--regular { font-size: 20px !important; font-weight: 500 !important; color: #1A1A1A !important; }
+  .pa-pdp__vat { margin: -8px 0 0; font-size: 10px; color: #B0ACA8; letter-spacing: 0.02em; }
+  .pa-pdp__divider { height: 1px; background: #F0EDE7; margin: 0; }
+  .pa-pdp__options { display: flex; flex-direction: column; gap: 20px; }
+  .pa-pdp__option-group { display: flex; flex-direction: column; gap: 10px; }
+  .pa-pdp__option-header { display: flex; align-items: center; justify-content: space-between; }
+  .pa-pdp__option-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: #1A1A1A; }
+  .pa-pdp__size-guide { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #EF4B37; text-decoration: none; text-transform: uppercase; }
   .pa-pdp__size-guide:hover { opacity: 0.8; }
-
-  .pa-pdp__option-values {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .pa-pdp__opt-btn {
-    min-width: 52px;
-    height: 44px;
-    padding: 0 16px;
-    border: 1.5px solid #D0D0D0;
-    background: #fff;
-    font-size: 13px;
-    font-weight: 500;
-    color: #1A1A1A;
-    cursor: pointer;
-    transition: border-color 0.15s, background 0.15s;
-    border-radius: 8px;
-    letter-spacing: 0.02em;
-  }
-
-  .pa-pdp__opt-btn:hover { border-color: #EF4B37; }
-
-  .pa-pdp__opt-btn.is-selected {
-    border-color: #EF4B37 !important;
-    background: #EF4B37 !important;
-    color: #fff !important;
-  }
-
-  .pa-pdp__opt-btn--disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-    text-decoration: line-through;
-  }
-
-  /* Color swatches */
-  .pa-pdp__opt-btn--swatch {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    padding: 3px;
-    border-radius: 50%;
-  }
-
-  .pa-pdp__swatch-inner {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 1px solid rgba(0,0,0,0.08);
-  }
-
-  .pa-pdp__opt-btn--swatch.is-selected {
-    border-color: #1A1A1A;
-    background: transparent;
-  }
-
-  /* ── Form & Buttons ── */
+  .pa-pdp__option-values { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pa-pdp__opt-btn { min-width: 52px; height: 44px; padding: 0 16px; border: 1.5px solid #D0D0D0; background: #fff; font-size: 13px; font-weight: 500; color: #1A1A1A; cursor: pointer; transition: border-color 0.15s, background 0.15s; border-radius: 0; letter-spacing: 0.02em; }
+  .pa-pdp__opt-btn:hover { border-color: #1A1A1A; }
+  .pa-pdp__opt-btn.is-selected { border-color: #1A1A1A; background: #1A1A1A; color: #fff; }
+  .pa-pdp__opt-btn--disabled { opacity: 0.35; cursor: not-allowed; text-decoration: line-through; }
+  .pa-pdp__opt-btn--swatch { width: 36px; height: 36px; min-width: 36px; padding: 3px; border-radius: 50%; }
+  .pa-pdp__swatch-inner { display: block; width: 100%; height: 100%; border-radius: 50%; border: 1px solid rgba(0,0,0,0.08); }
+  .pa-pdp__opt-btn--swatch.is-selected { border-color: #EF4B37; background: transparent; }
   .pa-pdp__form { margin: 0; }
-
-  .pa-pdp__atc-btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: #FAF9F7;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: #1A1A1A;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: background 0.15s, opacity 0.15s;
-  }
-
+  .pa-pdp__atc-btn { width: 100%; padding: 12px; border: none; border-radius: 8px; background: #FAF9F7; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: #1A1A1A; cursor: pointer; text-transform: uppercase; transition: background 0.15s, opacity 0.15s; }
   .pa-pdp__atc-btn:hover:not(:disabled) { background: #F0EDE7; }
   .pa-pdp__atc-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-  .pa-pdp__wishlist-btn,
-  .pa-pdp__wishlist-btn.swym-button {
-    width: 100% !important;
-    padding: 12px !important;
-    border: 1px solid #1A1A1A !important;
-    border-radius: 8px !important;
-    background: #fff !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.08em !important;
-    color: #1A1A1A !important;
-    cursor: pointer !important;
-    text-transform: uppercase !important;
-    transition: background 0.15s, color 0.15s !important;
-    box-shadow: none !important;
-  }
-
-  .pa-pdp__wishlist-btn:hover,
-  .pa-pdp__wishlist-btn.swym-button:hover {
-    background: #1A1A1A !important;
-    color: #fff !important;
-  }
-
-  /* ── Trust Badges ── */
-  .pa-pdp__badges {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    padding: 4px 0;
-  }
-
-  .pa-pdp__badge {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    text-align: center;
-    padding: 0 12px;
-  }
-
+  .pa-pdp__wishlist-btn { width: 100%; padding: 12px; border: 1px solid #1A1A1A; border-radius: 8px; background: transparent; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: #1A1A1A; cursor: pointer; text-transform: uppercase; transition: background 0.15s; }
+  .pa-pdp__wishlist-btn:hover { background: #FAF9F7; }
+  .pa-pdp__badges { display: flex; align-items: center; padding: 4px 0; }
+  .pa-pdp__badge { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; padding: 0 12px; }
   .pa-pdp__badge:first-child { padding-left: 0; }
-  .pa-pdp__badge:last-child  { padding-right: 0; }
-
-  .pa-pdp__badge-sep {
-    width: 1px;
-    height: 40px;
-    background: #F0EDE7;
-    flex-shrink: 0;
-  }
-
-  .pa-pdp__badge-title {
-    margin: 0;
-    font-size: 12px;
-    font-weight: 700;
-    color: #1A1A1A;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .pa-pdp__badge-desc {
-    margin: 0;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.7;
-    letter-spacing: 0.04em;
-    color: #828282;
-  }
-
-  /* ── Accordions ── */
-  .pa-pdp__accordions {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid #F0EDE7;
-  }
-
-  .pa-pdp__accordion {
-    border-bottom: 1px solid #F0EDE7;
-  }
-
-  .pa-pdp__accordion-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 0;
-    cursor: pointer;
-    list-style: none;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: #1A1A1A;
-    user-select: none;
-  }
-
+  .pa-pdp__badge:last-child { padding-right: 0; }
+  .pa-pdp__badge-sep { width: 1px; height: 40px; background: #F0EDE7; flex-shrink: 0; }
+  .pa-pdp__badge-title { margin: 0; font-size: 12px; font-weight: 700; color: #1A1A1A; text-transform: uppercase; letter-spacing: 0.04em; }
+  .pa-pdp__badge-desc { margin: 0; font-size: 12px; font-weight: 400; line-height: 1.7; letter-spacing: 0.04em; color: #828282; }
+  .pa-pdp__accordions { display: flex; flex-direction: column; border-top: 1px solid #F0EDE7; }
+  .pa-pdp__accordion { border-bottom: 1px solid #F0EDE7; }
+  .pa-pdp__accordion-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; cursor: pointer; list-style: none; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #1A1A1A; user-select: none; }
   .pa-pdp__accordion-head::-webkit-details-marker { display: none; }
-
-  .pa-pdp__accordion-icon {
-    width: 18px;
-    height: 18px;
-    position: relative;
-    flex-shrink: 0;
-  }
-
-  /* + and – via pseudo-elements */
-  .pa-pdp__accordion-icon::before,
-  .pa-pdp__accordion-icon::after {
-    content: '';
-    position: absolute;
-    background: #1A1A1A;
-    border-radius: 1px;
-    transition: transform 0.2s, opacity 0.2s;
-  }
-
-  .pa-pdp__accordion-icon::before {
-    width: 12px; height: 1.5px;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .pa-pdp__accordion-icon::after {
-    width: 1.5px; height: 12px;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  /* When open, hide vertical bar (show –) */
-  .pa-pdp__accordion[open] .pa-pdp__accordion-icon::after {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-
-  .pa-pdp__accordion-body {
-    padding: 0 0 20px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #828282;
-  }
-
+  .pa-pdp__accordion-icon { width: 18px; height: 18px; position: relative; flex-shrink: 0; }
+  .pa-pdp__accordion-icon::before, .pa-pdp__accordion-icon::after { content: ''; position: absolute; background: #1A1A1A; border-radius: 1px; transition: transform 0.2s, opacity 0.2s; }
+  .pa-pdp__accordion-icon::before { width: 12px; height: 1.5px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .pa-pdp__accordion-icon::after { width: 1.5px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .pa-pdp__accordion[open] .pa-pdp__accordion-icon::after { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+  .pa-pdp__accordion-body { padding: 0 0 20px; font-size: 14px; line-height: 1.7; color: #828282; }
   .pa-pdp__accordion-body p { margin: 0 0 8px; }
   .pa-pdp__accordion-body p:last-child { margin-bottom: 0; }
-
-  /* ── Styling CTA ── */
-  .pa-pdp__styling-cta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    background: #FAF9F7;
-    border-radius: 8px;
-    padding: 16px 20px;
-  }
-
-  .pa-pdp__styling-cta-text {
-    margin: 0;
-    font-size: 13px;
-    line-height: 1.5;
-    color: #828282;
-  }
-
-  .pa-pdp__styling-cta-link {
-    flex-shrink: 0;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: #EF4B37;
-    text-decoration: none;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
+  .pa-pdp__styling-cta { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #FAF9F7; border-radius: 8px; padding: 16px 20px; }
+  .pa-pdp__styling-cta-text { margin: 0; font-size: 13px; line-height: 1.5; color: #828282; }
+  .pa-pdp__styling-cta-link { flex-shrink: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #EF4B37; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
   .pa-pdp__styling-cta-link:hover { opacity: 0.8; }
-
-  /* ── Mobile ── */
   @media (max-width: 749px) {
-    .pa-pdp {
-      padding: 0 0 48px;
-    }
-
-    .pa-pdp__layout {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .pa-pdp__media {
-      position: static;
-    }
-
-    .pa-pdp__details {
-      padding: 0 20px;
-    }
-
-    .pa-pdp__thumbs {
-      padding: 0 20px;
-    }
-
-    .pa-pdp__styling-cta {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
-    }
+    .pa-pdp { padding: 0 0 48px; }
+    .pa-pdp__layout { grid-template-columns: 1fr; gap: 24px; }
+    .pa-pdp__media { position: static; }
+    .pa-pdp__details { padding: 0 20px; }
+    .pa-pdp__thumbs { padding: 0 20px; }
+    .pa-pdp__styling-cta { flex-direction: column; align-items: flex-start; gap: 12px; }
   }
-
   @media (min-width: 750px) and (max-width: 989px) {
-    .pa-pdp {
-      padding: 24px 32px 48px;
-    }
-
-    .pa-pdp__layout {
-      gap: 36px;
-    }
+    .pa-pdp { padding: 24px 32px 48px; }
+    .pa-pdp__layout { gap: 36px; }
   }
 </style>
 
@@ -767,25 +317,19 @@
   "tag": "section",
   "settings": [
     { "type": "url", "id": "size_guide_url", "label": "Size Guide URL" },
-    { "type": "url", "id": "styling_url", "label": "Styling Session URL", "default": "/pages/personal-styling" },
-    {
-      "type": "header", "content": "Trust Badges"
-    },
+    { "type": "url", "id": "styling_url", "label": "Styling Session URL" },
+    { "type": "header", "content": "Trust Badges" },
     { "type": "text", "id": "badge_1_title", "label": "Badge 1 Title", "default": "FREE DELIVERY" },
     { "type": "text", "id": "badge_1_desc", "label": "Badge 1 Description", "default": "Over AED 400" },
     { "type": "text", "id": "badge_2_title", "label": "Badge 2 Title", "default": "AUTHENTICATED" },
     { "type": "text", "id": "badge_2_desc", "label": "Badge 2 Description", "default": "100% Verified" },
     { "type": "text", "id": "badge_3_title", "label": "Badge 3 Title", "default": "EASY RETURNS" },
     { "type": "text", "id": "badge_3_desc", "label": "Badge 3 Description", "default": "30-day policy" },
-    {
-      "type": "header", "content": "Accordion Content"
-    },
+    { "type": "header", "content": "Accordion Content" },
     { "type": "textarea", "id": "delivery_text", "label": "Delivery & Returns Text", "default": "Complimentary standard delivery on orders over AED 400. Express same-day delivery available in Dubai for AED 85. Return any unworn item within 30 days of delivery." },
     { "type": "textarea", "id": "styling_text", "label": "Styling Session Text", "default": "Book a complimentary personal styling session with one of our expert stylists. In-store or virtual appointments available." },
-    { "type": "textarea", "id": "default_description", "label": "Default Description (if product has none)", "default": "" },
-    {
-      "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1"
-    }
+    { "type": "textarea", "id": "default_description", "label": "Default Description (if product has none)" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
   ],
   "presets": [{ "name": "PA Product Page" }]
 }
