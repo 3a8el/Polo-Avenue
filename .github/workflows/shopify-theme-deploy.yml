@@ -20,7 +20,7 @@ jobs:
 
       - name: Deploy theme
         env:
-          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_THEME_TOKEN }}
+          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.POLOAVENUE_AE }}
         run: |
           shopify theme push \
             --store "${{ secrets.SHOPIFY_STORE_URL }}" \
