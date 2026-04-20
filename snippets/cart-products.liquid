@@ -319,9 +319,8 @@
                       can_update_quantity: can_update_quantity
                     %}
 
-                    {%- comment -%}Remove button shown on cart page (non-drawer){%- endcomment -%}
                     <button
-                      class="button cart-items__remove cart-items__remove--inline"
+                      class="button cart-items__remove"
                       type="button"
                       aria-label="{{ 'accessibility.remove_item' | t: title: item.title | escape }}"
                       on:click="/onLineItemRemove/{{ item.index | plus: 1 }}"
@@ -374,17 +373,6 @@
                       {% render 'unit-price', price: unit_price, measurement: item.unit_price_measurement %}
                     </div>
                   {%- endif -%}
-                  {%- assign can_remove = item.instructions.can_remove | default: true, allow_false: true -%}
-                  <button
-                    class="button cart-items__remove cart-items__remove--drawer"
-                    type="button"
-                    aria-label="{{ 'accessibility.remove_item' | t: title: item.title | escape }}"
-                    on:click="/onLineItemRemove/{{ item.index | plus: 1 }}"
-                    {% if can_remove == false %}hidden{% endif %}
-                  >
-                    {{- 'icon-delete.svg' | inline_asset_content -}}
-                    <span class="visually-hidden">{{ 'accessibility.remove' | t }}</span>
-                  </button>
                 </td>
               </tr>
             {% endfor %}
