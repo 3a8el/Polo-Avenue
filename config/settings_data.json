@@ -44,9 +44,10 @@
     "type_size_h6": "12",
     "type_line_height_h6": "display-loose",
     "page_width": "narrow",
-    "page_transition_enabled": false,
+    "page_transition_enabled": true,
     "transition_to_main_product": false,
-    "card_hover_effect": "none",
+    "add_to_cart_animation": false,
+    "card_hover_effect": "lift",
     "badge_position": "top-right",
     "badge_corner_radius": 100,
     "badge_sale_color_scheme": "scheme-1",
@@ -70,9 +71,10 @@
     "currency_code_enabled_product_pages": false,
     "currency_code_enabled_product_cards": false,
     "currency_code_enabled_cart_items": false,
+    "quick_add_color_scheme": "scheme-1",
     "product_corner_radius": 0,
     "card_corner_radius": 4,
-    "show_variant_image": false,
+    "show_variant_image": true,
     "variant_swatch_width": 34,
     "variant_swatch_height": 34,
     "variant_swatch_radius": 32,
@@ -832,7 +834,7 @@
       "h6 {color: #ef4b37 !important;}",
       "h1 {border-bottom: 1px solid #ef4b37; padding-bottom: 8px;}",
       ".close-button {justify-content: end !important;}",
-      ".cart-items__remove{justify-content: end !important;}"
+      ".cart-items__remove {justify-content: end !important;}"
     ]
   }
 }
