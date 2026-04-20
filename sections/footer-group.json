@@ -769,7 +769,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>My Orders</h5>",
+                    "text": "<h5><a href=\"/account/orders\" title=\"/account/orders\">My Orders</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
