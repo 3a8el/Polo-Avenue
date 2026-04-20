@@ -31,13 +31,33 @@
         "padding-block-end": 60
       }
     },
+    "divider_iPgVCT": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 44,
+        "padding-block-end": 44
+      }
+    },
     "journey": {
       "type": "pa-how-it-works",
       "blocks": {
+        "step_3a6aCm": {
+          "type": "step",
+          "settings": {
+            "title": "BOOK",
+            "description": "Schedule your in-store or virtual styling appointment at no charge."
+          }
+        },
         "step1": {
           "type": "step",
           "settings": {
-            "year": "1994",
             "title": "Founded",
             "description": "Polo opens its first luxury boutique in Johannesburg, South Africa."
           }
@@ -45,7 +65,6 @@
         "step2": {
           "type": "step",
           "settings": {
-            "year": "2003",
             "title": "Expansion",
             "description": "Regional growth across sub-Saharan Africa — 12 boutiques established."
           }
@@ -53,7 +72,6 @@
         "step3": {
           "type": "step",
           "settings": {
-            "year": "2010",
             "title": "Africa's Finest",
             "description": "Named the continent's foremost luxury retailer by Vogue Africa."
           }
@@ -61,26 +79,17 @@
         "step4": {
           "type": "step",
           "settings": {
-            "year": "2018",
             "title": "Global Vision",
             "description": "Polo begins curating international partnerships with global fashion houses."
-          }
-        },
-        "step5": {
-          "type": "step",
-          "settings": {
-            "year": "2024",
-            "title": "Dubai Arrives",
-            "description": "Polo Avenue opens its flagship Jumeirah boutique in Dubai, UAE."
           }
         }
       },
       "block_order": [
+        "step_3a6aCm",
         "step1",
         "step2",
         "step3",
-        "step4",
-        "step5"
+        "step4"
       ],
       "settings": {
         "label": "THE POLO JOURNEY",
@@ -122,20 +131,6 @@
       }
     },
     "divider_trWGzk": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 44,
-        "padding-block-end": 44
-      }
-    },
-    "divider_iPgVCT": {
       "type": "divider",
       "name": "t:names.divider_section",
       "settings": {
