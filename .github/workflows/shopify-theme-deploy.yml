@@ -1,0 +1,18 @@
+name: Deploy to Shopify
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Push theme to Shopify
+        uses: shopify/github-action-push-theme@v1
+        with:
+          store-name: ${{ secrets.SHOPIFY_STORE_URL }}
+          theme-access-password: ${{ secrets.SHOPIFY_THEME_TOKEN }}
