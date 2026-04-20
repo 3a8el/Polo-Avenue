@@ -9,7 +9,31 @@
     display: none !important;
   }
 
-  /* 2. Card container — remove Swym default styles */
+  /* 2. Vendor line */
+  .pa-swym-vendor {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #EF4B37;
+    margin: 0 0 4px;
+  }
+
+  /* Title + price row */
+  .swym-storefront-layout-grid-item-content {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .pa-swym-title-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  /* 3. Card container — remove Swym default styles */
   .swym-storefront-layout-grid-item {
     background: transparent !important;
     border: none !important;
@@ -56,7 +80,6 @@
 
   /* 7. Product title */
   .swym-storefront-layout-grid-item-title {
-    display: block !important;
     font-size: 1rem !important;
     font-weight: 400 !important;
     color: var(--color-foreground) !important;
@@ -66,6 +89,9 @@
     margin: 0 !important;
     flex: 1 !important;
     min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
   }
 
   /* 8. Price */
@@ -79,7 +105,8 @@
 
   /* 9. Hide the pipe divider and variant info */
   .swym-storefront-layout-price-devider,
-  .swym-storefront-layout-grid-item-variants-container {
+  .swym-storefront-layout-grid-item-variants-container,
+  .swym-storefront-layout-grid-item-price-variant {
     display: none !important;
   }
 
@@ -104,3 +131,63 @@
     background: #333 !important;
   }
 </style>
+
+<script>
+(function () {
+  const vendorCache = {};
+
+  async function getVendor(productUrl) {
+    try {
+      const match = productUrl.match(/\/products\/([^?/]+)/);
+      if (!match) return null;
+      const handle = match[1];
+      if (vendorCache[handle] !== undefined) return vendorCache[handle];
+      const res = await fetch('/products/' + handle + '.js');
+      const data = await res.json();
+      vendorCache[handle] = data.vendor || null;
+      return vendorCache[handle];
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function processCards() {
+    const cards = document.querySelectorAll('.swym-storefront-layout-grid-item:not([data-pa-processed])');
+    cards.forEach(async (card) => {
+      card.setAttribute('data-pa-processed', '1');
+      const link = card.querySelector('.swym-storefront-layout-grid-item-image-container');
+      const content = card.querySelector('.swym-storefront-layout-grid-item-content');
+      const titleEl = card.querySelector('.swym-storefront-layout-grid-item-title');
+      const priceEl = card.querySelector('.swym-storefront-layout-grid-item-final-price');
+      if (!content || !titleEl || !priceEl) return;
+
+      // Fetch vendor
+      const vendor = link ? await getVendor(link.href) : null;
+
+      // Inject vendor line
+      if (vendor && !card.querySelector('.pa-swym-vendor')) {
+        const vendorEl = document.createElement('span');
+        vendorEl.className = 'pa-swym-vendor';
+        vendorEl.textContent = vendor;
+        content.insertBefore(vendorEl, content.firstChild);
+      }
+
+      // Wrap title + price in a flex row
+      if (!card.querySelector('.pa-swym-title-price-row')) {
+        const row = document.createElement('div');
+        row.className = 'pa-swym-title-price-row';
+        titleEl.parentNode.insertBefore(row, titleEl);
+        row.appendChild(titleEl);
+        row.appendChild(priceEl);
+      }
+    });
+  }
+
+  // Run on Swym render and on DOM mutations
+  const observer = new MutationObserver(() => processCards());
+  observer.observe(document.body, { childList: true, subtree: true });
+  // Also run after a short delay as a fallback
+  setTimeout(processCards, 1500);
+  setTimeout(processCards, 3000);
+})();
+</script>
