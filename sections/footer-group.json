@@ -743,7 +743,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5><a href=\"/pages/swym-wishlist\" title=\"Wishlist\">Wish List</a></h5>",
+                    "text": "<h5><a href=\"/pages/swym-wishlist\" title=\"Wishlist\">Wishlist</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
