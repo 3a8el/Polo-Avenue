@@ -76,15 +76,30 @@
         "subheading": "Let our expert stylists curate a wardrobe uniquely yours.",
         "button_label": "CHAT ON WHATSAPP",
         "whatsapp_url": "",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "divider_dxCBhk": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 0.5,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 68,
+        "padding-block-end": 68
       }
     }
   },
   "order": [
     "pa_styling_hero",
     "pa_how_it_works",
-    "pa_whatsapp_cta"
+    "pa_whatsapp_cta",
+    "divider_dxCBhk"
   ]
 }
