@@ -33,10 +33,16 @@
             </span>
           </div>
           <div class="pa-hiw__step-content">
-            <p class="pa-hiw__step-number-title">
-              <span class="pa-hiw__step-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-              <span class="pa-hiw__step-title">{{ block.settings.title }}</span>
+            <p class="pa-hiw__step-number">
+              {%- if block.settings.year != blank -%}
+                {{ block.settings.year }}
+              {%- else -%}
+                {{ forloop.index | prepend: '0' | slice: -2, 2 }}
+              {%- endif -%}
             </p>
+            {%- if block.settings.title != blank -%}
+              <p class="pa-hiw__step-subtitle">{{ block.settings.title }}</p>
+            {%- endif -%}
             {%- if block.settings.description != blank -%}
               <p class="pa-hiw__step-desc">{{ block.settings.description }}</p>
             {%- endif -%}
@@ -127,28 +133,20 @@
     gap: 8px;
   }
 
-  .pa-hiw__step-number-title {
-    margin: 0;
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-
   .pa-hiw__step-number {
+    margin: 0;
     font-size: 12px;
     font-weight: 600;
-    {% comment %} color: var(--color-foreground); {% endcomment %}
-     color:#ef4b37;
+    color: #ef4b37;
     opacity: 1;
   }
 
-  .pa-hiw__step-title {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    {% comment %} color: var(--color-accent, var(--color-link)); {% endcomment %}
-    color:#ef4b37;
+  .pa-hiw__step-subtitle {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1A1A1A;
+    line-height: 1.4;
   }
 
   .pa-hiw__step-desc {
@@ -202,8 +200,14 @@
       "settings": [
         {
           "type": "text",
+          "id": "year",
+          "label": "Year / Date (optional — overrides step number)",
+          "default": ""
+        },
+        {
+          "type": "text",
           "id": "title",
-          "label": "Step Title",
+          "label": "Subtitle",
           "default": "BOOK"
         },
         {

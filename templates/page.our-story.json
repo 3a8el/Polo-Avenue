@@ -37,6 +37,7 @@
         "step1": {
           "type": "step",
           "settings": {
+            "year": "1994",
             "title": "Founded",
             "description": "Polo opens its first luxury boutique in Johannesburg, South Africa."
           }
@@ -44,6 +45,7 @@
         "step2": {
           "type": "step",
           "settings": {
+            "year": "2003",
             "title": "Expansion",
             "description": "Regional growth across sub-Saharan Africa — 12 boutiques established."
           }
@@ -51,6 +53,7 @@
         "step3": {
           "type": "step",
           "settings": {
+            "year": "2010",
             "title": "Africa's Finest",
             "description": "Named the continent's foremost luxury retailer by Vogue Africa."
           }
@@ -58,6 +61,7 @@
         "step4": {
           "type": "step",
           "settings": {
+            "year": "2018",
             "title": "Global Vision",
             "description": "Polo begins curating international partnerships with global fashion houses."
           }
@@ -65,6 +69,7 @@
         "step5": {
           "type": "step",
           "settings": {
+            "year": "2024",
             "title": "Dubai Arrives",
             "description": "Polo Avenue opens its flagship Jumeirah boutique in Dubai, UAE."
           }

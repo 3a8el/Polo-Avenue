@@ -7,22 +7,19 @@
   <div class="pa-os-quote">
     <div class="pa-os-quote__box">
       <p class="pa-os-quote__text">{{ section.settings.quote }}</p>
+      {%- if section.settings.attribution != blank -%}
+        <p class="pa-os-quote__attribution">{{ section.settings.attribution }}</p>
+      {%- endif -%}
     </div>
-    {%- if section.settings.attribution != blank -%}
-      <p class="pa-os-quote__attribution">{{ section.settings.attribution }}</p>
-    {%- endif -%}
   </div>
 </div>
 
 <style>
   .pa-os-quote {
-    display: flex;
-    align-items: flex-end;
-    gap: 32px;
+    display: block;
   }
 
   .pa-os-quote__box {
-    flex: 1;
     border-left: 2px solid #E32912;
     background: #FAF9F7;
     padding: 32px 24px;
@@ -37,15 +34,11 @@
   }
 
   .pa-os-quote__attribution {
-    margin: 0;
+    margin: 16px 0 0;
     font-size: 14px;
     color: #828282;
     font-style: italic;
-    white-space: nowrap;
-    flex-shrink: 0;
-    max-width: 260px;
     text-align: right;
-    padding-bottom: 4px;
   }
 
   @media (max-width: 749px) {
