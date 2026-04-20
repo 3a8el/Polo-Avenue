@@ -830,7 +830,9 @@
       "h4 {font-weight: 300 !important;}",
       "h5 {font-weight: 400 !important;}",
       "h6 {color: #ef4b37 !important;}",
-      "h1 {border-bottom: 1px solid #ef4b37; padding-bottom: 8px;}"
+      "h1 {border-bottom: 1px solid #ef4b37; padding-bottom: 8px;}",
+      ".close-button {justify-content: end !important;}",
+      ".cart-items__remove{justify-content: end !important;}"
     ]
   }
 }
