@@ -1,8 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "pa-our-story-hero",
       "settings": {
+        "image": "shopify://shop_images/8ecad6d37d60ab0c11c01930b6964bd80f8dd804.jpg",
         "label": "HERITAGE",
         "heading": "Our Story",
         "subtext": "Born in Africa. Arrived in Dubai.\nA legacy of luxury, carried across continents.",
@@ -60,7 +70,13 @@
           }
         }
       },
-      "block_order": ["step1", "step2", "step3", "step4", "step5"],
+      "block_order": [
+        "step1",
+        "step2",
+        "step3",
+        "step4",
+        "step5"
+      ],
       "settings": {
         "label": "THE POLO JOURNEY",
         "heading": "A Legacy Across Decades",
@@ -85,8 +101,12 @@
           }
         }
       },
-      "block_order": ["para1", "para2"],
+      "block_order": [
+        "para1",
+        "para2"
+      ],
       "settings": {
+        "image": "shopify://shop_images/000d6c71a28d37187b2c03b30f49cc2db3f328d0.webp",
         "image_position": "left",
         "show_background": true,
         "label": "AFRICA",
@@ -94,6 +114,34 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48
+      }
+    },
+    "divider_trWGzk": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 44,
+        "padding-block-end": 44
+      }
+    },
+    "divider_iPgVCT": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 44,
+        "padding-block-end": 44
       }
     },
     "image_block_2": {
@@ -112,8 +160,12 @@
           }
         }
       },
-      "block_order": ["para1", "para2"],
+      "block_order": [
+        "para1",
+        "para2"
+      ],
       "settings": {
+        "image": "shopify://shop_images/0384fff75d7f82d293935c58eb21e9f1bd0f5ac0.jpg",
         "image_position": "right",
         "show_background": false,
         "label": "DUBAI",
@@ -124,5 +176,13 @@
       }
     }
   },
-  "order": ["hero", "quote", "journey", "image_block_1", "image_block_2"]
+  "order": [
+    "hero",
+    "quote",
+    "divider_iPgVCT",
+    "journey",
+    "image_block_1",
+    "divider_trWGzk",
+    "image_block_2"
+  ]
 }
