@@ -48,13 +48,6 @@
     "journey": {
       "type": "pa-how-it-works",
       "blocks": {
-        "step_3a6aCm": {
-          "type": "step",
-          "settings": {
-            "title": "BOOK",
-            "description": "Schedule your in-store or virtual styling appointment at no charge."
-          }
-        },
         "step1": {
           "type": "step",
           "settings": {
@@ -82,14 +75,21 @@
             "title": "Global Vision",
             "description": "Polo begins curating international partnerships with global fashion houses."
           }
+        },
+        "step_q6GQFb": {
+          "type": "step",
+          "settings": {
+            "title": "Dubai Arrives",
+            "description": "Polo Avenue opens its flagship Jumeirah boutique in Dubai, UAE."
+          }
         }
       },
       "block_order": [
-        "step_3a6aCm",
         "step1",
         "step2",
         "step3",
-        "step4"
+        "step4",
+        "step_q6GQFb"
       ],
       "settings": {
         "label": "THE POLO JOURNEY",
