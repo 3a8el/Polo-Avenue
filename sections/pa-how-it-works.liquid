@@ -28,11 +28,9 @@
       {%- for block in section.blocks -%}
         <div class="pa-hiw__step" {{ block.shopify_attributes }}>
           <div class="pa-hiw__step-dot">
-            {%- if forloop.first -%}
-              <span class="pa-hiw__step-dot-inner pa-hiw__step-dot-inner--active"></span>
-            {%- else -%}
-              <span class="pa-hiw__step-dot-inner"></span>
-            {%- endif -%}
+            <span class="pa-hiw__step-star svg-wrapper">
+              {{- 'pa-star.svg' | inline_asset_content -}}
+            </span>
           </div>
           <div class="pa-hiw__step-content">
             <p class="pa-hiw__step-number-title">
@@ -116,18 +114,11 @@
     justify-content: center;
   }
 
-  .pa-hiw__step-dot-inner {
-    width: 10px;
-    height: 10px;
-    border: 1.5px solid var(--color-foreground);
-    transform: rotate(45deg);
+  .pa-hiw__step-star svg {
+    width: 16px;
+    height: 16px;
     display: block;
-    background: var(--color-background);
-  }
-
-  .pa-hiw__step-dot-inner--active {
-    background: var(--color-accent, var(--color-link));
-    border-color: var(--color-accent, var(--color-link));
+    color: #EF4B37;
   }
 
   .pa-hiw__step-content {
