@@ -1,1 +1,122 @@
 {{ page.content }}
+
+<style>
+  /* ── Swym Wishlist Page Overrides ── */
+
+  /* 1. Hide the heart icon after the "My Wishlist" heading */
+  .swym-wishlist-page-title .swym-heart-icon,
+  .swym-wishlist-title .swym-heart-icon,
+  .swym-wishlist-title svg,
+  .swym-wishlist-title img,
+  [class*="wishlist-title"] svg,
+  [class*="wishlist-title"] img,
+  .swym-wishlist-page-header svg,
+  .swym-wishlist-page-header img {
+    display: none !important;
+  }
+
+  /* 2. Product card grid — match site-wide layout */
+  .swym-wishlist-page-products,
+  .swym-products-list,
+  .swym-wishlist-products {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  @media (max-width: 989px) {
+    .swym-wishlist-page-products,
+    .swym-products-list,
+    .swym-wishlist-products {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  @media (max-width: 749px) {
+    .swym-wishlist-page-products,
+    .swym-products-list,
+    .swym-wishlist-products {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+    }
+  }
+
+  /* 3. Individual card — clean, no background, no border-radius mismatch */
+  .swym-wishlist-page-products li,
+  .swym-products-list li,
+  .swym-wishlist-products li,
+  .swym-product-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 4. Product image — consistent aspect ratio */
+  .swym-product-card .swym-product-image,
+  .swym-product-card img:not(.swym-wishlist-btn img) {
+    width: 100% !important;
+    aspect-ratio: 3 / 4 !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 0 !important;
+  }
+
+  /* 5. Product info area */
+  .swym-product-card .swym-product-info,
+  .swym-product-card .swym-product-details {
+    padding: 8px 0 0 !important;
+    background: transparent !important;
+  }
+
+  /* 6. Vendor — red uppercase */
+  .swym-product-card .swym-product-brand,
+  .swym-product-card [class*="vendor"],
+  .swym-product-card [class*="brand"] {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    color: #EF4B37 !important;
+    margin: 0 0 2px !important;
+  }
+
+  /* 7. Product title + price on same row */
+  .swym-product-card .swym-product-name,
+  .swym-product-card .swym-product-title {
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    color: var(--color-foreground) !important;
+    margin: 0 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+  }
+
+  .swym-product-card .swym-product-price,
+  .swym-product-card [class*="price"] {
+    font-size: 1rem !important;
+    color: var(--color-foreground) !important;
+    font-weight: 400 !important;
+  }
+
+  /* 8. Add to Cart button — match site button style */
+  .swym-product-card .swym-add-to-cart,
+  .swym-product-card [class*="add-to-cart"] {
+    width: 100% !important;
+    background: #EF4B37 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    padding: 12px 0 !important;
+    margin-top: 8px !important;
+    cursor: pointer !important;
+  }
+</style>
