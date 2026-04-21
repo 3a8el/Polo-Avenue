@@ -847,8 +847,8 @@
       ".swym-storefront-layout-tabs {display: none !important;}",
       ".swym-storefront-layout-title svg {display: none !important;}",
       ".swym-storefront-layout-tab-container {gap: 20px;}",
-      ".swym-wishlist-collection-v2 {stroke: #EF4B37 !important; fill: none !important;}",
-      ".swym-wishlist-collection-v2[aria-pressed=\"true\"] {fill: #EF4B37 !important; stroke: #EF4B37 !important;}"
+      ".swym-wishlist-collections-v2 path {stroke: #EF4B37 !important;}",
+      ".swym-wishlist-collections-v2[aria-pressed=\"true\"] path {fill: #EF4B37 !important; stroke: #EF4B37 !important;}"
     ]
   }
 }
