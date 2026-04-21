@@ -159,6 +159,15 @@
             {{ section.settings.styling_text | default: 'Book a complimentary personal styling session with one of our expert stylists. In-store or virtual appointments available.' }}
           </div>
         </details>
+        <details class="pa-pdp__accordion">
+          <summary class="pa-pdp__accordion-head">
+            <span>{{ section.settings.accordion_4_title | default: 'DELIVERY &amp; RETURNS' }}</span>
+            <span class="pa-pdp__accordion-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="pa-pdp__accordion-body">
+            {{ section.settings.accordion_4_text }}
+          </div>
+        </details>
       </div>
 
       <div class="pa-pdp__styling-cta">
@@ -378,8 +387,10 @@
     { "type": "text", "id": "accordion_1_title", "label": "Accordion 1 Title", "default": "DESCRIPTION + CARE" },
     { "type": "text", "id": "accordion_2_title", "label": "Accordion 2 Title", "default": "DELIVERY & RETURNS" },
     { "type": "text", "id": "accordion_3_title", "label": "Accordion 3 Title", "default": "BOOK A STYLING SESSION" },
+    { "type": "text", "id": "accordion_4_title", "label": "Accordion 4 Title", "default": "DELIVERY & RETURNS" },
     { "type": "textarea", "id": "delivery_text", "label": "Accordion 2 Body Text", "default": "Complimentary standard delivery on orders over AED 400. Express same-day delivery available in Dubai for AED 85. Return any unworn item within 30 days of delivery." },
     { "type": "textarea", "id": "styling_text", "label": "Accordion 3 Body Text", "default": "Book a complimentary personal styling session with one of our expert stylists. In-store or virtual appointments available." },
+    { "type": "textarea", "id": "accordion_4_text", "label": "Accordion 4 Body Text" },
     { "type": "textarea", "id": "default_description", "label": "Accordion 1 Default Body (if product has no description)" },
     { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
   ],
