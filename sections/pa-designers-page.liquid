@@ -14,33 +14,35 @@
       {%- if section.settings.heading != blank -%}
         <h1 class="pa-dp__heading">{{ section.settings.heading }}</h1>
       {%- endif -%}
-      {%- if section.settings.subheading != blank -%}
+      {%- if section.settings.show_subheading and section.settings.subheading != blank -%}
         <p class="pa-dp__subheading">{{ section.settings.subheading }}</p>
       {%- endif -%}
     </div>
 
-    {%- comment -%} Collect which letters are used {%- endcomment -%}
-    {%- assign used_letters = '' -%}
-    {%- for block in section.blocks -%}
-      {%- assign first = block.settings.designer_name | upcase | slice: 0 -%}
-      {%- unless used_letters contains first -%}
-        {%- assign used_letters = used_letters | append: first -%}
-      {%- endunless -%}
-    {%- endfor -%}
+    {%- if section.settings.show_filter -%}
+      {%- comment -%} Collect which letters are used {%- endcomment -%}
+      {%- assign used_letters = '' -%}
+      {%- for block in section.blocks -%}
+        {%- assign first = block.settings.designer_name | upcase | slice: 0 -%}
+        {%- unless used_letters contains first -%}
+          {%- assign used_letters = used_letters | append: first -%}
+        {%- endunless -%}
+      {%- endfor -%}
 
-    {%- comment -%} A–Z filter bar {%- endcomment -%}
-    {%- assign alphabet = 'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z' | split: ',' -%}
-    <div class="pa-dp__filter-wrap">
-      <div class="pa-dp__filter" role="navigation" aria-label="Filter by letter">
-        {%- for letter in alphabet -%}
-          {%- if used_letters contains letter -%}
-            <button class="pa-dp__filter-btn{% if forloop.first %} pa-dp__filter-btn--active{% endif %}" data-letter="{{ letter }}">{{ letter }}</button>
-          {%- else -%}
-            <span class="pa-dp__filter-letter--empty">{{ letter }}</span>
-          {%- endif -%}
-        {%- endfor -%}
+      {%- comment -%} A–Z filter bar {%- endcomment -%}
+      {%- assign alphabet = 'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z' | split: ',' -%}
+      <div class="pa-dp__filter-wrap">
+        <div class="pa-dp__filter" role="navigation" aria-label="Filter by letter">
+          {%- for letter in alphabet -%}
+            {%- if used_letters contains letter -%}
+              <button class="pa-dp__filter-btn{% if forloop.first %} pa-dp__filter-btn--active{% endif %}" data-letter="{{ letter }}">{{ letter }}</button>
+            {%- else -%}
+              <span class="pa-dp__filter-letter--empty">{{ letter }}</span>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
       </div>
-    </div>
+    {%- endif -%}
 
     {%- comment -%} Grid sub-header {%- endcomment -%}
     {%- if section.settings.grid_label != blank or section.settings.grid_heading != blank -%}
@@ -367,6 +369,7 @@
   }
 </style>
 
+{%- if section.settings.show_filter -%}
 <script>
   (function () {
     var section = document.querySelector('.pa-dp');
@@ -376,7 +379,6 @@
     var cards   = section.querySelectorAll('.pa-dp__card');
     var empty   = section.querySelector('#pa-dp-empty');
 
-    // Activate first available letter by default
     var firstBtn = buttons[0];
     if (firstBtn) {
       filterBy(firstBtn.getAttribute('data-letter'));
@@ -389,13 +391,11 @@
     });
 
     function filterBy(letter) {
-      // Update active button
       buttons.forEach(function (b) { b.classList.remove('pa-dp__filter-btn--active'); });
       buttons.forEach(function (b) {
         if (b.getAttribute('data-letter') === letter) b.classList.add('pa-dp__filter-btn--active');
       });
 
-      // Show / hide cards
       var visible = 0;
       cards.forEach(function (card) {
         if (card.getAttribute('data-letter') === letter) {
@@ -407,15 +407,12 @@
       });
 
       if (empty) {
-        if (visible === 0) {
-          empty.removeAttribute('hidden');
-        } else {
-          empty.setAttribute('hidden', '');
-        }
+        empty[visible === 0 ? 'removeAttribute' : 'setAttribute']('hidden', visible === 0 ? undefined : '');
       }
     }
   })();
 </script>
+{%- endif -%}
 
 {% schema %}
 {
@@ -476,6 +473,18 @@
       "id": "subheading",
       "label": "Page Subheading",
       "default": "Explore over 60 of the world's most celebrated fashion houses and independent artisans, curated exclusively for Polo Avenue Dubai."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subheading",
+      "label": "Show subheading",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter",
+      "label": "Show A–Z letter filter",
+      "default": false
     },
     {
       "type": "text",
