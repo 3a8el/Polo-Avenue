@@ -72,14 +72,14 @@
             "url": "",
             "full_width_desktop": false,
             "full_width_mobile": true,
-            "text_color": "#1A1A1A",
+            "text_color": "#1a1a1a",
             "bg_color": "#ffffff",
-            "border_color": "#1A1A1A",
+            "border_color": "#1a1a1a",
             "border_width": 0,
             "border_radius": 4,
-            "hover_text_color": "#FFFFFF",
-            "hover_bg_color": "#1A1A1A",
-            "hover_border_color": "#1A1A1A"
+            "hover_text_color": "#ffffff",
+            "hover_bg_color": "#1a1a1a",
+            "hover_border_color": "#1a1a1a"
           },
           "blocks": {}
         }
@@ -1000,7 +1000,7 @@
             "button_padding_vertical": 14,
             "button_padding_horizontal": 32,
             "button_border_width": 1,
-            "button_border_radius": 8,
+            "button_border_radius": 4,
             "padding_top": 60,
             "padding_bottom": 60,
             "padding_horizontal": 20
@@ -1130,6 +1130,16 @@
         "overlay_text": "AUTHENTICALLY AFRICAN.",
         "follow_label": "FOLLOW POLO AVENUE",
         "instagram_url": "https://www.test.om",
+        "full_width_desktop": false,
+        "full_width_mobile": false,
+        "text_color": "#1a1a1a",
+        "bg_color": "#faf9f7",
+        "border_color": "rgba(0,0,0,0)",
+        "border_width": 0,
+        "border_radius": 4,
+        "hover_text_color": "#faf9f7",
+        "hover_bg_color": "#1a1a1a",
+        "hover_border_color": "#1a1a1a",
         "color_scheme": ""
       }
     },
