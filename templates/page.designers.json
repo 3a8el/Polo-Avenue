@@ -12,96 +12,63 @@
     "main": {
       "type": "pa-designers-page",
       "blocks": {
-        "designer_balmain": {
+        "designer_HDThdQ": {
           "type": "designer",
           "settings": {
-            "image": "shopify://shop_images/Frame_115.webp",
-            "designer_name": "BALMAIN",
-            "origin": "France",
-            "since": "1945",
-            "collection_url": "/collections/balmain"
+            "image": "shopify://shop_images/Slide02.webp",
+            "designer_name": "Onalaga",
+            "origin": "Nigeria",
+            "since": "2014",
+            "collection_url": "shopify://collections/onalaja"
           }
         },
-        "designer_burberry": {
+        "designer_ePxpGn": {
           "type": "designer",
           "settings": {
-            "image": "shopify://shop_images/Instagram_Image6.webp",
-            "designer_name": "BURBERRY",
-            "origin": "United Kingdom",
-            "since": "1856",
-            "collection_url": "/collections/burberry"
+            "image": "shopify://shop_images/Slide01.webp",
+            "designer_name": "Banke Kuku",
+            "origin": "Nigeria",
+            "since": "2011",
+            "collection_url": ""
           }
         },
-        "designer_gucci": {
+        "designer_dmxKpk": {
           "type": "designer",
           "settings": {
-            "image": "shopify://shop_images/Frame_15.webp",
-            "designer_name": "GUCCI",
-            "origin": "Italy",
-            "since": "1921",
-            "collection_url": "/collections/gucci"
+            "image": "shopify://shop_images/Slide03.webp",
+            "designer_name": "Torlowei",
+            "origin": "Belgium",
+            "since": "2017",
+            "collection_url": "shopify://collections/torlowei"
           }
         },
-        "designer_givenchy": {
+        "designer_74Gjje": {
           "type": "designer",
           "settings": {
-            "image": "shopify://shop_images/Frame_115.webp",
-            "designer_name": "GIVENCHY",
-            "origin": "France",
-            "since": "1952",
-            "collection_url": "/collections/givenchy"
+            "image": "shopify://shop_images/Slide04.webp",
+            "designer_name": "Anna Karin Karlsson",
+            "origin": "Sweden",
+            "since": "2011",
+            "collection_url": "shopify://collections/anna-karin-karlson"
           }
         },
-        "designer_prada": {
+        "designer_QDQtiJ": {
           "type": "designer",
           "settings": {
-            "image": "shopify://shop_images/Frame_115.webp",
-            "designer_name": "PRADA",
-            "origin": "Italy",
-            "since": "1913",
-            "collection_url": "/collections/prada"
-          }
-        },
-        "designer_valentino": {
-          "type": "designer",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle.webp",
-            "designer_name": "VALENTINO",
-            "origin": "Italy",
-            "since": "1960",
-            "collection_url": "/collections/valentino"
-          }
-        },
-        "designer_versace": {
-          "type": "designer",
-          "settings": {
-            "image": "shopify://shop_images/Frame_115.webp",
-            "designer_name": "VERSACE",
-            "origin": "Italy",
-            "since": "1978",
-            "collection_url": "/collections/versace"
-          }
-        },
-        "designer_zegna": {
-          "type": "designer",
-          "settings": {
-            "image": "shopify://shop_images/Frame_115.webp",
-            "designer_name": "ZEGNA",
-            "origin": "Italy",
-            "since": "1910",
-            "collection_url": "/collections/zegna"
+            "image": "shopify://shop_images/Slide05.webp",
+            "designer_name": "Biyan",
+            "origin": "India",
+            "since": "1987",
+            "collection_url": "shopify://collections/biyan"
           }
         }
       },
       "block_order": [
-        "designer_balmain",
-        "designer_burberry",
-        "designer_gucci",
-        "designer_givenchy",
-        "designer_prada",
-        "designer_valentino",
-        "designer_versace",
-        "designer_zegna"
+        "designer_HDThdQ",
+        "designer_ePxpGn",
+        "designer_dmxKpk",
+        "designer_74Gjje",
+        "designer_QDQtiJ"
       ],
       "settings": {
         "label": "DESIGNERS",
