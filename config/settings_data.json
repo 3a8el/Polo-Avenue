@@ -846,7 +846,9 @@
       ".cart-items__remove {justify-content: end !important;}",
       ".swym-storefront-layout-tabs {display: none !important;}",
       ".swym-storefront-layout-title svg {display: none !important;}",
-      ".swym-storefront-layout-tab-container {gap: 20px;}"
+      ".swym-storefront-layout-tab-container {gap: 20px;}",
+      ".swym.wishlist-collectopn-v2 {stroke: #EF4B37 !important;}",
+      ".swym.wishlist-collectopn-v2 [aria-pressed=true]{fill:#EF4B37 !important;}"
     ]
   }
 }
