@@ -130,7 +130,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Jumeirah Boutique, Dubai, UAE</p>",
+                    "text": "<p>538 Jumeira St - Jumeirah - Jumeira Third - Dubai, UAE</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -182,7 +182,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Mon–Sat: 10am–8pm  |  Sun: 12pm–6pm<br/></p>",
+                    "text": "<p>Tue – Sat : 11 AM – 6 PM</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
