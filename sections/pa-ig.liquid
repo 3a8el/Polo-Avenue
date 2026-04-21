@@ -66,7 +66,7 @@
       {%- if section.settings.follow_label != blank and section.settings.instagram_url != blank -%}
         <a
           href="{{ section.settings.instagram_url }}"
-          class="pa-instagram__follow-btn"
+          class="pa-instagram__follow-btn{% if section.settings.full_width_desktop %} pa-instagram__follow-btn--full-desktop{% endif %}{% if section.settings.full_width_mobile %} pa-instagram__follow-btn--full-mobile{% endif %}"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -199,24 +199,40 @@
 
   .pa-instagram__follow-btn {
     display: inline-block;
-    margin-top: 8px;
     padding: 14px 36px;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-foreground);
-    background: #FAF9F7;
-    {% comment %} border: 1.5px solid var(--color-foreground); {% endcomment %}
-    border-radius: 4px;
     text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
+    text-align: center;
+    border-style: solid;
+    border-width: {{ section.settings.border_width }}px;
+    border-radius: {{ section.settings.border_radius }}px;
+    border-color: {{ section.settings.border_color }};
+    color: {{ section.settings.text_color }};
+    background: {{ section.settings.bg_color }};
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
 
   .pa-instagram__follow-btn:hover {
-    background: var(--color-foreground);
-    {% comment %} color: var(--color-background); {% endcomment %}
-    color: #FAF9F7;
+    color: {{ section.settings.hover_text_color }};
+    background: {{ section.settings.hover_bg_color }};
+    border-color: {{ section.settings.hover_border_color }};
+  }
+
+  @media (min-width: 750px) {
+    .pa-instagram__follow-btn--full-desktop {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 749px) {
+    .pa-instagram__follow-btn--full-mobile {
+      display: block;
+      width: 100%;
+    }
   }
 
   /* ── Mobile: 2 columns ── */
@@ -281,6 +297,86 @@
       "type": "url",
       "id": "instagram_url",
       "label": "Instagram URL"
+    },
+    {
+      "type": "header",
+      "content": "Button Width"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width_desktop",
+      "label": "Full width on desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width_mobile",
+      "label": "Full width on mobile",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Button — Normal State"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#FAF9F7"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#00000000"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Button — Hover State"
+    },
+    {
+      "type": "color",
+      "id": "hover_text_color",
+      "label": "Text color on hover",
+      "default": "#FAF9F7"
+    },
+    {
+      "type": "color",
+      "id": "hover_bg_color",
+      "label": "Background on hover",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "hover_border_color",
+      "label": "Border color on hover",
+      "default": "#1A1A1A"
     },
     {
       "type": "color_scheme",
