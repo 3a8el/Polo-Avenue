@@ -1,0 +1,154 @@
+{%- liquid
+  assign btn_id = 'pa-btn-' | append: block.id
+  assign full_desktop = block.settings.full_width_desktop
+  assign full_mobile  = block.settings.full_width_mobile
+-%}
+
+<a
+  id="{{ btn_id }}"
+  href="{{ block.settings.url | default: '#' }}"
+  class="pa-btn{% if full_desktop %} pa-btn--full-desktop{% endif %}{% if full_mobile %} pa-btn--full-mobile{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  {{- block.settings.label -}}
+</a>
+
+<style>
+  #{{ btn_id }} {
+    display: inline-block;
+    padding: 14px 36px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border-style: solid;
+    border-width: {{ block.settings.border_width }}px;
+    border-radius: {{ block.settings.border_radius }}px;
+    border-color: {{ block.settings.border_color }};
+    color: {{ block.settings.text_color }};
+    background: {{ block.settings.bg_color }};
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  #{{ btn_id }}:hover {
+    color: {{ block.settings.hover_text_color }};
+    background: {{ block.settings.hover_bg_color }};
+    border-color: {{ block.settings.hover_border_color }};
+  }
+
+  @media (min-width: 750px) {
+    #{{ btn_id }}.pa-btn--full-desktop {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 749px) {
+    #{{ btn_id }}.pa-btn--full-mobile {
+      display: block;
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "PA Button",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "EXPLORE COLLECTION"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Width"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width_desktop",
+      "label": "Full width on desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width_mobile",
+      "label": "Full width on mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Normal State"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#00000000"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Hover State"
+    },
+    {
+      "type": "color",
+      "id": "hover_text_color",
+      "label": "Text color on hover",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "hover_bg_color",
+      "label": "Background on hover",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "hover_border_color",
+      "label": "Border color on hover",
+      "default": "#1A1A1A"
+    }
+  ],
+  "presets": [{ "name": "PA Button" }]
+}
+{% endschema %}
