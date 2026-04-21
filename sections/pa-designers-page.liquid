@@ -44,17 +44,6 @@
       </div>
     {%- endif -%}
 
-    {%- comment -%} Grid sub-header {%- endcomment -%}
-    {%- if section.settings.grid_label != blank or section.settings.grid_heading != blank -%}
-      <div class="pa-dp__grid-header">
-        {%- if section.settings.grid_label != blank -%}
-          <p class="pa-dp__label">{{ section.settings.grid_label }}</p>
-        {%- endif -%}
-        {%- if section.settings.grid_heading != blank -%}
-          <h2 class="pa-dp__grid-heading">{{ section.settings.grid_heading }}</h2>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
 
     {%- comment -%} Cards — flat list, filtered by JS {%- endcomment -%}
     <div class="pa-dp__grid" id="pa-dp-grid">
@@ -485,18 +474,6 @@
       "id": "show_filter",
       "label": "Show A–Z letter filter",
       "default": false
-    },
-    {
-      "type": "text",
-      "id": "grid_label",
-      "label": "Grid Section Label",
-      "default": "GLOBAL HOUSES"
-    },
-    {
-      "type": "text",
-      "id": "grid_heading",
-      "label": "Grid Section Heading",
-      "default": "World-Class Labels"
     },
     {
       "type": "text",
