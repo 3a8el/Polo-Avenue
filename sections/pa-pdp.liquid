@@ -63,7 +63,12 @@
               <div class="pa-pdp__option-header">
                 <span class="pa-pdp__option-label">SELECT {{ option.name | upcase }}</span>
                 {%- if option.name == 'Size' or option.name == 'size' -%}
-                  <a href="{{ section.settings.size_guide_url | default: '#' }}" class="pa-pdp__size-guide">SIZE GUIDE +</a>
+                  <a href="{{ section.settings.size_guide_url | default: '#' }}" class="pa-pdp__size-guide">
+                    SIZE GUIDE
+                    <svg width="9" height="8" viewBox="0 0 7 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M4.33333 0L6.33333 2.98611L4.33333 6H2.80556L4.27778 3.625H0V2.36111H4.27778L2.80556 0H4.33333Z" fill="#EF4B37"/>
+                    </svg>
+                  </a>
                 {%- endif -%}
               </div>
               <div class="pa-pdp__option-values" data-option-position="{{ forloop.index0 }}" data-option-name="{{ option.name | escape }}">
@@ -258,7 +263,7 @@
   .pa-pdp__option-group { display: flex; flex-direction: column; gap: 10px; }
   .pa-pdp__option-header { display: flex; align-items: center; justify-content: space-between; }
   .pa-pdp__option-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: #1A1A1A; }
-  .pa-pdp__size-guide { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #EF4B37; text-decoration: none; text-transform: uppercase; }
+  .pa-pdp__size-guide { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #EF4B37; text-decoration: none; text-transform: uppercase; }
   .pa-pdp__size-guide:hover { opacity: 0.8; }
   .pa-pdp__option-values { display: flex; flex-wrap: wrap; gap: 8px; }
   .pa-pdp__opt-btn { min-width: 52px; height: 44px; padding: 0 16px; border: 1.5px solid #D0D0D0; background: #fff; font-size: 13px; font-weight: 500; color: #1A1A1A; cursor: pointer; transition: border-color 0.15s, background 0.15s; border-radius: 8px; letter-spacing: 0.02em; }
