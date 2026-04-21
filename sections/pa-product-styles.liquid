@@ -43,6 +43,7 @@
 
   /* ── Quick Add Button ── */
   add-to-cart-component,
+  quick-add-component,
   .quick-add,
   .quick-add__submit,
   [id*="QuickAdd"] {
@@ -51,15 +52,22 @@
     background: transparent !important;
   }
 
+  quick-add-component .quick-add__button,
+  quick-add-component .quick-add__button--add,
+  .card-wrapper .quick-add__button,
+  .card-wrapper .quick-add__button--add,
+  .product-card-wrapper .quick-add__button,
   .quick-add__button,
   .quick-add__button--add,
   button.add-to-cart-button {
     width: auto !important;
     min-width: 100px !important;
     max-width: 140px !important;
-    background: #fff !important;
+    background: #ffffff !important;
+    background-image: none !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    filter: none !important;
     color: #1A1A1A !important;
     border: 1px solid #E5E5E5 !important;
     border-radius: 4px !important;
