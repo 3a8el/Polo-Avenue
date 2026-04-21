@@ -419,25 +419,19 @@
                   },
                   "blocks": {}
                 },
-                "button_pg8WEx": {
-                  "type": "button",
-                  "name": "t:names.button",
+                "pa_cta_button_VGrpjw": {
+                  "type": "pa-cta-button",
+                  "name": "PA CTA Button",
                   "settings": {
-                    "label": "Shop now",
-                    "link": "shopify://collections/all",
-                    "open_in_new_tab": false,
-                    "style_class": "link",
-                    "width": "fit-content",
-                    "custom_width": 100,
-                    "width_mobile": "fit-content",
-                    "custom_width_mobile": 100
+                    "label": "EXPLORE ALL",
+                    "url": ""
                   },
                   "blocks": {}
                 }
               },
               "block_order": [
                 "text_cj9M4P",
-                "button_pg8WEx"
+                "pa_cta_button_VGrpjw"
               ]
             }
           },
