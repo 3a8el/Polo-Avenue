@@ -1,0 +1,54 @@
+<a
+  href="{{ block.settings.url | default: '#' }}"
+  class="pa-cta-btn"
+  {{ block.shopify_attributes }}
+>
+  <span class="pa-cta-btn__label">{{ block.settings.label }}</span>
+  <span class="pa-cta-btn__icon" aria-hidden="true">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_815_7673)">
+        <path d="M7.66683 3L9.66683 5.98611L7.66683 9H6.13905L7.61127 6.625H3.3335V5.36111H7.61127L6.13905 3H7.66683Z" fill="#EF4B37"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_815_7673">
+          <rect width="12" height="12" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </span>
+</a>
+
+<style>
+  .pa-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Montserrat', var(--font-body--family), sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #EF4B37;
+    text-decoration: none;
+  }
+
+  .pa-cta-btn:hover { opacity: 0.8; }
+
+  .pa-cta-btn__icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "PA CTA Button",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "SHOP NOW" },
+    { "type": "url", "id": "url", "label": "Link URL" }
+  ],
+  "presets": [{ "name": "PA CTA Button" }]
+}
+{% endschema %}
