@@ -526,7 +526,7 @@
                   "type": "text",
                   "name": "t:names.heading",
                   "settings": {
-                    "text": "<h5>About Us</h5>",
+                    "text": "<h5><a href=\"/pages/our-story\" title=\"Our Story\">About Us</a></h5>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
