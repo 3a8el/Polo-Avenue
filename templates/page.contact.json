@@ -141,10 +141,25 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "divider_dbetPh": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 32,
+        "padding-block-end": 16
+      }
     }
   },
   "order": [
     "main",
-    "pa_boutique_rDjFKN"
+    "pa_boutique_rDjFKN",
+    "divider_dbetPh"
   ]
 }
