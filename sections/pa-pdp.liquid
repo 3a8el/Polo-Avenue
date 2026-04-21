@@ -309,6 +309,69 @@
     .pa-pdp { padding: 24px 32px 48px; }
     .pa-pdp__layout { gap: 36px; }
   }
+
+  /* ── Recommendations Section ── */
+
+  /* "BASED ON THIS ITEM" label in red */
+  .product-recommendations .rte p:first-child,
+  .product-recommendations [class*="text-block"] p,
+  .product-recommendations p {
+    color: #EF4B37 !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Sold out badge → top left */
+  .product-recommendations .product-card__badges,
+  .product-recommendations [class*="badges"] {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  /* Vendor name red in product card */
+  .product-recommendations .product-card__vendor,
+  .product-recommendations [class*="vendor"] {
+    color: #EF4B37 !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Title + price on same row (desktop) */
+  @media (min-width: 750px) {
+    .product-recommendations .product-card__info,
+    .product-recommendations [class*="product-card"] > *:not([class*="media"]) {
+      display: grid !important;
+      grid-template-columns: 1fr auto !important;
+      column-gap: 8px !important;
+      align-items: center !important;
+    }
+
+    /* Vendor spans full width */
+    .product-recommendations .product-card__vendor,
+    .product-recommendations [class*="vendor"] {
+      grid-column: 1 / -1 !important;
+    }
+
+    /* Price aligns right */
+    .product-recommendations .price,
+    .product-recommendations [class*="price"] {
+      text-align: right !important;
+      white-space: nowrap !important;
+    }
+  }
+
+  /* Mobile: stack all three */
+  @media (max-width: 749px) {
+    .product-recommendations .product-card__info,
+    .product-recommendations [class*="product-card"] > *:not([class*="media"]) {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+  }
 </style>
 
 {% schema %}
