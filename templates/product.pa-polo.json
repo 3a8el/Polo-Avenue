@@ -33,7 +33,7 @@
           "type": "text",
           "name": "Header",
           "settings": {
-            "text": "<p>BASED ON THIS ITEM</p><h2>You May Also Love</h2>",
+            "text": "<h3>BASED ON THIS ITEM</h3><h4>You May Also Love</h4>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "left",
@@ -83,32 +83,6 @@
                 "border_opacity": 100,
                 "border_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "vendor": {
-              "type": "text",
-              "name": "Vendor",
-              "settings": {
-                "text": "{{ closest.product.vendor }}",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-body--family)",
-                "font_size": "0.7rem",
-                "line_height": "normal",
-                "letter_spacing": "0.12em",
-                "case": "uppercase",
-                "wrap": "pretty",
-                "color": "#EF4B37",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -165,7 +139,6 @@
           },
           "block_order": [
             "gallery",
-            "vendor",
             "title",
             "price"
           ]
