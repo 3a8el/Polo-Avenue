@@ -182,7 +182,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>Tue – Sat : 11 AM – 6 PM</p>",
+                    "text": "<p>Tue – Sat : 11 AM – 6 PM<br/>Sun & Mon : Store Closed</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
