@@ -411,6 +411,7 @@
                 "text_CW4WUn": {
                   "type": "text",
                   "name": "t:names.heading",
+                  "disabled": true,
                   "settings": {
                     "text": "<h5><a href=\"/pages/gift-services\" title=\"Gift Services\">Gift Services</a></h5>",
                     "width": "fit-content",
@@ -576,6 +577,7 @@
                 "text_UX6HLk": {
                   "type": "text",
                   "name": "t:names.heading",
+                  "disabled": true,
                   "settings": {
                     "text": "<h5><a href=\"/pages/personal-styling\" title=\"Personal Styling\">Personal Styling</a></h5>",
                     "width": "fit-content",
