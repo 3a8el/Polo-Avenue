@@ -69,7 +69,7 @@
           "name": "PA Button",
           "settings": {
             "label": "EXPLORE COLLECTION",
-            "url": "",
+            "url": "shopify://collections/all",
             "full_width_desktop": false,
             "full_width_mobile": true,
             "text_color": "#1a1a1a",
