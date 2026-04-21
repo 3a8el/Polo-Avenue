@@ -110,7 +110,7 @@
         </button>
       {%- endform -%}
 
-      <button type="button" class="pa-pdp__wishlist-btn swym-button swym-add-to-wishlist product_{{ product.id }}" data-swym-variant-id="{{ current_variant.id }}" data-swym-product-id="{{ product.id }}" data-swym-product-url="{{ shop.url }}{{ product.url }}" id="pa-pdp-wishlist">
+      <button type="button" class="pa-pdp__wishlist-btn" data-variant-id="{{ current_variant.id }}" data-product-id="{{ product.id }}" data-product-url="{{ shop.url }}{{ product.url }}" id="pa-pdp-wishlist">
         ADD TO WISHLIST
       </button>
 
@@ -215,7 +215,7 @@
     variantInput.value = variant.id;
     atcBtn.disabled = !variant.available;
     if (atcText) atcText.textContent = variant.available ? 'ADD TO CART' : 'SOLD OUT';
-    if (wishlistBtn) wishlistBtn.dataset.swymVariantId = variant.id;
+    if (wishlistBtn) { wishlistBtn.dataset.variantId = variant.id; checkWishlistState(variant.id); }
     if (mainImg && mediaMap[variant.id]) mainImg.src = mediaMap[variant.id];
     const url = new URL(window.location.href);
     url.searchParams.set('variant', variant.id);
@@ -237,6 +237,48 @@
     if (icon) icon.dataset.open = details.open ? '1' : '0';
     details.addEventListener('toggle', () => { if (icon) icon.dataset.open = details.open ? '1' : '0'; });
   });
+
+  // ── Wishlist via Swym API ──
+  function waitForSwym(cb, attempts) {
+    attempts = attempts || 0;
+    if (window._swat) { cb(window._swat); return; }
+    if (attempts < 30) setTimeout(() => waitForSwym(cb, attempts + 1), 300);
+  }
+
+  function setWishlistState(added) {
+    if (!wishlistBtn) return;
+    wishlistBtn.dataset.added = added ? '1' : '0';
+    wishlistBtn.textContent = added ? 'ADDED TO WISHLIST' : 'ADD TO WISHLIST';
+  }
+
+  function checkWishlistState(variantId) {
+    waitForSwym(swat => {
+      swat.fetch(items => {
+        const inList = Array.isArray(items) && items.some(item => item.epi == variantId);
+        setWishlistState(inList);
+      });
+    });
+  }
+
+  if (wishlistBtn) {
+    checkWishlistState(wishlistBtn.dataset.variantId);
+
+    wishlistBtn.addEventListener('click', () => {
+      const variantId = wishlistBtn.dataset.variantId;
+      const productId = wishlistBtn.dataset.productId;
+      const productUrl = wishlistBtn.dataset.productUrl;
+      const isAdded = wishlistBtn.dataset.added === '1';
+      const payload = { epi: parseInt(variantId), empi: parseInt(productId), du: productUrl };
+
+      waitForSwym(swat => {
+        if (isAdded) {
+          swat.removeFromWishList(payload, () => setWishlistState(false), () => {});
+        } else {
+          swat.addToWishList(payload, () => setWishlistState(true), () => {});
+        }
+      });
+    });
+  }
 })();
 </script>
 
