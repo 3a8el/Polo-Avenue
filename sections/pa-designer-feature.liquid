@@ -1,0 +1,405 @@
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div class="section section--full-width color-{{ section.settings.color_scheme }} pa-df">
+
+  {%- comment -%} ── Hero ── {%- endcomment -%}
+  <div class="pa-df__hero">
+    {%- if section.settings.bg_image != blank -%}
+      <img
+        src="{{ section.settings.bg_image | image_url: width: 2400 }}"
+        alt="{{ section.settings.designer_name | escape }}"
+        class="pa-df__hero-img"
+        loading="eager"
+        width="2400"
+      >
+    {%- endif -%}
+    <div class="pa-df__hero-overlay">
+      {%- if section.settings.logo != blank -%}
+        <img
+          src="{{ section.settings.logo | image_url: width: 240 }}"
+          alt="{{ section.settings.designer_name | escape }}"
+          class="pa-df__logo"
+          width="240"
+          loading="eager"
+        >
+      {%- endif -%}
+      <div class="pa-df__hero-text">
+        {%- if section.settings.designer_name != blank -%}
+          <p class="pa-df__designer-name">{{ section.settings.designer_name }}</p>
+        {%- endif -%}
+        {%- if section.settings.phrase != blank -%}
+          <p class="pa-df__phrase">{{ section.settings.phrase }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ── Products Carousel ── {%- endcomment -%}
+  {%- assign col = collections[section.settings.collection] -%}
+  {%- if col != blank -%}
+    <div class="pa-df__products-wrap">
+      <div class="pa-df__carousel" id="pa-df-carousel-{{ section.id }}">
+        {%- for product in col.products limit: section.settings.max_products -%}
+          <a href="{{ product.url }}" class="pa-df__card">
+            <div class="pa-df__card-img-wrap">
+              {%- if product.featured_image != blank -%}
+                <img
+                  src="{{ product.featured_image | image_url: width: 600 }}"
+                  alt="{{ product.title | escape }}"
+                  class="pa-df__card-img"
+                  loading="lazy"
+                  width="600"
+                >
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'pa-df__card-img pa-df__card-img--placeholder' }}
+              {%- endif -%}
+            </div>
+            <div class="pa-df__card-info">
+              <p class="pa-df__card-vendor">{{ product.vendor }}</p>
+              <div class="pa-df__card-bottom">
+                <h4 class="pa-df__card-title">{{ product.title }}</h4>
+                <p class="pa-df__card-price">{{ product.price | money }}</p>
+              </div>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+      <div class="pa-df__progress-wrap">
+        <div class="pa-df__progress-track">
+          <div class="pa-df__progress-bar" id="pa-df-bar-{{ section.id }}"></div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+</div>
+
+<style>
+  /* ── Hero ── */
+  .pa-df__hero {
+    position: relative;
+    width: 100%;
+    min-height: {{ section.settings.hero_height }}px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pa-df__hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .pa-df__hero-overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 40px 24px;
+  }
+
+  .pa-df__logo {
+    max-height: 48px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .pa-df__hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+  }
+
+  .pa-df__designer-name {
+    margin: 0;
+    font-size: clamp(32px, 5vw, 72px);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    line-height: 1.1;
+  }
+
+  .pa-df__phrase {
+    margin: 0;
+    padding-top: 10px;
+    font-size: clamp(28px, 4vw, 60px);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  /* ── Products Wrap ── */
+  .pa-df__products-wrap {
+    max-width: min(var(--page-width, 1400px), calc(100% - var(--page-margin, 24px) * 2));
+    margin: 0 auto;
+    padding: 40px 0 0;
+  }
+
+  /* ── Carousel ── */
+  .pa-df__carousel {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0;
+  }
+
+  .pa-df__carousel::-webkit-scrollbar { display: none; }
+
+  /* ── Card ── */
+  .pa-df__card {
+    flex: 0 0 25%;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  .pa-df__card:last-child { padding-right: 0; }
+
+  .pa-df__card-img-wrap {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .pa-df__card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .pa-df__card:hover .pa-df__card-img { transform: scale(1.03); }
+
+  .pa-df__card-img--placeholder {
+    width: 100%;
+    height: 100%;
+  }
+
+  .pa-df__card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .pa-df__card-vendor {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #EF4B37;
+  }
+
+  .pa-df__card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .pa-df__card-title {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-foreground);
+    letter-spacing: 0.02em;
+  }
+
+  .pa-df__card-price {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-foreground);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Progress ── */
+  .pa-df__progress-wrap {
+    padding: 24px 0 40px;
+  }
+
+  .pa-df__progress-track {
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .pa-df__progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #EF4B37;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 749px) {
+    .pa-df__hero {
+      min-height: {{ section.settings.hero_height_mobile }}px;
+    }
+
+    .pa-df__products-wrap {
+      max-width: 100%;
+      padding: 24px 0 0;
+    }
+
+    .pa-df__carousel {
+      padding: 0 16px;
+      scroll-snap-type: x mandatory;
+      gap: 12px;
+    }
+
+    .pa-df__card {
+      flex: 0 0 46vw;
+      padding-right: 0;
+      scroll-snap-align: start;
+    }
+
+    /* Stack title + price vertically on mobile */
+    .pa-df__card-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .pa-df__progress-wrap {
+      padding: 16px 16px 32px;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  var carousel = document.getElementById('pa-df-carousel-{{ section.id }}');
+  var bar = document.getElementById('pa-df-bar-{{ section.id }}');
+  if (!carousel || !bar) return;
+
+  function updateProgress() {
+    var max = carousel.scrollWidth - carousel.clientWidth;
+    if (max <= 0) return;
+    bar.style.width = (carousel.scrollLeft / max * 100) + '%';
+  }
+
+  carousel.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "PA Designer Feature",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Designer Logo (optional)"
+    },
+    {
+      "type": "text",
+      "id": "designer_name",
+      "label": "Designer Name",
+      "default": "ONALAJA"
+    },
+    {
+      "type": "text",
+      "id": "phrase",
+      "label": "Phrase",
+      "default": "MOST WANTED"
+    },
+    {
+      "type": "range",
+      "id": "hero_height",
+      "label": "Hero height (desktop)",
+      "min": 200,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "default": 480
+    },
+    {
+      "type": "range",
+      "id": "hero_height_mobile",
+      "label": "Hero height (mobile)",
+      "min": 160,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "default": 300
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "max_products",
+      "label": "Max products to show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PA Designer Feature",
+      "settings": {
+        "designer_name": "ONALAJA",
+        "phrase": "MOST WANTED"
+      }
+    }
+  ]
+}
+{% endschema %}
