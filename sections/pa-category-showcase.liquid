@@ -15,7 +15,7 @@
       {%- endif -%}
     </div>
     {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
-      <a href="{{ section.settings.cta_url }}" class="pa-cat__cta">
+      <a href="{{ section.settings.cta_url }}" class="pa-cat__cta pa-cat__cta--desktop">
         {{ section.settings.cta_label }}
         <svg width="9" height="8" viewBox="0 0 7 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M4.33333 0L6.33333 2.98611L4.33333 6H2.80556L4.27778 3.625H0V2.36111H4.27778L2.80556 0H4.33333Z" fill="#EF4B37"/>
@@ -51,10 +51,18 @@
     {%- endfor -%}
   </div>
 
+  {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
+    <a href="{{ section.settings.cta_url }}" class="pa-cat__cta pa-cat__cta--mobile">
+      {{ section.settings.cta_label }}
+      <svg width="9" height="8" viewBox="0 0 7 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4.33333 0L6.33333 2.98611L4.33333 6H2.80556L4.27778 3.625H0V2.36111H4.27778L2.80556 0H4.33333Z" fill="#EF4B37"/>
+      </svg>
+    </a>
+  {%- endif -%}
+
 </div>
 
 <style>
-  /* ── Wrapper ── */
   .pa-cat {
     display: flex;
     flex-direction: column;
@@ -106,10 +114,12 @@
     text-decoration: none;
     white-space: nowrap;
     flex-shrink: 0;
-    padding-bottom: 4px;
   }
 
   .pa-cat__cta:hover { opacity: 0.75; }
+
+  /* Desktop CTA in header, mobile CTA hidden */
+  .pa-cat__cta--mobile { display: none; }
 
   /* ── Grid ── */
   .pa-cat__grid {
@@ -140,7 +150,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
     display: block;
     transition: transform 0.5s ease;
   }
@@ -173,20 +183,30 @@
 
   /* ── Desktop hover ── */
   @media (min-width: 750px) {
-    .pa-cat__card:hover .pa-cat__name-bar {
-      transform: translateY(0);
-    }
-
-    .pa-cat__card:hover .pa-cat__img {
-      transform: scale(1.03);
-    }
+    .pa-cat__card:hover .pa-cat__name-bar { transform: translateY(0); }
+    .pa-cat__card:hover .pa-cat__img { transform: scale(1.03); }
   }
 
   /* ── Mobile ── */
   @media (max-width: 749px) {
+    .pa-cat__header {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* Swap CTAs */
+    .pa-cat__cta--desktop { display: none; }
+    .pa-cat__cta--mobile {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 32px;
+      align-self: center;
+    }
+
     .pa-cat__grid {
       scroll-snap-type: x mandatory;
-      gap: 0;
     }
 
     .pa-cat__card {
@@ -196,9 +216,7 @@
     }
 
     /* Name always visible on mobile */
-    .pa-cat__name-bar {
-      transform: translateY(0);
-    }
+    .pa-cat__name-bar { transform: translateY(0); }
   }
 </style>
 
@@ -263,7 +281,7 @@
       "max": 800,
       "step": 20,
       "unit": "px",
-      "default": 520
+      "default": 512
     },
     {
       "type": "range",
