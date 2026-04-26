@@ -46,6 +46,15 @@
     {%- endfor -%}
   </div>
 
+  {%- if section.settings.cta_label != blank and section.settings.cta_url != blank -%}
+    <a href="{{ section.settings.cta_url }}" class="pa-cat__cta-mobile">
+      {{ section.settings.cta_label }}
+      <svg width="9" height="8" viewBox="0 0 7 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4.33333 0L6.33333 2.98611L4.33333 6H2.80556L4.27778 3.625H0V2.36111H4.27778L2.80556 0H4.33333Z" fill="#EF4B37"/>
+      </svg>
+    </a>
+  {%- endif -%}
+
 </div>
 
 <style>
@@ -106,6 +115,9 @@
 
   .pa-cat__cta:hover { opacity: 0.75; }
 
+  /* Mobile CTA — hidden on desktop */
+  .pa-cat__cta-mobile { display: none; }
+
   /* ── Grid ── */
   .pa-cat__grid {
     display: flex;
@@ -135,7 +147,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
     display: block;
     transition: transform 0.5s ease;
   }
@@ -179,6 +191,31 @@
 
   /* ── Mobile ── */
   @media (max-width: 749px) {
+    .pa-cat__header {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* Hide desktop CTA from header, show mobile CTA below grid */
+    .pa-cat__header .pa-cat__cta { display: none; }
+
+    .pa-cat__cta-mobile {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 32px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #EF4B37;
+      text-decoration: none;
+      align-self: center;
+    }
+
+    .pa-cat__cta-mobile:hover { opacity: 0.75; }
+
     .pa-cat__grid {
       scroll-snap-type: x mandatory;
       gap: 0;
@@ -258,7 +295,7 @@
       "max": 800,
       "step": 20,
       "unit": "px",
-      "default": 520
+      "default": 512
     },
     {
       "type": "range",
