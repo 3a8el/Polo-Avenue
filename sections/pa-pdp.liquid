@@ -138,20 +138,28 @@
         </details>
         <details class="pa-pdp__accordion">
           <summary class="pa-pdp__accordion-head">
-            <span>{{ section.settings.accordion_2_title | default: 'DELIVERY &amp; RETURNS' }}</span>
+            <span>{{ section.settings.accordion_2_title | default: 'DETAILS &amp; CARE' }}</span>
             <span class="pa-pdp__accordion-icon" aria-hidden="true"></span>
           </summary>
           <div class="pa-pdp__accordion-body">
-            {{ section.settings.delivery_text | default: 'Complimentary standard delivery on orders over AED 400. Express same-day delivery available in Dubai for AED 85. Return any unworn item within 30 days of delivery.' }}
+            {%- if product.metafields.custom.details_care != blank -%}
+              {{ product.metafields.custom.details_care | metafield_tag }}
+            {%- else -%}
+              {{ section.settings.delivery_text }}
+            {%- endif -%}
           </div>
         </details>
         <details class="pa-pdp__accordion">
           <summary class="pa-pdp__accordion-head">
-            <span>{{ section.settings.accordion_3_title | default: 'BOOK A STYLING SESSION' }}</span>
+            <span>{{ section.settings.accordion_3_title | default: 'SIZE &amp; FIT' }}</span>
             <span class="pa-pdp__accordion-icon" aria-hidden="true"></span>
           </summary>
           <div class="pa-pdp__accordion-body">
-            {{ section.settings.styling_text | default: 'Book a complimentary personal styling session with one of our expert stylists. In-store or virtual appointments available.' }}
+            {%- if product.metafields.custom.size_fit != blank -%}
+              {{ product.metafields.custom.size_fit | metafield_tag }}
+            {%- else -%}
+              {{ section.settings.styling_text }}
+            {%- endif -%}
           </div>
         </details>
         <details class="pa-pdp__accordion">
@@ -160,7 +168,11 @@
             <span class="pa-pdp__accordion-icon" aria-hidden="true"></span>
           </summary>
           <div class="pa-pdp__accordion-body">
-            {{ section.settings.accordion_4_text }}
+            {%- if product.metafields.custom.deliveer_returns != blank -%}
+              {{ product.metafields.custom.deliveer_returns | metafield_tag }}
+            {%- else -%}
+              {{ section.settings.accordion_4_text }}
+            {%- endif -%}
           </div>
         </details>
       </div>
