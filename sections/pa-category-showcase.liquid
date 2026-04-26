@@ -1,4 +1,9 @@
-<div class="pa-cat color-{{ section.settings.color_scheme }}">
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="section section--page-width color-{{ section.settings.color_scheme }} pa-cat spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
 
   <div class="pa-cat__header">
     <div class="pa-cat__header-left">
