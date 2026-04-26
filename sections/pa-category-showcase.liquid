@@ -37,7 +37,7 @@
               src="{{ block.settings.image | image_url: width: 900 }}"
               alt="{{ block.settings.name | escape }}"
               class="pa-cat__img"
-              loading="{{ forloop.first | ternary: 'eager', 'lazy' }}"
+              loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
               width="900"
             >
           {%- else -%}
@@ -340,3 +340,4 @@
   ]
 }
 {% endschema %}
+
