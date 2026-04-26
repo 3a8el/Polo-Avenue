@@ -800,113 +800,21 @@
         "padding-block-end": 40
       }
     },
-    "pa_brand_feature_KxMFWq": {
-      "type": "pa-brand-feature",
-      "name": "PA Brand Feature",
+    "pa_designer_feature_T9qW6Y": {
+      "type": "pa-designer-feature",
+      "name": "PA Designer Feature",
       "settings": {
-        "image": "shopify://shop_images/Slide02.webp",
-        "image_position": "left",
-        "label": "MODERN HERITAGE REDEFINED",
-        "heading": "Onalaja",
-        "description": "A bold celebration of heritage and femininity, Onalaja blends Nigerian craftsmanship with contemporary silhouettes—creating statement pieces that feel both powerful and deeply personal.",
-        "button_label": "EXPLORE COLLECTION",
-        "button_url": "shopify://collections/onalaja",
-        "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "bg_image": "shopify://shop_images/Slide02.webp",
+        "designer_name": "ONALAJA",
+        "phrase": "MOST WANTED",
+        "hero_height": 480,
+        "hero_height_mobile": 300,
+        "collection": "sunglasses",
+        "max_products": 8,
+        "color_scheme": ""
       }
     },
     "divider_RnHpq4": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
-        "section_width": "full-width",
-        "thickness": 0.5,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 68,
-        "padding-block-end": 68
-      }
-    },
-    "pa_brand_feature_NpANUC": {
-      "type": "pa-brand-feature",
-      "name": "PA Brand Feature",
-      "settings": {
-        "image": "shopify://shop_images/Slide01.webp",
-        "image_position": "right",
-        "label": "prints with story",
-        "heading": "Banke Kuku",
-        "description": "Rooted in storytelling, Banke Kuku transforms vibrant prints into effortless luxury. Each piece reflects culture, color, and a refined sense of modern African elegance.",
-        "button_label": "EXPLORE COLLECTION",
-        "button_url": "shopify://collections/banke-kuku",
-        "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
-    "divider_pwxEwk": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
-        "section_width": "full-width",
-        "thickness": 0.5,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 68,
-        "padding-block-end": 68
-      }
-    },
-    "pa_brand_feature_cPX7Jn": {
-      "type": "pa-brand-feature",
-      "name": "PA Brand Feature",
-      "settings": {
-        "image": "shopify://shop_images/Slide03.webp",
-        "image_position": "left",
-        "label": "EFFORTLESS SENSUALITY",
-        "heading": "Torlowei",
-        "description": "Torlowei embodies sensual sophistication, crafting resort and evening wear that celebrates confidence, fluidity, and the art of understated allure.",
-        "button_label": "EXPLORE COLLECTION",
-        "button_url": "shopify://collections/torlowei",
-        "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
-    "divider_UnPa6P": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "scheme-072074ae-0fde-47af-988f-cfe7762f4ab1",
-        "section_width": "full-width",
-        "thickness": 0.5,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 68,
-        "padding-block-end": 68
-      }
-    },
-    "pa_brand_feature_KJLKyt": {
-      "type": "pa-brand-feature",
-      "name": "PA Brand Feature",
-      "settings": {
-        "image": "shopify://shop_images/Slide04.webp",
-        "image_position": "right",
-        "label": "WEARABLE ART, REIMAGINED",
-        "heading": "Anna Karin Karlsson",
-        "description": "More than eyewear, Anna Karin Karlsson creates wearable art—dramatic, sculptural pieces designed for those who embrace individuality and bold self-expression.",
-        "button_label": "EXPLORE COLLECTION",
-        "button_url": "shopify://collections/anna-karin-karlson",
-        "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
-    },
-    "divider_6d4fcc": {
       "type": "divider",
       "name": "t:names.divider_section",
       "settings": {
@@ -1371,14 +1279,8 @@
     "product_list_XrEGUh",
     "divider_JmPcnX",
     "section_mKt68t",
-    "pa_brand_feature_KxMFWq",
+    "pa_designer_feature_T9qW6Y",
     "divider_RnHpq4",
-    "pa_brand_feature_NpANUC",
-    "divider_pwxEwk",
-    "pa_brand_feature_cPX7Jn",
-    "divider_UnPa6P",
-    "pa_brand_feature_KJLKyt",
-    "divider_6d4fcc",
     "pa_brand_feature_GtRAGz",
     "hero_rALxwe",
     "divider_QCYhNU",
