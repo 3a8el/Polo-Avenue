@@ -111,7 +111,10 @@
       {%- endform -%}
 
       <button type="button" class="pa-pdp__wishlist-btn" data-variant-id="{{ current_variant.id }}" data-product-id="{{ product.id }}" data-product-url="{{ shop.url }}{{ product.url }}" id="pa-pdp-wishlist">
-        ADD TO WISHLIST
+        <svg class="pa-pdp__wishlist-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M19.6706 5.4736C17.6806 3.8336 14.7206 4.1236 12.8906 5.9536L12.0006 6.8436L11.1106 5.9536C9.29063 4.1336 6.32064 3.8336 4.33064 5.4736C2.05064 7.3536 1.93063 10.7436 3.97063 12.7836L11.6406 20.4536C11.8406 20.6536 12.1506 20.6536 12.3506 20.4536L20.0206 12.7836C22.0706 10.7436 21.9506 7.3636 19.6706 5.4736Z" stroke="#1A1A1A" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="pa-pdp__wishlist-text">ADD TO WISHLIST</span>
       </button>
 
       <div class="pa-pdp__badges">
@@ -260,7 +263,8 @@
   function setWishlistState(added) {
     if (!wishlistBtn) return;
     wishlistBtn.dataset.added = added ? '1' : '0';
-    wishlistBtn.textContent = added ? 'ADDED TO WISHLIST' : 'ADD TO WISHLIST';
+    const textEl = wishlistBtn.querySelector('.pa-pdp__wishlist-text');
+    if (textEl) textEl.textContent = added ? 'ADDED TO WISHLIST' : 'ADD TO WISHLIST';
   }
 
   function checkWishlistState(variantId) {
@@ -331,8 +335,10 @@
   .pa-pdp__atc-btn { width: 100%; padding: 12px; border: none; border-radius: 8px; background: #FAF9F7; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: #1A1A1A; cursor: pointer; text-transform: uppercase; transition: background 0.15s, opacity 0.15s; }
   .pa-pdp__atc-btn:hover:not(:disabled) { background: #F0EDE7; }
   .pa-pdp__atc-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-  .pa-pdp__wishlist-btn { width: 100%; padding: 12px; border: 1px solid #1A1A1A; border-radius: 8px; background: transparent; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: #1A1A1A; cursor: pointer; text-transform: uppercase; transition: background 0.15s; }
+  .pa-pdp__wishlist-btn { width: 100%; padding: 12px; border: 1px solid #1A1A1A; border-radius: 8px; background: transparent; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: #1A1A1A; cursor: pointer; text-transform: uppercase; transition: background 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
   .pa-pdp__wishlist-btn:hover { background: #FAF9F7; }
+  .pa-pdp__wishlist-icon path { transition: fill 0.15s; }
+  .pa-pdp__wishlist-btn[data-added="1"] .pa-pdp__wishlist-icon path { fill: #1A1A1A; }
   .swym-atw-btn-wrapper-for-img,
   .swym-atw-button-container,
   #swym-atw-pdp-button { display: none !important; }
