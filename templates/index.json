@@ -807,8 +807,8 @@
         "bg_image": "shopify://shop_images/Vector.png",
         "designer_name": "ONALAJA",
         "phrase": "MOST WANTED",
-        "hero_height": 480,
-        "hero_height_mobile": 300,
+        "hero_height": 580,
+        "hero_height_mobile": 340,
         "collection": "sunglasses",
         "max_products": 8,
         "color_scheme": ""
@@ -832,7 +832,7 @@
       "type": "pa-brand-feature",
       "name": "PA Brand Feature",
       "settings": {
-        "image": "shopify://shop_images/Slide05.webp",
+        "image": "shopify://shop_images/TorloweiSS26Shopify-000088060006_7da4ddb5-3f53-4776-badb-cd2d3c76368f_jpg.jpg",
         "image_position": "left",
         "label": "CRAFTED IN EVERY DETAIL",
         "heading": "Torlewei",
