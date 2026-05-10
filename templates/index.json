@@ -133,7 +133,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Dubai's foremost destination for authenticated global luxury — curated from Africa's finest fashion houses.</p>",
+            "text": "<p>Dubai's destination for contemporary luxury designers with an African DNA</p>",
             "width": "100%",
             "max_width": "none",
             "alignment": "center",
