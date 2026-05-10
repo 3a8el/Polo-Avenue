@@ -105,26 +105,33 @@
         "para1": {
           "type": "paragraph",
           "settings": {
-            "paragraph": "From internationally celebrated fashion houses to the next generation of African designers, Polo Avenue Dubai exists to champion creativity without borders.\nBecause the future of luxury is global, and Africa is an essential part of that future."
+            "paragraph": "Polo Avenue Dubai is the international luxury fashion destination of Polo Luxury Group, one of Africa’s foremost luxury retail companies with over three decades of heritage in the luxury industry."
           }
         },
         "para2": {
           "type": "paragraph",
           "settings": {
-            "paragraph": "From internationally celebrated fashion houses to the next generation of African designers, Polo Avenue Dubai exists to champion creativity without borders.\nBecause the future of luxury is global, and Africa is an essential part of that future."
+            "paragraph": "Founded in 1987 by luxury pioneer John Obayuwana, Polo Luxury Group has built a legacy defined by excellence, discretion, craftsmanship, and an uncompromising understanding of luxury clientele across West Africa."
           }
         },
         "paragraph_TxyqbN": {
           "type": "paragraph",
           "settings": {
-            "paragraph": "From internationally celebrated fashion houses to the next generation of African designers, Polo Avenue Dubai exists to champion creativity without borders.\nBecause the future of luxury is global, and Africa is an essential part of that future."
+            "paragraph": "With a portfolio spanning luxury watches, jewellery, fashion, leather goods, accessories, and fragrances, the Group has cultivated longstanding partnerships with some of the world’s most respected luxury brands while establishing itself as a trusted authority within the African luxury market."
+          }
+        },
+        "paragraph_einhiX": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "In 2014, Polo Avenue was launched as the Group’s dedicated luxury fashion subsidiary, created to meet the growing demand for world-class fashion experiences in Africa. Since then, Polo Avenue has become one of Nigeria’s leading multi-brand luxury fashion destinations, curating globally renowned designers alongside emerging contemporary labels for a sophisticated and style-conscious clientele."
           }
         }
       },
       "block_order": [
         "para1",
         "para2",
-        "paragraph_TxyqbN"
+        "paragraph_TxyqbN",
+        "paragraph_einhiX"
       ],
       "settings": {
         "image": "shopify://shop_images/000d6c71a28d37187b2c03b30f49cc2db3f328d0.webp",
