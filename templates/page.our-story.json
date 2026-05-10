@@ -105,19 +105,26 @@
         "para1": {
           "type": "paragraph",
           "settings": {
-            "paragraph": "Our roots run deep in the African soil. Polo was built on the belief that luxury should be accessible, authentic, and anchored in culture. We championed African designers before the world was watching. We sourced from artisans whose craft had been passed through generations."
+            "paragraph": "From internationally celebrated fashion houses to the next generation of African designers, Polo Avenue Dubai exists to champion creativity without borders.\nBecause the future of luxury is global, and Africa is an essential part of that future."
           }
         },
         "para2": {
           "type": "paragraph",
           "settings": {
-            "paragraph": "That founding philosophy — of curating the extraordinary from every corner of the world — is what we carry into every collection, every boutique, every client relationship."
+            "paragraph": "From internationally celebrated fashion houses to the next generation of African designers, Polo Avenue Dubai exists to champion creativity without borders.\nBecause the future of luxury is global, and Africa is an essential part of that future."
+          }
+        },
+        "paragraph_TxyqbN": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "From internationally celebrated fashion houses to the next generation of African designers, Polo Avenue Dubai exists to champion creativity without borders.\nBecause the future of luxury is global, and Africa is an essential part of that future."
           }
         }
       },
       "block_order": [
         "para1",
-        "para2"
+        "para2",
+        "paragraph_TxyqbN"
       ],
       "settings": {
         "image": "shopify://shop_images/000d6c71a28d37187b2c03b30f49cc2db3f328d0.webp",
@@ -150,19 +157,26 @@
         "para1": {
           "type": "paragraph",
           "settings": {
-            "paragraph": "Dubai is one of the world's most discerning markets — a city that understands luxury, that values heritage, and that welcomes excellence from every corner of the globe."
+            "paragraph": "Located in Jumeirah, Polo Avenue Dubai was created with a bold vision: to connect African luxury and creativity to the global stage through one of the world’s most influential luxury capitals."
           }
         },
         "para2": {
           "type": "paragraph",
           "settings": {
-            "paragraph": "Polo Avenue Jumeirah is our declaration: that Africa's finest now has a home in the Middle East. That the world's most exceptional fashion finds one curated, trusted destination."
+            "paragraph": "Dubai represents a natural evolution for the brand, a global crossroads where fashion, culture, business, and luxury converge. Through Polo Avenue Dubai, we are building an international platform that introduces the richness of African fashion, craftsmanship, and design to a wider global audience while continuing to curate exceptional luxury brands from around the world."
+          }
+        },
+        "paragraph_TyXzKB": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "From internationally celebrated fashion houses to the next generation of African designers, Polo Avenue Dubai exists to champion creativity without borders.\n<br><br>\nBecause the future of luxury is global, and Africa is an essential part of that future."
           }
         }
       },
       "block_order": [
         "para1",
-        "para2"
+        "para2",
+        "paragraph_TyXzKB"
       ],
       "settings": {
         "image": "shopify://shop_images/0384fff75d7f82d293935c58eb21e9f1bd0f5ac0.jpg",
