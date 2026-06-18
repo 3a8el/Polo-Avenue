@@ -258,7 +258,7 @@
           "settings": {
             "image": "shopify://shop_images/category-1.webp",
             "name": "DRESSES",
-            "url": ""
+            "url": "shopify://collections/dresses"
           }
         },
         "category_HJxYmt": {
@@ -266,7 +266,7 @@
           "settings": {
             "image": "shopify://shop_images/TorloweiSS26Shopify-0010.jpg_1.jpg",
             "name": "Kaftans",
-            "url": ""
+            "url": "shopify://collections/kaftans"
           }
         },
         "category_gdHcCe": {
