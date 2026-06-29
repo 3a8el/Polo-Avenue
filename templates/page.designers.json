@@ -61,6 +61,16 @@
             "since": "1987",
             "collection_url": "shopify://collections/biyan"
           }
+        },
+        "designer_pr9yta": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/camilla_featured_image.jpg",
+            "designer_name": "Camilla",
+            "origin": "",
+            "since": "",
+            "collection_url": "shopify://collections/camilla"
+          }
         }
       },
       "block_order": [
@@ -68,7 +78,8 @@
         "designer_ePxpGn",
         "designer_dmxKpk",
         "designer_74Gjje",
-        "designer_QDQtiJ"
+        "designer_QDQtiJ",
+        "designer_pr9yta"
       ],
       "settings": {
         "label": "global houses",
