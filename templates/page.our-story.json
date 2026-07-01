@@ -51,36 +51,36 @@
         "step1": {
           "type": "step",
           "settings": {
-            "title": "Founded",
-            "description": "Polo opens its first luxury boutique in Johannesburg, South Africa."
+            "title": "Founded | 2014",
+            "description": "Polo Avenue launches as a multi-brand luxury fashion destination, introducing Nigeria to a new standard of curated fashion, service, and personal expression."
           }
         },
         "step2": {
           "type": "step",
           "settings": {
-            "title": "Expansion",
-            "description": "Regional growth across sub-Saharan Africa — 12 boutiques established."
+            "title": "Expansion | 2020",
+            "description": "With boutiques across Lagos and a growing digital presence, Polo Avenue continues to expand its reach while creating immersive luxury experiences for its clientele."
           }
         },
         "step3": {
           "type": "step",
           "settings": {
-            "title": "Africa's Finest",
-            "description": "Named the continent's foremost luxury retailer by Vogue Africa."
+            "title": "A Destination for Global Luxury | 2014–Present",
+            "description": "Home to some of the world’s most coveted fashion houses, including <b>Dolce & Gabbana, Bottega Veneta, Valentino, Versace, Jimmy Choo, Amina Muaddi, Casablanca, Berluti, Palm Angels, and Off-White </b>, Polo Avenue has become a trusted destination for discerning clients across West Africa."
           }
         },
         "step4": {
           "type": "step",
           "settings": {
-            "title": "Global Vision",
-            "description": "Polo begins curating international partnerships with global fashion houses."
+            "title": "Championing African Creativity | 2021–Present",
+            "description": "Through the Polo Avenue Fashion Series, Polo Avenue has championed contemporary African designers, including Banke Kuku, creating a platform for African creativity, craftsmanship, and cultural expression."
           }
         },
         "step_q6GQFb": {
           "type": "step",
           "settings": {
-            "title": "Dubai Arrives",
-            "description": "Polo Avenue opens its flagship Jumeirah boutique in Dubai, UAE."
+            "title": "Dubai Arrives | 2025",
+            "description": "Polo Luxury Dubai opens its flagship Jumeirah boutique, bringing a curated perspective on contemporary African luxury to a global audience."
           }
         }
       },
@@ -93,7 +93,7 @@
       ],
       "settings": {
         "label": "THE POLO JOURNEY",
-        "heading": "A Legacy Across Decades",
+        "heading": "A Legacy of Luxury, Curation & Cultural Influence",
         "color_scheme": "scheme-1",
         "padding-block-start": 60,
         "padding-block-end": 60
