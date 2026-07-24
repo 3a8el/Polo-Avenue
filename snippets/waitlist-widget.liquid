@@ -1,0 +1,276 @@
+{%- comment -%}
+============================================================================
+  POLO AVENUE — SOLD-OUT WAITLIST WIDGET
+  ---------------------------------------------------------------------------
+  When the size a customer selects is sold out, this HIDES the "Sold out"
+  button and shows a "NOTIFY ME WHEN AVAILABLE" button in its place. Clicking
+  it opens a form; each signup is POSTed as JSON to the webhook you set in
+  CONFIG below (your CRM inbound webhook, or a Zapier / Make catch-hook that
+  forwards into the CRM). In-stock sizes keep the normal Add-to-cart button.
+
+  No backend, no app hosting. It reads the product/variant data Shopify
+  renders on the page, so it reacts correctly as the shopper switches sizes.
+
+  INSTALL (summary — full steps in waitlist-INSTALL.md):
+    1. Online Store → Themes → ⋯ → Edit code
+    2. Snippets → Add a new snippet → name it: waitlist-widget
+    3. Paste this whole file in, Save.
+    4. In sections/main-product.liquid add this just below the buy button:
+           {% render 'waitlist-widget' %}
+    5. Set WEBHOOK_URL below to your CRM / Zapier / Make endpoint.
+============================================================================
+{%- endcomment -%}
+
+<script>
+  window.PA_WAITLIST_CONFIG = {
+    /* ---- REQUIRED: where signups are sent ---------------------------- */
+    WEBHOOK_URL: "",              /* e.g. "https://hooks.zapier.com/hooks/catch/123/abc/" */
+
+    /* ---- Behaviour --------------------------------------------------- */
+    REPLACE_SOLDOUT_BUTTON: true, /* true = hide the Sold out button and show our button in its place
+                                     false = leave Sold out button and add ours underneath it */
+
+    /* ---- Copy / styling ---------------------------------------------- */
+    SOURCE_TAG:   "poloavenue-website",  /* stamped on every payload for CRM filtering */
+    BUTTON_TEXT:  "NOTIFY ME WHEN AVAILABLE",
+    HEADING:      "Notify me when it's back",
+    SUBTEXT:      "Leave your details and we'll reach out as soon as this size is back in stock.",
+    SUCCESS_TEXT: "You're on the list. We'll be in touch as soon as it's back.",
+    ERROR_TEXT:   "Something went wrong — please try again in a moment.",
+    ACCENT:       "#e5322a",     /* modal button colour (matches the selected-size red) */
+    COLLECT_NAME:  true,
+    COLLECT_PHONE: true,          /* set false to hide the phone field */
+    PHONE_REQUIRED: false
+  };
+
+  /* Product + shop context injected from Liquid (server-side, always accurate) */
+  window.PA_WAITLIST_PRODUCT = {%- if product -%}{{ product | json }}{%- else -%}null{%- endif -%};
+  window.PA_WAITLIST_SHOP = {
+    name: {{ shop.name | json }},
+    domain: {{ shop.permanent_domain | json }},
+    currency: {{ shop.currency | json }}
+  };
+</script>
+
+<style>
+  .pa-wl { margin: 12px 0 0; }
+  /* Primary "notify" button — styled to stand in for the Sold out bar */
+  .pa-wl__btn {
+    width: 100%;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 18px 20px;
+    font: 600 13px/1 inherit; letter-spacing: .12em; text-transform: uppercase;
+    color: #fff; background: #111;
+    border: 1px solid #111; border-radius: 6px;
+    cursor: pointer; transition: opacity .15s ease;
+  }
+  .pa-wl__btn:hover { opacity: .85; }
+  .pa-wl__btn[hidden] { display: none; }
+
+  .pa-wl__overlay {
+    position: fixed; inset: 0; z-index: 99999;
+    background: rgba(17,17,17,.55);
+    display: none; align-items: center; justify-content: center; padding: 20px;
+  }
+  .pa-wl__overlay.is-open { display: flex; }
+  .pa-wl__modal {
+    background: #fff; width: 100%; max-width: 420px; border-radius: 10px;
+    padding: 28px 26px 26px; position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25); font-family: inherit;
+  }
+  .pa-wl__close {
+    position: absolute; top: 12px; right: 14px;
+    border: 0; background: none; font-size: 22px; line-height: 1; cursor: pointer; color: #888;
+  }
+  .pa-wl__title { margin: 0 0 6px; font-size: 20px; font-weight: 600; color: #111; }
+  .pa-wl__sub { margin: 0 0 6px; font-size: 14px; color: #666; }
+  .pa-wl__item {
+    margin: 10px 0 16px; font-size: 13px; color: #111;
+    padding: 10px 12px; background: #f6f6f6; border-radius: 6px;
+  }
+  .pa-wl__item b { font-weight: 600; }
+  .pa-wl__field { margin-bottom: 12px; }
+  .pa-wl__field label { display: block; font-size: 12px; color: #444; margin-bottom: 5px; }
+  .pa-wl__field input {
+    width: 100%; box-sizing: border-box; padding: 11px 12px;
+    border: 1px solid #d5d5d5; border-radius: 6px; font-size: 14px; color: #111; background:#fff;
+  }
+  .pa-wl__field input:focus { outline: none; border-color: #111; }
+  .pa-wl__submit {
+    width: 100%; margin-top: 6px; padding: 14px;
+    font: 600 13px/1 inherit; letter-spacing: .1em; text-transform: uppercase;
+    color: #fff; background: var(--pa-wl-accent, #e5322a);
+    border: 0; border-radius: 6px; cursor: pointer;
+  }
+  .pa-wl__submit:disabled { opacity: .6; cursor: default; }
+  .pa-wl__msg { margin-top: 12px; font-size: 13px; text-align: center; }
+  .pa-wl__msg--ok { color: #1a7f37; }
+  .pa-wl__msg--err { color: #c0271d; }
+  .pa-wl__done { text-align:center; padding: 6px 0 2px; }
+  .pa-wl__done svg { width:44px; height:44px; color: var(--pa-wl-accent,#e5322a); margin-bottom:6px; }
+  .pa-wl__done p { margin:0; font-size:15px; color:#111; }
+</style>
+
+<div class="pa-wl" id="pa-wl-root" hidden>
+  <button type="button" class="pa-wl__btn" id="pa-wl-open"></button>
+</div>
+
+<div class="pa-wl__overlay" id="pa-wl-overlay" role="dialog" aria-modal="true" aria-labelledby="pa-wl-title">
+  <div class="pa-wl__modal">
+    <button type="button" class="pa-wl__close" id="pa-wl-close" aria-label="Close">&times;</button>
+    <div id="pa-wl-form-wrap">
+      <h3 class="pa-wl__title" id="pa-wl-title"></h3>
+      <p class="pa-wl__sub" id="pa-wl-sub"></p>
+      <div class="pa-wl__item" id="pa-wl-item"></div>
+      <form id="pa-wl-form" novalidate>
+        <div class="pa-wl__field" data-field="name" hidden>
+          <label>Name</label>
+          <input type="text" name="name" autocomplete="name" />
+        </div>
+        <div class="pa-wl__field">
+          <label>Email *</label>
+          <input type="email" name="email" autocomplete="email" required />
+        </div>
+        <div class="pa-wl__field" data-field="phone" hidden>
+          <label>Phone</label>
+          <input type="tel" name="phone" autocomplete="tel" />
+        </div>
+        <button type="submit" class="pa-wl__submit" id="pa-wl-submit"></button>
+        <div class="pa-wl__msg" id="pa-wl-msg"></div>
+      </form>
+    </div>
+    <div class="pa-wl__done" id="pa-wl-done" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      <p id="pa-wl-done-text"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var CFG = window.PA_WAITLIST_CONFIG || {};
+  var product = window.PA_WAITLIST_PRODUCT;
+  var shop = window.PA_WAITLIST_SHOP || {};
+  if (!product) return; /* not a product page */
+
+  var root    = document.getElementById('pa-wl-root');
+  var openBtn = document.getElementById('pa-wl-open');
+  var overlay = document.getElementById('pa-wl-overlay');
+  var closeBtn= document.getElementById('pa-wl-close');
+  var form    = document.getElementById('pa-wl-form');
+  var submit  = document.getElementById('pa-wl-submit');
+  var msg     = document.getElementById('pa-wl-msg');
+  var itemEl  = document.getElementById('pa-wl-item');
+  var doneEl  = document.getElementById('pa-wl-done');
+  var formWrap= document.getElementById('pa-wl-form-wrap');
+
+  document.documentElement.style.setProperty('--pa-wl-accent', CFG.ACCENT || '#e5322a');
+  openBtn.textContent = CFG.BUTTON_TEXT || 'NOTIFY ME WHEN AVAILABLE';
+  document.getElementById('pa-wl-title').textContent = CFG.HEADING || "Notify me when it's back";
+  document.getElementById('pa-wl-sub').textContent = CFG.SUBTEXT || '';
+  submit.textContent = 'Notify me';
+  document.getElementById('pa-wl-done-text').textContent = CFG.SUCCESS_TEXT || "You're on the list.";
+  if (CFG.COLLECT_NAME)  { var nf = form.querySelector('[data-field="name"]');  if (nf) nf.hidden = false; }
+  if (CFG.COLLECT_PHONE) { var pf = form.querySelector('[data-field="phone"]'); if (pf) { pf.hidden = false; if (CFG.PHONE_REQUIRED) pf.querySelector('input').required = true; } }
+
+  var byId = {};
+  (product.variants || []).forEach(function (v) { byId[String(v.id)] = v; });
+
+  /* the theme's Add-to-cart / Sold-out button (Shopify standard product form) */
+  function buyButton() {
+    return document.querySelector('form[action*="/cart/add"] [name="add"], form[action*="/cart/add"] button[type="submit"]');
+  }
+
+  /* --- which variant is currently selected --------------------------- */
+  function currentVariant() {
+    var u = new URLSearchParams(location.search).get('variant');
+    if (u && byId[u]) return byId[u];
+    var inp = document.querySelector('form[action*="/cart/add"] input[name="id"], form[action*="/cart/add"] select[name="id"]');
+    if (inp && byId[String(inp.value)]) return byId[String(inp.value)];
+    if ((product.variants || []).length === 1) return product.variants[0];
+    return null;
+  }
+
+  function showBuyButton(show) {
+    if (!CFG.REPLACE_SOLDOUT_BUTTON) return;
+    var b = buyButton();
+    if (!b) return;
+    if (show) { if (b.dataset.paHidden) { b.style.display = b.dataset.paPrevDisplay || ''; delete b.dataset.paHidden; } }
+    else { if (!b.dataset.paHidden) { b.dataset.paPrevDisplay = b.style.display; b.dataset.paHidden = '1'; } b.style.display = 'none'; }
+  }
+
+  function render() {
+    var v = currentVariant();
+    if (v && v.available === false) {
+      root.hidden = false; openBtn.hidden = false;
+      root.dataset.variantId = v.id;
+      showBuyButton(false);                     /* hide Sold out */
+      itemEl.innerHTML = '<b>' + escapeHtml(product.title) + '</b>' +
+        (v.title && v.title !== 'Default Title' ? ' — Size: <b>' + escapeHtml(v.title) + '</b>' : '');
+    } else {
+      root.hidden = true; openBtn.hidden = true;
+      showBuyButton(true);                       /* restore Add to cart */
+    }
+  }
+
+  document.addEventListener('change', function (e) {
+    if (e.target && (e.target.name === 'id' || e.target.closest('form[action*="/cart/add"]'))) render();
+  }, true);
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('form[action*="/cart/add"]') || e.target.closest('[data-value], fieldset')) setTimeout(render, 60);
+  }, true);
+  window.addEventListener('popstate', render);
+  var f = document.querySelector('form[action*="/cart/add"]');
+  if (f && window.MutationObserver) {
+    new MutationObserver(function(){ render(); }).observe(f, { subtree:true, attributes:true, childList:true, attributeFilter:['value','disabled'] });
+  }
+
+  function openModal() { resetModal(); render(); overlay.classList.add('is-open'); setTimeout(function(){ var em = form.querySelector('[name="email"]'); if (em) em.focus(); }, 50); }
+  function closeModal() { overlay.classList.remove('is-open'); }
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+  function resetModal() {
+    formWrap.hidden = false; doneEl.hidden = true;
+    msg.textContent = ''; msg.className = 'pa-wl__msg';
+    submit.disabled = false; submit.textContent = 'Notify me';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.textContent = ''; msg.className = 'pa-wl__msg';
+    var email = (form.email.value || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = 'Please enter a valid email address.'; msg.className = 'pa-wl__msg pa-wl__msg--err'; return; }
+    if (CFG.PHONE_REQUIRED && CFG.COLLECT_PHONE && !(form.phone && form.phone.value.trim())) { msg.textContent = 'Please enter your phone number.'; msg.className = 'pa-wl__msg pa-wl__msg--err'; return; }
+    if (!CFG.WEBHOOK_URL) { msg.textContent = 'Waitlist endpoint not configured.'; msg.className='pa-wl__msg pa-wl__msg--err'; return; }
+
+    var v = currentVariant() || {};
+    var payload = {
+      type: 'back_in_stock_request', source: CFG.SOURCE_TAG || 'website', submitted_at: new Date().toISOString(),
+      email: email, name: form.name ? (form.name.value || '').trim() : '', phone: form.phone ? (form.phone.value || '').trim() : '',
+      product_id: product.id, product_title: product.title, product_handle: product.handle, product_type: product.type, vendor: product.vendor,
+      variant_id: v.id || null, size: (v.title && v.title !== 'Default Title') ? v.title : '', sku: v.sku || '',
+      price: v.price != null ? (v.price / 100) : null, currency: shop.currency || '',
+      product_url: location.origin + '/products/' + product.handle + (v.id ? ('?variant=' + v.id) : ''), page_url: location.href
+    };
+
+    submit.disabled = true; submit.textContent = 'Sending…';
+    postSignup(CFG.WEBHOOK_URL, payload)
+      .then(function () { try { sessionStorage.setItem('pa_wl_' + payload.variant_id, '1'); } catch (e) {} formWrap.hidden = true; doneEl.hidden = false; })
+      .catch(function () { submit.disabled = false; submit.textContent = 'Notify me'; msg.textContent = CFG.ERROR_TEXT || 'Something went wrong — please try again.'; msg.className = 'pa-wl__msg pa-wl__msg--err'; });
+  });
+
+  function postSignup(url, payload) {
+    var body = JSON.stringify(payload);
+    return fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: body })
+      .then(function (r) { if (!r.ok) throw new Error('bad status'); return r; })
+      .catch(function () { return fetch(url, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=UTF-8'}, body: body }); });
+  }
+
+  function escapeHtml(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+  render();
+})();
+</script>
