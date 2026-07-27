@@ -89,13 +89,11 @@
                     data-value="{{ value | escape }}"
                     data-option-index="{{ forloop.parentloop.index0 }}"
                   >
-                   {%- if value.swatch.color -%}
-  background-color: {{ value.swatch.color }};
-{%- elsif value.swatch.image -%}
-  background-image: url({{ value.swatch.image | image_url: width: 50 }});
-{%- else -%}
-  background-color: {{ value | split: '/' | first | split: ' ' | first | downcase }};
-{%- endif -%}
+                    {%- if is_color -%}
+                      <span class="pa-pdp__swatch-inner" style="background-color: {{ value | split: '/' | first | split: ' ' | first | downcase }};"></span>
+                    {%- else -%}
+                      {{ value }}
+                    {%- endif -%}
                   </button>
                 {%- endfor -%}
               </div>
