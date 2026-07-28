@@ -71,15 +71,14 @@
                   </a>
                 {%- endif -%}
               </div>
-              {%- liquid
+{%- liquid
   assign opt_lname = option.name | downcase
   assign group_is_color = false
   if opt_lname == 'color' or opt_lname == 'colour'
     assign group_is_color = true
   endif
 -%}
-<div class="pa-pdp__option-values" data-option-position="{{ forloop.index0 }}" data-option-name="{{ option.name | escape }}"{% if group_is_color %} data-pa-color-group data-pa-title="{{ product.title | escape }}" data-pa-handle="{{ product.handle }}"{% endif %}>
-                {%- for value in option.values -%}
+<div class="pa-pdp__option-values" data-option-position="{{ forloop.index0 }}" data-option-name="{{ option.name | escape }}"{% if group_is_color %} data-pa-color-group data-pa-title="{{ product.title | escape }}" data-pa-handle="{{ product.handle }}"{% endif %}>                {%- for value in option.values -%}
                   {%- liquid
                     assign is_selected = false
                     if option.selected_value == value
