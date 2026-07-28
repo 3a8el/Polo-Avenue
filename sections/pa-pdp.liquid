@@ -356,6 +356,7 @@
 </script>
 
 <style>
+  
   .pa-pdp { max-width: var(--page-width, 1400px); margin: 0 auto; padding: 32px 60px 60px; }
   .pa-pdp__layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
   .pa-pdp__media { display: flex; flex-direction: column; gap: 12px; position: sticky; top: calc(var(--header-height, 60px) + 24px); }
@@ -478,6 +479,9 @@
     flex-direction: column !important;
     align-items: flex-start !important;
   }
+  .pa-pdp__opt-btn--link { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; box-sizing: border-box; }
+.pa-pdp__opt-btn--oos { opacity: 0.4; }
+.pa-pdp__opt-btn--oos .pa-pdp__swatch-inner { position: relative; }
 </style>
 
 {% schema %}
