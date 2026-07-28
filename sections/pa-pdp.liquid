@@ -302,6 +302,57 @@
     });
   }
 })();
+// ── Cross-product colors: siblings share the exact same product title ──
+  (function initSiblingColors() {
+    const group = document.querySelector('[data-pa-color-group]');
+    if (!group) return;
+    const title = group.dataset.paTitle;
+    const currentHandle = group.dataset.paHandle;
+
+    fetch('/search/suggest.json?q=' + encodeURIComponent(title) +
+          '&resources[type]=product&resources[limit]=10')
+      .then(r => r.json())
+      .then(j => {
+        const sibs = (j.resources.results.products || [])
+          .filter(p => p.title.trim() === title.trim() && p.handle !== currentHandle);
+        return Promise.all(sibs.map(p =>
+          fetch('/products/' + p.handle + '?section_id=pa-color-data')
+            .then(r => r.text())
+            .then(html => {
+              const m = html.match(/<!--PA:([\s\S]*?):PA-->/);
+              return m ? JSON.parse(m[1]) : null;
+            })
+            .catch(() => null)
+        ));
+      })
+      .then(list => {
+        const seen = new Set();
+        list.filter(Boolean).forEach(d => {
+          if (!d.color || seen.has(d.color.toLowerCase())) return;
+          seen.add(d.color.toLowerCase());
+
+          const a = document.createElement('a');
+          a.className = 'pa-pdp__opt-btn pa-pdp__opt-btn--swatch pa-pdp__opt-btn--link';
+          if (d.available === false) a.classList.add('pa-pdp__opt-btn--oos');
+          a.href = d.url;
+          a.title = d.color;
+          a.setAttribute('aria-label', 'View in ' + d.color);
+
+          const span = document.createElement('span');
+          span.className = 'pa-pdp__swatch-inner';
+          if (d.swatch) {
+            span.style.backgroundColor = d.swatch;
+          } else if (d.img) {
+            span.style.backgroundImage = 'url(' + d.img + ')';
+            span.style.backgroundSize = 'cover';
+            span.style.backgroundPosition = 'center';
+          }
+          a.appendChild(span);
+          group.appendChild(a);
+        });
+      })
+      .catch(() => {});
+  })();
 </script>
 
 <style>
