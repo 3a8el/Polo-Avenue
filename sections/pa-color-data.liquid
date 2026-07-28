@@ -1,0 +1,18 @@
+{%- liquid
+  assign cname = ''
+  assign sw = ''
+  for option in product.options_with_values
+    assign lname = option.name | downcase
+    if lname == 'color' or lname == 'colour'
+      assign fv = option.values | first
+      assign cname = fv
+      if fv.swatch.color
+        assign sw = fv.swatch.color
+      endif
+    endif
+  endfor
+-%}
+<!--PA:{"handle":"{{ product.handle }}","color":"{{ cname | escape }}","swatch":"{{ sw }}","url":"{{ product.url }}","img":"{{ product.featured_image | image_url: width: 120 }}","available":{{ product.available }}}:PA-->
+{% schema %}
+{ "name": "PA Color Data" }
+{% endschema %}
