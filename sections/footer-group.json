@@ -156,7 +156,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>concierge@poloavenue.ae</p>",
+                    "text": "<p>info@poloavenue.ae</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
