@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>LUXURY, <em>CURATED.</em></p><p>AUTHENTICALLY AFRICAN.</p>",
+            "text": "<p>AFRICAN AT HEART.&nbsp;</p><p>GLOBAL IN STYLE.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Polo Avenue brings the soul of African luxury to Dubai's Jumeirah.<br/></p>",
+            "text": "<p>Discover Polo Avenue in Dubai’s Jumeirah.</p>",
             "width": "100%",
             "max_width": "none",
             "alignment": "left",
