@@ -174,20 +174,10 @@
     "pa_designers_page_Hc3zpC": {
       "type": "pa-designers-page",
       "blocks": {
-        "designer_Lyaxid": {
-          "type": "designer",
-          "settings": {
-            "image": "shopify://shop_images/kaftans.webp",
-            "designer_name": "New Arrivals",
-            "origin": "",
-            "since": "",
-            "collection_url": "shopify://collections/new-arrivals"
-          }
-        },
         "designer_frreRW": {
           "type": "designer",
           "settings": {
-            "image": "shopify://shop_images/new-arrivals-content.webp",
+            "image": "shopify://shop_images/IMG_4012.webp",
             "designer_name": "New Arrivals",
             "origin": "",
             "since": "",
@@ -276,7 +266,6 @@
         }
       },
       "block_order": [
-        "designer_Lyaxid",
         "designer_frreRW",
         "designer_BAhbdc",
         "designer_JcnkDY",
@@ -289,7 +278,7 @@
       ],
       "settings": {
         "label": "global houses",
-        "heading": "World-Class Labels",
+        "heading": "CATEGORIES",
         "subheading": "Explore over 60 of the world's most celebrated fashion houses and independent artisans, curated exclusively for Polo Avenue Dubai.",
         "show_subheading": false,
         "show_filter": false,
