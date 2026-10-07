@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "collection_list_Wfgh3m": {
       "type": "main-collection-list",
@@ -15,7 +16,6 @@
           "type": "group",
           "name": "t:names.header",
           "settings": {
-            "open_in_new_tab": false,
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -43,6 +43,9 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
             "padding-block-start": 0,
             "padding-block-end": 48,
             "padding-inline-start": 0,
@@ -148,6 +151,7 @@
       "block_order": [
         "group_4FtiAg"
       ],
+      "disabled": true,
       "name": "Collection list",
       "settings": {
         "layout_type": "grid",
@@ -166,9 +170,138 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "pa_designers_page_Hc3zpC": {
+      "type": "pa-designers-page",
+      "blocks": {
+        "designer_Lyaxid": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/kaftans.webp",
+            "designer_name": "New Arrivals",
+            "origin": "",
+            "since": "",
+            "collection_url": "shopify://collections/new-arrivals"
+          }
+        },
+        "designer_frreRW": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/new-arrivals-content.webp",
+            "designer_name": "New Arrivals",
+            "origin": "",
+            "since": "",
+            "collection_url": "shopify://collections/new-arrivals"
+          }
+        },
+        "designer_BAhbdc": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/kaftans.webp",
+            "designer_name": "Kaftans",
+            "origin": "",
+            "since": "",
+            "collection_url": "shopify://collections/kaftans"
+          }
+        },
+        "designer_JcnkDY": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/Dresses.webp",
+            "designer_name": "Dresses",
+            "origin": "",
+            "since": "",
+            "collection_url": "shopify://collections/dresses"
+          }
+        },
+        "designer_8RkANN": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/The_Iris_Set__Vivid_hues_intricate_layers_of_hand_beading_and_a_silhouette_that_moves_like_ligh_jpg.jpg",
+            "designer_name": "Onalaja",
+            "origin": "Nigeria",
+            "since": "2014",
+            "collection_url": "shopify://collections/onalaja"
+          }
+        },
+        "designer_M4QRp4": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/Banke_Kuku.jpg",
+            "designer_name": "Banke Kuku",
+            "origin": "Nigeria",
+            "since": "2011",
+            "collection_url": ""
+          }
+        },
+        "designer_iNqRcL": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/Slide03.webp",
+            "designer_name": "Torlowei",
+            "origin": "Belgium",
+            "since": "2017",
+            "collection_url": "shopify://collections/torlowei"
+          }
+        },
+        "designer_mL88zQ": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/Slide04.webp",
+            "designer_name": "Anna Karin Karlsson",
+            "origin": "Sweden",
+            "since": "2011",
+            "collection_url": "shopify://collections/anna-karin-karlson"
+          }
+        },
+        "designer_cJtPaf": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/Slide05.webp",
+            "designer_name": "Biyan",
+            "origin": "India",
+            "since": "1987",
+            "collection_url": "shopify://collections/biyan"
+          }
+        },
+        "designer_tgm9zf": {
+          "type": "designer",
+          "settings": {
+            "image": "shopify://shop_images/camilla_featured_image.jpg",
+            "designer_name": "Camilla",
+            "origin": "Australia",
+            "since": "2004",
+            "collection_url": "shopify://collections/camilla"
+          }
+        }
+      },
+      "block_order": [
+        "designer_Lyaxid",
+        "designer_frreRW",
+        "designer_BAhbdc",
+        "designer_JcnkDY",
+        "designer_8RkANN",
+        "designer_M4QRp4",
+        "designer_iNqRcL",
+        "designer_mL88zQ",
+        "designer_cJtPaf",
+        "designer_tgm9zf"
+      ],
+      "settings": {
+        "label": "global houses",
+        "heading": "World-Class Labels",
+        "subheading": "Explore over 60 of the world's most celebrated fashion houses and independent artisans, curated exclusively for Polo Avenue Dubai.",
+        "show_subheading": false,
+        "show_filter": false,
+        "card_cta_label": "VIEW COLLECTION",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 60,
+        "padding-block-end": 60
+      }
     }
   },
   "order": [
-    "collection_list_Wfgh3m"
+    "collection_list_Wfgh3m",
+    "pa_designers_page_Hc3zpC"
   ]
 }
